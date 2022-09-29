@@ -1,10 +1,19 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import AllCities from './components/AllCities';
+import CityCard from './components/CityCard';
+import NoPage from './components/NoPage/NoPage';
 
 function App() {
   return (
-    <div style={{ width: '700px', height: '700px' }}>
-      <iframe aria-disabled title="myFrame" data-src="https://hoodmaps.com/embed/moscow" src="https://hoodmaps.com/embed/moscow" />
-    </div>
+    // <div style={{ width: '700px', height: '700px' }}>
+    //   <iframe aria-disabled title="myFrame" data-src="https://hoodmaps.com/embed/moscow" src="https://hoodmaps.com/embed/moscow" />
+    // </div>
+    <Routes>
+      <Route path="/api/city" element={<AllCities />} />
+      <Route path="/api/city/:id" element={<CityCard />} />
+      <Route path="*" element={<NoPage />} />
+    </Routes>
   );
 }
 
