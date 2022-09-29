@@ -1,0 +1,9 @@
+npx sequelize-cli model:generate --name User --attributes login:string,email:string,password:text,avatar:text,info:text,profession:string,birth_country:string,current_country:string,future_country:string,admin:boolean
+// npx sequelize-cli model:generate --name 
+npx sequelize-cli model:generate --name Country --attributes name:string,description:text,currency:string,language:string,religion:string,gdp:integer,apartment_url:text,insurance_url:text,visa:boolean,without_visa:string,visa_url:text
+npx sequelize-cli model:generate --name City --attributes name:string,country_id:integer,zip_code:integer,population:integer,rating:float,internet:string,best_nbh:string,upcoming_nbh:string,photo:text,video_url:text,map_screen:text,map_url:text,nbhs_map:text,weather_api:text,air_api:text
+npx sequelize-cli model:generate --name Photo --attributes photo:text,description:text,city_id:integer,user_id:integer
+npx sequelize-cli model:generate --name Like --attributes user_id:integer,photo_id:integer
+npx sequelize-cli model:generate --name Cost --attributes city_id:integer,cost_living:float,hotel:float,apartment:float,cappuccino:float,beer:float,dinner:float,petrol:float,kindergarten:float,salary:float,coworking:float
+npx sequelize-cli model:generate --name Review --attributes user_id:integer,city_id:integer,review:text,plus:text,minus:text
+npx sequelize-cli model:generate --name Favorite --attributes user_id:integer,city_id:integer
