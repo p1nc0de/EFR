@@ -17,7 +17,7 @@ export const fetchCountryCities = (id) => (dispatch) => {
 };
 
 export const fetchOneCity = (id) => (dispatch) => {
-  axios.delete(`/api/city/${id}`)
-    .then(() => dispatch(setOneCity(id)))
+  axios(`/api/city/${id}`)
+    .then((res) => dispatch(setOneCity(res.data)))
     .catch(console.log);
 };

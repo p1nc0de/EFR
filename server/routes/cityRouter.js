@@ -1,15 +1,17 @@
 // const axios = require('axios');
 const express = require('express');
-const { City, Photo, User } = require('../db/models');
+const {
+  City, Cost, Photo, User,
+} = require('../db/models');
 
 const router = express.Router();
 const upload = require('../middlewares/multer');
 
 router.get('/', async (req, res) => {
   try {
-    const allCities = await City.findAll({ raw: true });
-    // console.log(allCities);
-    res.json(allCities);
+    const allCities = await City.findAll({ include: Cost });
+    res.json(JSON.parse(JSON.stringify(allCities)));
+    console.log(allCities);
   } catch (e) {
     console.log(e);
   }
