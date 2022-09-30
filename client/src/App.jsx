@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AllCities from './components/AllCities';
 import CityCard from './components/CityCard';
+import FormPhoto from './components/FormPhoto/FormPhoto';
 import NoPage from './components/NoPage/NoPage';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route path="/city" element={<AllCities />} />
       <Route path="/city/:id" element={<CityCard />} />
       <Route path="*" element={<NoPage />} />
+      <Route path="/city/:id/photos" element={<FormPhoto />} />
     </Routes>
   );
 }

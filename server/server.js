@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const path = require('path');
 const cors = require('cors');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
@@ -9,6 +10,8 @@ require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use('/photos', express.static(path.join(process.env.PWD, 'public', 'photos')));
 
 app.use(cors({
   credentials: true,
