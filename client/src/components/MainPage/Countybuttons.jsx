@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { Grid } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export default function Countybuttons() {
     return (
@@ -14,12 +14,17 @@ export default function Countybuttons() {
             spacing={4}
         >
             <Grid item>
-                <Button variant="contained" size="medium">
+                <Button component={NavLink} to='/' variant="contained" size="medium">
+                    Лучшие города
+                </Button>
+            </Grid>
+            <Grid item>
+                <Button component={NavLink} to='/city/2' variant="contained" size="medium">
                     Грузия
                 </Button>
             </Grid>
             <Grid item>
-                <Button variant="contained" size="medium">
+                <Button component={NavLink} to='/city/1' variant="contained" size="medium">
                     Турция
                 </Button>
             </Grid>
@@ -35,7 +40,7 @@ export default function Countybuttons() {
             </Grid>
             <Grid item>
                 <Button variant="contained" size="medium">
-                    Похуй куда
+                    Пох куда
                 </Button>
             </Grid>
         </Grid >

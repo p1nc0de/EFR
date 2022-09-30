@@ -5,7 +5,7 @@ import CityCard from '../CityCard';
 
 export default function Favs() {
   const { city } = useSelector((s) => s);
-  console.log(city);
+  // console.log(city);
   const dispatch = useDispatch();
 
   useEffect(() => {
