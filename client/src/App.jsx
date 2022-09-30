@@ -6,12 +6,12 @@ import NoPage from './components/NoPage/NoPage';
 
 function App() {
   return (
-    // <div style={{ width: '700px', height: '700px' }}>
+    // <div style={{ width: '150px', height: '150px' }}>
     //   <iframe aria-disabled title="myFrame" data-src="https://hoodmaps.com/embed/moscow" src="https://hoodmaps.com/embed/moscow" />
     // </div>
     <Routes>
-      <Route path="/api/city" element={<AllCities />} />
-      <Route path="/api/city/:id" element={<CityCard />} />
+      <Route path="/city" element={<AllCities />} />
+      <Route path="/city/:id" element={<CityCard />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
   );
