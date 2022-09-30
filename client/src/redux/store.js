@@ -4,6 +4,7 @@ import cityReducer from './reducers/cityReducer';
 export default configureStore({
   reducer: {
     city: cityReducer,
+    // costs: costsReducer,
 
   },
 });

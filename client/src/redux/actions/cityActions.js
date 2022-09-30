@@ -11,7 +11,7 @@ export const fetchAllCities = () => (dispatch) => {
 };
 
 export const fetchOneCity = (id) => (dispatch) => {
-  axios.delete(`/api/city/${id}`)
+  axios(`/api/city/${id}`)
     .then(() => dispatch(setOneCity(id)))
     .catch(console.log);
 };

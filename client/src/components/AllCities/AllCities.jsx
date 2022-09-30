@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllCities } from '../../redux/actions/cityActions';
+// import { fetchAllCities } from '../../redux/actions/cityActions';
 import CityCard from '../CityCard';
 
-export default function Favs() {
+export default function AllCities() {
   const { city } = useSelector((s) => s);
-  console.log(city);
-  const dispatch = useDispatch();
+  console.log(city[0]?.Costs?.id);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchAllCities());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(fetchAllCities());
+  // }, []);
 
   return (
     <div className="container" style={{ display: 'flex', justifyConetnt: 'center' }}>

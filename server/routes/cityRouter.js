@@ -1,14 +1,14 @@
 // const axios = require('axios');
 const express = require('express');
-const { City } = require('../db/models');
+const { City, Cost } = require('../db/models');
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const allCities = await City.findAll({ raw: true });
+    const allCities = await City.findAll({ include: [{ model: Cost }] });
+    res.json(JSON.parse(JSON.stringify(allCities)));
     console.log(allCities);
-    res.json(allCities);
   } catch (e) {
     console.log(e);
   }
