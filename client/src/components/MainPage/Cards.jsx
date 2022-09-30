@@ -11,7 +11,8 @@ export default function Cards({ city }) {
             component="ul"
             sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', p: 0, m: 0 }}
         >
-            <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
+
+            <Card component="li" sx={{ minWidth: 300, flexGrow: 1, }}>
                 <CardCover>
                     <img
                         src={city.photo}

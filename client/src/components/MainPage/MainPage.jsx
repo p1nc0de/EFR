@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAllCities } from '../../redux/actions/cityActions';
 import Video from './Video';
-import CardWithLike from './CardWithLike';
 import Cards from './Cards';
+import Countybuttons from './Countybuttons';
+import { Box } from '@mui/system';
 
 function MainPage() {
     const { city } = useSelector((s) => s);
@@ -16,16 +17,19 @@ function MainPage() {
     }, []);
     return (
         <>
-            <Video />
-            <div className="container" style={{ display: 'flex', justifyConetnt: 'center', backgroundColor: 'black' }}>
+            <Box>
+                <Box sx={{ height: '400px', bgcolor: 'primary.main' }} >
+                    <Video />
+                </Box>
 
-                <ul className="list-group">
+                <Countybuttons />
+
+                <Box sx={{ display: 'flex' }}>
                     {city && city?.map((el) => (
                         <Cards key={el.id} city={el} id={el.id} />
                     ))}
-                </ul>
-                <CardWithLike />
-            </div>
+                </Box>
+            </Box>
         </>
     );
 }

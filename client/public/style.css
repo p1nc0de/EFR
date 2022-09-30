@@ -111,7 +111,7 @@ h1 {
 
 .full-screen__body {
 	padding: 50px 15px;
-	/* background-color: rgba(0, 0, 0, 0.2); */
+	background-color: rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: -1;
 	display: flex;
