@@ -8,7 +8,7 @@ const upload = require('../middlewares/multer');
 router.get('/', async (req, res) => {
   try {
     const allCities = await City.findAll({ raw: true });
-    console.log(allCities);
+    // console.log(allCities);
     res.json(allCities);
   } catch (e) {
     console.log(e);
