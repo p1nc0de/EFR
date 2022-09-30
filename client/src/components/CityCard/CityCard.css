@@ -1,0 +1,5 @@
+.card {
+  background-image: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
