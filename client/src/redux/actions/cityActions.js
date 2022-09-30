@@ -12,6 +12,6 @@ export const fetchAllCities = () => (dispatch) => {
 
 export const fetchOneCity = (id) => (dispatch) => {
   axios(`/api/city/${id}`)
-    .then(() => dispatch(setOneCity(id)))
+    .then((res) => dispatch(setOneCity(res.data)))
     .catch(console.log);
 };

@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import AllCities from './components/AllCities';
 // import CityCard from './components/CityCard';
-import CityCard from './components/CityCard';
 import MainPage from './components/MainPage/MainPage';
 import NoPage from './components/NoPage/NoPage';
 import { fetchAllCities } from './redux/actions/cityActions';
-// import Scores from './components/Scores';
+import Scores from './components/Scores';
+import CostOfLiving from './components/CostOfLiving';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,9 +22,8 @@ function App() {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/city" element={<AllCities />} />
-      {/* <Route path="/city/:id" element={<Scores />} /> */}
-      <Route path="*" element={<NoPage />} />
-      <Route path="/city/:id" element={<CityCard />} />
+      <Route path="/city/:id" element={<Scores />} />
+      <Route path="/city/:id/cost" element={<CostOfLiving />} />
       <Route path="/*" element={<NoPage />} />
     </Routes>
   );

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const allCities = await City.findAll({ include: [{ model: Cost }] });
+    const allCities = await City.findAll({ include: Cost });
     res.json(JSON.parse(JSON.stringify(allCities)));
     console.log(allCities);
   } catch (e) {
