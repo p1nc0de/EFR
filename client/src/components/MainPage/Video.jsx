@@ -15,8 +15,8 @@ function Video() {
                     <source type="video/webm" src="/Pexels Videos 2078401.mp4" />
                     {/* <source type="video/mp4" src="videos/forest.mp4"/> */}
                 </video>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 }
 
