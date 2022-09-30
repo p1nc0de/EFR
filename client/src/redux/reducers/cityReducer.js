@@ -1,4 +1,4 @@
-import { SET_ONE_CITY, SET_ALL_CITIES } from '../types';
+import { SET_ONE_CITY, SET_ALL_CITIES, SET_COUNTRY_CITIES } from '../types';
 
 export default function cityReducer(state = [], action) {
   const { type, payload } = action;
@@ -6,6 +6,8 @@ export default function cityReducer(state = [], action) {
     case SET_ONE_CITY:
       return payload;
     case SET_ALL_CITIES:
+      return payload;
+    case SET_COUNTRY_CITIES:
       return payload;
     default:
       return state;

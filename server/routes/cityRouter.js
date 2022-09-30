@@ -15,12 +15,23 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const oneCity = await City.findByPk({ where: { id } });
+//     console.log(oneCity);
+//     res.json(oneCity);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// });
+router.get('/country/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const oneCity = await City.findByPk({ where: { id } });
-    console.log(oneCity);
-    res.json(oneCity);
+    console.log(City);
+    const countryCities = await City.findAll({ where: { country_id: id } });
+    console.log('=======>', countryCities);
+    res.json(countryCities);
   } catch (e) {
     console.log(e);
   }

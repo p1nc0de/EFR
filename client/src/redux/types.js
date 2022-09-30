@@ -6,3 +6,5 @@ export const SET_AUTH_EMPTY = 'SET_AUTH_EMPTY';
 // Cities
 export const SET_ONE_CITY = 'SET_ONE_CITY';
 export const SET_ALL_CITIES = 'SET_ALL_CITIES';
+export const SET_COUNTRY_CITIES = 'SET_COUNTRY_CITIES';
+
