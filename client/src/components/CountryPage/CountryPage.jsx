@@ -1,28 +1,29 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllCities } from '../../redux/actions/cityActions';
-import Video from './Video';
-import Cards from './Cards';
-import Countybuttons from './Countybuttons';
+import { fetchCountryCities, setCountryCities } from '../../redux/actions/cityActions';
 import { Box } from '@mui/system';
-import CardRegistr from './CardRegistr';
+import Countybuttons from '../MainPage/Countybuttons';
+import Cards from '../MainPage/Cards';
+import Video from '../MainPage/Video';
+import { useParams } from 'react-router-dom';
 
-function MainPage() {
+function CountryPage() {
     const { city } = useSelector((s) => s);
-    console.log(city);
+    // console.log(city);
     const dispatch = useDispatch();
+    const { id } = useParams();
 
     useEffect(() => {
-        dispatch(fetchAllCities());
-    }, []);
+        dispatch(setCountryCities([]));
+        dispatch(fetchCountryCities(id));
+    }, [id]);
     return (
         <>
             <Box>
                 <Box sx={{ height: '400px', bgcolor: 'primary.main' }} >
                     <Video />
                 </Box>
-                <CardRegistr zIndex={2000} />
 
                 <Countybuttons />
 
@@ -36,4 +37,4 @@ function MainPage() {
     );
 }
 
-export default MainPage;
+export default CountryPage;
