@@ -4,14 +4,11 @@ import {
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { fetchOneCity } from '../../redux/actions/cityActions';
 
-function Scores() {
+function CostOfLiving() {
   const { city } = useSelector((s) => s);
   const { id } = useParams();
   const oneCity = city[id - 1];
-  console.log(oneCity);
-  console.log(oneCity?.Costs[0]?.hotel);
 
   return (
     <Grid
@@ -24,31 +21,31 @@ function Scores() {
     >
 
       <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
-        <ListItemText primary="⭐️ Общий рейтинг" />
+        <ListItemText primary="🏨 Гостиница на месяц" />
       </Grid>
       <Grid item>
-        <ListItemText primary={`${oneCity?.rating}`} />
+        <ListItemText primary={`${oneCity?.Costs[0]?.hotel}`} />
       </Grid>
       <Divider />
       <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
-        <ListItemText primary="📡 Интернет" />
+        <ListItemText primary="🏢 Коворкинг на месяц" />
       </Grid>
       <Grid item>
-        <ListItemText primary={`${oneCity?.internet}`} />
+        <ListItemText primary={`${oneCity?.Costs[0]?.coworking}`} />
       </Grid>
       <Divider />
       <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
-        <ListItemText primary="💵 Стоимость проживания (USD)" />
+        <ListItemText primary="🍛 Обед" />
       </Grid>
       <Grid item>
-        <ListItemText primary={`${oneCity?.Costs[0]?.cost_living}`} />
+        <ListItemText primary={`${oneCity?.Costs[0]?.dinner}`} />
       </Grid>
       <Divider />
       <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
-        <ListItemText primary="💰 Средняя зарплата (USD)" />
+        <ListItemText primary="🍺 Пиво (0.5)" />
       </Grid>
       <Grid item>
-        <ListItemText primary={`${oneCity?.Costs[0]?.salary}`} />
+        <ListItemText primary={`${oneCity?.Costs[0]?.beer}`} />
       </Grid>
       <Divider />
     </Grid>
@@ -56,4 +53,4 @@ function Scores() {
   );
 }
 
-export default Scores;
+export default CostOfLiving;

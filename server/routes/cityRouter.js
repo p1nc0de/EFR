@@ -1,26 +1,39 @@
 // const axios = require('axios');
 const express = require('express');
-const { City, Photo, User } = require('../db/models');
+const {
+  City, Cost, Photo, User,
+} = require('../db/models');
 
 const router = express.Router();
 const upload = require('../middlewares/multer');
 
 router.get('/', async (req, res) => {
   try {
-    const allCities = await City.findAll({ raw: true });
+    const allCities = await City.findAll({ include: Cost });
+    res.json(JSON.parse(JSON.stringify(allCities)));
     console.log(allCities);
-    res.json(allCities);
   } catch (e) {
     console.log(e);
   }
 });
 
-router.get('/:id', async (req, res) => {
+// router.get('/:id', async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const oneCity = await City.findByPk({ where: { id } });
+//     console.log(oneCity);
+//     res.json(oneCity);
+//   } catch (e) {
+//     console.log(e);
+//   }
+// });
+router.get('/country/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const oneCity = await City.findByPk({ where: { id } });
-    console.log(oneCity);
-    res.json(oneCity);
+    console.log(City);
+    const countryCities = await City.findAll({ where: { country_id: id } });
+    console.log('=======>', countryCities);
+    res.json(countryCities);
   } catch (e) {
     console.log(e);
   }

@@ -3,7 +3,13 @@ import React from 'react';
 // import { useDispatch } from 'react-redux';
 
 function CityCard({ city }) {
+  console.log(city.Costs[0].beer);
+  console.log(city);
   // const dispatch = useDispatch();
+
+  // const clickHandler = (e) => {
+
+  // }
 
   return (
     <div
@@ -25,8 +31,13 @@ function CityCard({ city }) {
         <small className="card-text">{`Общий рейтинг:${city.rating}/5`}</small>
         <p className="card-text">
           {city.name}
-
         </p>
+        {/* <p className="card-text">
+          {city.Cost.beer}
+        </p>
+        <p className="card-text">
+          {city.Costs.petrol}
+        </p> */}
         <p className="card-text">{`Население: ${city.population} человек`}</p>
         <small>{`Лучший район: ${city.best_nbh}`}</small>
         <br />
