@@ -25,23 +25,17 @@ function CityCard({ city }) {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           padding: '10rem 0 0',
-          maxWidth: '50ch',
+          maxWidth: '55ch',
         }}
       >
         <small className="card-text">{`Общий рейтинг:${city.rating}/5`}</small>
         <p className="card-text">
           {city.name}
         </p>
-        {/* <p className="card-text">
-          {city.Cost.beer}
-        </p>
-        <p className="card-text">
-          {city.Costs.petrol}
-        </p> */}
         <p className="card-text">{`Население: ${city.population} человек`}</p>
         <small>{`Лучший район: ${city.best_nbh}`}</small>
         <br />
-        <small style={{ color: 'blue' }}>{`Набирающий популярность район: ${city.upcoming_nbh}`}</small>
+        <small style={{ color: 'blue' }}>{`Неплохой район: ${city.upcoming_nbh ? city.upcoming_nbh : 'такого нет'}`}</small>
         <br />
         <a href={`${city.map_url}`}>Посмотреть на карте</a>
         <br />

@@ -27,7 +27,7 @@ function App() {
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/city" element={<AllCities />} />
-      <Route path="/city/:id" element={<Scores />} />
+      <Route path="/city/:id/scores" element={<Scores />} />
       <Route path="/city/:id/cost" element={<CostOfLiving />} />
       <Route path="/city/:id" element={<CountryPage />} />
       <Route path="/city/:id/photos" element={<PhotosList />} />
@@ -35,7 +35,6 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/userpage" element={<UserPage />} />
-
       <Route path="*" element={<NoPage />} />
 
     </Routes>
