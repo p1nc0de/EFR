@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import AllCities from './components/AllCities';
 import MainPage from './components/MainPage/MainPage';
 import NoPage from './components/NoPage/NoPage';
+import PhotosList from './components/PhotosList/PhotosList';
 import { fetchAllCities } from './redux/actions/cityActions';
 import Scores from './components/Scores';
 import CostOfLiving from './components/CostOfLiving';
@@ -28,11 +29,9 @@ function App() {
       <Route path="/city" element={<AllCities />} />
       <Route path="/city/:id" element={<Scores />} />
       <Route path="/city/:id/cost" element={<CostOfLiving />} />
-      <Route path="/*" element={<NoPage />} />
       <Route path="/city/:id" element={<CountryPage />} />
-
+      <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/city/:id/photos" element={<FormPhoto />} />
-
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/userpage" element={<UserPage />} />

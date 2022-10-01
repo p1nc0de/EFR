@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function FormPhoto() {
   const { id } = useParams();
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
   const [input, setInput] = useState({ description: '', photo: null });
   const changeHandler2 = (e) => {
     setInput((prev) => ({ ...prev, [e.target.name]: e.target.files[0] }));
@@ -18,9 +18,8 @@ export default function FormPhoto() {
     data.append('description', input.description);
     data.append('photo', input.photo); // Картинка вот
 
-    axios.post(`/api/city/${id}/photos`, input)
-      .then((res) => res.data)
-      .then(setInput(''));
+    axios.post(`/api/city/${id}/photos`, data)
+      .then(() => navigate('/city'));
   };
 
   return (

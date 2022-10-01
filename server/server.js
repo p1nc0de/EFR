@@ -12,7 +12,7 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use('/photos', express.static(path.join(process.env.PWD, 'public', 'photos')));
+app.use(express.static(path.join(process.env.PWD, 'public')));
 
 app.use(cors({
   credentials: true,

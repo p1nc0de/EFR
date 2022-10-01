@@ -42,8 +42,10 @@ router.get('/country/:id', async (req, res) => {
 router.get('/:id/photos', async (req, res) => {
   try {
     const { id } = req.params;
-    const allPhotoCurrCity = await Photo.findAll({ where: id, order: [['id', 'DESC']] });
-    res.json(allPhotoCurrCity);
+
+    const allPhotoCurrCity = await Photo.findAll({ where: { city_id: id }, include: User });
+    console.log(allPhotoCurrCity);
+    res.json(JSON.parse(JSON.stringify(allPhotoCurrCity)));
   } catch (error) {
     console.log(error);
     res.sendStatus(500);
@@ -55,15 +57,18 @@ router.post('/:id/photos', upload.single('photo'), async (req, res) => {
     const { id } = req.params;
     const { description } = req.body;
     const { userId } = req.session;
+    console.log(req.file);
     // загрузили фото
     const currPhoto = await Photo.create({
-      photo: req.file?.path,
-      // .replace('public', ''),
+      // в объекте req.file взяли тот ключ, который нам нужен
+
+      photo: req.file.filename,
       description,
       user_id: userId,
       city_id: id,
     });
-    const photoWithAllInfo = await Photo.findOne({ where: currPhoto.id, include: { User, City } });
+
+    const photoWithAllInfo = await Photo.findOne({ where: { id: currPhoto.id }, include: User });
     return res.json(photoWithAllInfo);
   } catch (error) {
     console.log(error);
