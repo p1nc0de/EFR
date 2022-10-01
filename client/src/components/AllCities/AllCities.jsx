@@ -5,7 +5,7 @@ import CityCard from '../CityCard';
 
 export default function AllCities() {
   const { city } = useSelector((s) => s);
-  console.log(city[1].Costs[0].hotel);
+  // console.log(city[0].Costs[0].salary);
   // console.log(city.Costs[0].beer);
   // const dispatch = useDispatch();
 
