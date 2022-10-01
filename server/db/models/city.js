@@ -43,6 +43,11 @@ module.exports = (sequelize, DataTypes) => {
     nbhs_map: DataTypes.TEXT,
     weather_api: DataTypes.TEXT,
     air_api: DataTypes.TEXT,
+    quality_of_life: DataTypes.STRING,
+    family_score: DataTypes.STRING,
+    safety: DataTypes.STRING,
+    english_speaking: DataTypes.STRING,
+    nightlife: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'City',

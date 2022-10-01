@@ -57,6 +57,21 @@ module.exports = {
       air_api: {
         type: Sequelize.TEXT,
       },
+      quality_of_life: {
+        type: Sequelize.STRING,
+      },
+      family_score: {
+        type: Sequelize.STRING,
+      },
+      safety: {
+        type: Sequelize.STRING,
+      },
+      english_speaking: {
+        type: Sequelize.STRING,
+      },
+      nightlife: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
