@@ -6,6 +6,7 @@ import FormPhoto from './components/FormPhoto/FormPhoto';
 import Login from './components/Login';
 import MainPage from './components/MainPage/MainPage';
 import NoPage from './components/NoPage/NoPage';
+import PhotosList from './components/PhotosList/PhotosList';
 import Signup from './components/Signup';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/city" element={<AllCities />} />
       <Route path="/city/:id" element={<CityCard />} />
 
+      <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/city/:id/photos" element={<FormPhoto />} />
 
       <Route path="/login" element={<Login />} />

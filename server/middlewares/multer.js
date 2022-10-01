@@ -1,8 +1,10 @@
 const multer = require('multer');
+const path = require('path');
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, './photos');
+    // указываем путь для мультера куда складывать фото
+    cb(null, path.join(process.env.PWD, 'public', 'photos'));
   },
   filename(req, file, cb) {
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
