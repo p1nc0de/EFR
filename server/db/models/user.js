@@ -45,6 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    telegram: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',
