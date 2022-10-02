@@ -7,6 +7,7 @@ import Countybuttons from '../MainPage/Countybuttons';
 import Cards from '../MainPage/Cards';
 import Video from '../MainPage/Video';
 import { useParams } from 'react-router-dom';
+import TextCard from '../Reviews/TextCard';
 
 function CountryPage() {
     const { city } = useSelector((s) => s);
