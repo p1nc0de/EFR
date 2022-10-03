@@ -10,7 +10,7 @@ import CardRegistr from './CardRegistr';
 
 function MainPage() {
     const { city } = useSelector((s) => s);
-    console.log(city);
+    // console.log(city);
     const dispatch = useDispatch();
 
     useEffect(() => {

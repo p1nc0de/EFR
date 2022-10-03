@@ -10,9 +10,9 @@ export default function userReducer(state = [], action) {
     case SET_USER:
       return payload;
     case UPDATE_USER:
-      return state.map((user) => (user.id === payload.id ? payload : user)); // payload -> user
+      return payload;
     case DELETE_USER:
-      return state.filter((user) => user.id !== payload); // payload -> id
+      return payload;
     default:
       return state;
   }
