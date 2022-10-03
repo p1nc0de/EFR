@@ -14,6 +14,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import UserPage from './components/UserPage';
 import ReviewsPage from './components/Reviews/ReviewsPage';
+import UsersCity from './components/UsersCity';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
       <Route path="/city/:id/photos" element={<FormPhoto />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/users" element={<UsersCity />} />
       <Route path="/users/:id" element={<UserPage />} />
       <Route path="*" element={<NoPage />} />
 
