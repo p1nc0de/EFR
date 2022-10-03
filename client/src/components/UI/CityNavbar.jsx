@@ -26,7 +26,7 @@ function CityNavbar() {
             color="inherit"
             aria-label="open drawer"
             edge="start"
-                        // onClick={}
+            // onClick={}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />

@@ -8,7 +8,7 @@ function PhotoCard() {
 //   const dispatch = useDispatch();
 
   const oneCity = useSelector((state) => state.oneCity);
-  console.log('eto city', oneCity);
+  //   console.log('eto city', oneCity);
   return (
     <Card>
       <CardMedia
@@ -18,6 +18,7 @@ function PhotoCard() {
         image={`${oneCity?.photo}`}
         alt="Помогите, меня заставляют работать по выходным"
       />
+
       <CardContent sx={{ justifyContent: 'center', gap: 1 }}>
         <Typography
           level="h6"
