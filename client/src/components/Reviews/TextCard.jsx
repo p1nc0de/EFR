@@ -10,6 +10,7 @@ import { Button, CardActions } from '@mui/material';
 import { deleteReview } from '../../redux/actions/reviewActions';
 import { useDispatch } from 'react-redux';
 
+
 export default function TextCard({ rev, id }) {
     const dispatch = useDispatch();
     //надо вывести автора поста и его аватарку
@@ -24,7 +25,6 @@ export default function TextCard({ rev, id }) {
                 <Button sx={{ borderRadius: '50%' }} onClick={() => dispatch(deleteReview(id))} variant="outlined" color="error">Удалить</Button>
                 <Button sx={{ borderRadius: '50%' }} variant="contained" color="secondary">Исправить</Button>
             </CardActions>
-
         </Card>
     );
 }

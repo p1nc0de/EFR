@@ -3,12 +3,10 @@ import React from 'react';
 // import { useDispatch } from 'react-redux';
 
 function CityCard({ city }) {
-  console.log(city.Costs[0].beer);
-  console.log(city);
+  // console.log(city.Costs[0].beer);
+  // console.log(city);
   // const dispatch = useDispatch();
-
   // const clickHandler = (e) => {
-
   // }
 
   return (

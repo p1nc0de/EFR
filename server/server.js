@@ -7,6 +7,7 @@ const FileStore = require('session-file-store')(session);
 const cityRouter = require('./routes/cityRouter');
 const authRouter = require('./routes/authRouter');
 const reviewRouter = require('./routes/reviewRouter')
+const userRouter = require('./routes/userRouter');
 
 require('dotenv').config();
 
@@ -40,5 +41,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/city', cityRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/reviews', reviewRouter);
+app.use('/api/users', userRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

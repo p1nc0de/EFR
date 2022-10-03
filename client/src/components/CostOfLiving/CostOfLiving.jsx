@@ -9,7 +9,7 @@ function CostOfLiving() {
   const { city } = useSelector((s) => s);
   const { id } = useParams();
   const oneCity = city[id - 1];
-  console.log(city[id - 1]);
+  // console.log(city[id - 1]);
 
   return (
     <Grid

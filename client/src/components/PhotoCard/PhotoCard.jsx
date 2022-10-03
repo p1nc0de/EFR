@@ -16,7 +16,7 @@ export default function PhotoCard({ photo }) {
         <small>{photo.description}</small>
         <div className="card-body" />
 
-        <a href="/userpage">{photo.User.login}</a>
+        {/* <a href="/userpage">{photo.User.login}</a> */}
 
       </div>
 
