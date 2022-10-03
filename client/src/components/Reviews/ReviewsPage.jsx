@@ -14,7 +14,7 @@ function ReviewsPage() {
   const { id } = useParams();
   const review = useSelector((state) => state.review);
   useEffect(() => {
-    dispatch(fetchOneCity(id))
+    dispatch(fetchOneCity(id));
     dispatch(fetchCityReviews(id));
   }, []);
 
