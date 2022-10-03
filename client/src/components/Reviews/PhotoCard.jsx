@@ -2,10 +2,10 @@ import {
   Card, CardContent, CardMedia, Typography,
 } from '@mui/material';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-function PhotoCard(props) {
-  const dispatch = useDispatch();
+function PhotoCard() {
+//   const dispatch = useDispatch();
 
   const oneCity = useSelector((state) => state.oneCity);
   console.log('eto city', oneCity);

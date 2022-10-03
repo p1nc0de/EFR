@@ -11,7 +11,8 @@ export const updateReview = (payload) => ({ type: UPDATE_REVIEW, payload });
 
 export const submitReviewAsync = (e, input, setInput, id) => (dispatch) => {
   e.preventDefault();
-  axios.post(`/api/city/${id}/reviews`, { input })
+  const city_id = id;
+  axios.post(`/api/city/${id}/reviews`, { input, city_id })
     .then((res) => {
       dispatch(addReview(res.data));
       setInput('');
