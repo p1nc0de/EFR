@@ -20,7 +20,7 @@ function CityNavbar() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position="static" component="nav">
+      <AppBar position="static" component="nav" sx={{ backgroundColor: '#2F4F4F' }}>
         <Toolbar>
           <IconButton
             color="inherit"

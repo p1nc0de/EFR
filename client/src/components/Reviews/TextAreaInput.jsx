@@ -21,7 +21,7 @@ export default function TextAreaInput(id) {
         value={input}
         onChange={changeHandler}
       />
-      <Button sx={{ borderRadius: '50%' }} type="submit" variant="outlined" color="error">
+      <Button type="submit" variant="contained" color="error">
         Оставить отзыв
       </Button>
     </Box>

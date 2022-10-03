@@ -3,8 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { Box, CardActions, Input } from '@mui/material';
+import { Box, CardActions } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 export default function CardRegistr() {
@@ -15,7 +14,6 @@ export default function CardRegistr() {
           style={{ padding: '5px', borderRadius: '10px' }}
           component="img"
           alt="Надо зарегаться"
-
           image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNjEw5JZ9OZd3xQx6bd2ENSgMnACsS7xt2Rw&usqp=CAU"
         />
         <CardContent>
