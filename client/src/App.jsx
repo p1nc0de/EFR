@@ -11,9 +11,10 @@ import CostOfLiving from './components/CostOfLiving';
 import CountryPage from './components/CountryPage/CountryPage';
 import FormPhoto from './components/FormPhoto/FormPhoto';
 import Login from './components/Login';
-import SignUp from './components/SignUp';
+
 import UserPage from './components/UserPage';
 import ReviewsPage from './components/Reviews/ReviewsPage';
+import Signup from './components/Signup';
 
 
 function App() {
@@ -37,7 +38,7 @@ function App() {
       <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/city/:id/photos" element={<FormPhoto />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signup" element={<Signup />} />
       <Route path="/users/:id" element={<UserPage />} />
       <Route path="*" element={<NoPage />} />
 
