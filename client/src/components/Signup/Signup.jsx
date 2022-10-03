@@ -20,7 +20,7 @@ export default function Signup() {
     event.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(event.currentTarget));
-    console.log(data);
+    // console.log(data);
     dispatch(signupUserAsync(data, setLoading));
     navigate('/');
   };
