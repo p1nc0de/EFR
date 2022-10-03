@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import AllCities from './components/AllCities';
 import MainPage from './components/MainPage/MainPage';
 import NoPage from './components/NoPage/NoPage';
-import PhotosList from './components/PhotosList/PhotosList';
+import PhotosList from './components/PhotosList';
 import { fetchAllCities } from './redux/actions/cityActions';
 import Scores from './components/Scores';
 import CostOfLiving from './components/CostOfLiving';
