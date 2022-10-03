@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const oneCity = await City.findOne({ where: { id } })
+    const oneCity = await City.findOne({ where: { id } });
     res.json(JSON.parse(JSON.stringify(oneCity)));
     // console.log(allCities);
   } catch (e) {
