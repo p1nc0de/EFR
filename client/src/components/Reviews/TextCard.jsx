@@ -16,15 +16,15 @@ import Typography from '@mui/material/Typography';
 // );
 
 export default function TextCard() {
-    return (
-        <Card sx={{ minWidth: 275 }}>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Word of the Day
-                </Typography>
+  return (
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Word of the Day
+        </Typography>
 
-            </CardContent>
+      </CardContent>
 
-        </Card>
-    );
+    </Card>
+  );
 }
