@@ -2,12 +2,17 @@ import {
   ListItemText, Grid,
 } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { fetchAllCities } from '../../redux/actions/cityActions';
 
 function CostOfLiving() {
   const { city } = useSelector((s) => s);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllCities());
+  }, []);
   const { id } = useParams();
   const oneCity = city[id - 1];
   const currency = '$';
