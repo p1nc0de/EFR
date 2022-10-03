@@ -10,10 +10,11 @@ router.route('/')
   .get(async (req, res) => {
     try {
       const { id } = req.params;
+      console.log(id);
       const allReviews = await Review.findAll({ where: { city_id: id } });
       // res.json(JSON.parse(JSON.stringify(allCities)));
       res.json(allReviews);
-      // console.log(allReviews);
+      console.log(allReviews);
     } catch (e) {
       console.log(e);
     }
