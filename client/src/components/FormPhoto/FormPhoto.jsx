@@ -43,7 +43,7 @@ export default function FormPhoto() {
               value={input.description}
               name="description"
               onChange={changeHandler}
-              type="input"
+              type="text"
               className="form-control"
               id="exampleInput"
             />

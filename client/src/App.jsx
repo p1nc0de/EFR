@@ -32,8 +32,8 @@ function App() {
       <Route path="/city/:id/cost" element={<CostOfLiving />} />
       <Route path="/city/:id/reviews" element={<ReviewsPage />} />
       <Route path="/city/:id" element={<CountryPage />} />
-      <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/city/:id/photos" element={<FormPhoto />} />
+      <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/users/:id" element={<UserPage />} />
