@@ -10,7 +10,7 @@ import CardRegistr from './CardRegistr';
 
 function MainPage() {
     const { city } = useSelector((s) => s);
-    console.log(city);
+    // console.log(city);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -26,7 +26,7 @@ function MainPage() {
 
                 <Countybuttons />
 
-                <Box sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex', }} xs={4}>
                     {city && city?.map((el) => (
                         <Cards key={el.id} city={el} id={el.id} />
                     ))}
