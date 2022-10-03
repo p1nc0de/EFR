@@ -1,14 +1,18 @@
 import {
   Divider, ListItemText, Grid, CardActionArea, CardMedia, Card,
 } from '@mui/material';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-// import { fetchOneCity } from '../../redux/actions/cityActions';
+import { fetchAllCities } from '../../redux/actions/cityActions';
 import './index.scss';
 
 function Scores() {
   const { city } = useSelector((s) => s);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllCities());
+  }, []);
   const { id } = useParams();
   const oneCity = city[id - 1];
   console.log(oneCity?.map_url);
