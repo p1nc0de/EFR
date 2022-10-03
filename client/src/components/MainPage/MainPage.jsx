@@ -6,6 +6,7 @@ import Video from './Video';
 import Cards from './Cards';
 import Countybuttons from './Countybuttons';
 import CardRegistr from './CardRegistr';
+import { Grid, Typography } from '@mui/material';
 
 function MainPage() {
   const { city } = useSelector((s) => s);
@@ -16,20 +17,42 @@ function MainPage() {
     dispatch(fetchAllCities());
   }, []);
   return (
-    <Box>
-      <Box sx={{ height: '400px', bgcolor: 'primary.main' }}>
+    <Grid container>
+      <Grid item sx={{ height: '400px' }} >
         <Video />
-      </Box>
-      <CardRegistr zIndex={2000} />
-
-      <Countybuttons />
-
-      <Box sx={{ display: 'flex' }} xs={4}>
-        {city && city?.map((el) => (
-          <Cards key={el.id} city={el} id={el.id} />
-        ))}
-      </Box>
-    </Box>
+      </Grid>
+      {/* <Grid item  alignItems='flex-end' sx={{ position: 'absolute' }}> */}
+      <Grid item sx={{ position: 'absolute' }}>
+        <Grid
+          container
+          direction="row-reverse"
+          alignItems="center"
+        >
+          <Grid item sx={{ marginLeft: '53vw', marginTop: '5vw' }} >
+            <CardRegistr />
+          </Grid>
+          <Grid items sx={{ magrinLeft: '5vw' }}>
+            <Typography variant='h2'>
+              EFR
+            </Typography>
+            <Typography variant='h5'>
+              the future is in your hands
+            </Typography>
+          </Grid>
+          {/* </div> */}
+        </Grid>
+      </Grid>
+      <Grid item sx={{ bgcolor: 'text.disabled' }}>
+        <Countybuttons />
+        <Grid container spacing={2} >
+          {city && city?.map((el) => (
+            <Grid item xs={4} key={el.id}>
+              <Cards key={el.id} city={el} id={el.id} />
+            </Grid>
+          ))}
+        </Grid>
+      </Grid>
+    </Grid >
   );
 }
 

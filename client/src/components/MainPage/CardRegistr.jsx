@@ -4,36 +4,35 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Box, Input } from '@mui/material';
+import { Box, CardActions, Input } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export default function CardRegistr() {
 
     return (
         <Box>
-            <Card sx={{ maxWidth: 345 }}>
-                <CardMedia
+            <Card sx={{ maxWidth: 300, bgcolor: 'text.disabled' }}>
+                <CardMedia style={{ padding: '5px', borderRadius: '10px' }}
                     component="img"
                     alt="Надо зарегаться"
-                    height="200"
-                    image="/https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT07e3Q3akZD5pQRIGO6_C6jqZJb7Hvf_QXYA&usqp=CAU"
+
+                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNjEw5JZ9OZd3xQx6bd2ENSgMnACsS7xt2Rw&usqp=CAU"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    {/* <Typography gutterBottom variant="h6" component="div">
                         Зарегистрируйся
-                    </Typography>
+                    </Typography> */}
                 </CardContent>
-                {/* <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                    <Input
-                        size="md"
-                        placeholder="email@mui.com"
-                        endDecorator={
-                            <Button variant="soft" size="sm">
-                                Subscribe
-                            </Button>
-                        }
-                    />
-                </Box> */}
-            </Card>
+                <CardActions>
+                    <Button component={NavLink} to='/login' variant="contained" color='error' size="sm" sx={{ textDecoration: 'none' }}>
+                        Войти
+                    </Button>
+                    <Button component={NavLink} to='/signup' variant="contained" color='error' size="sm" sx={{ textDecoration: 'none' }}>
+                        Зарегаться
+                    </Button>
+                </CardActions>
+
+            </Card >
         </Box>
     );
 }
