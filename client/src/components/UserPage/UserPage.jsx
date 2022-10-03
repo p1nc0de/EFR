@@ -13,15 +13,9 @@ export default function UserPage() {
   // console.log(edit);
 
   const dispatch = useDispatch();
-  // const users = useSelector((state) => state.user);
-  // console.log(users);
 
   const user = useSelector((state) => state.user);
   // console.log(user);
-
-  // useEffect(() => {
-  //   dispatch(getAllUsers());
-  // }, []);
 
   const { id } = useParams();
 
@@ -56,7 +50,6 @@ export default function UserPage() {
   const submitHandler = (e) => dispatch(updateUser(e, form));
 
   // eslint-disable-next-line max-len
-  // const changeHandlerMulter = (e) => setMulterInput((prev) => ({ ...prev, [e.target.name]: e.target.files[0] }));
   const changeHandlerMulter = (e) => setMulterInput(e.target.files[0]);
 
   const submitHandlerMulter = (e) => {
@@ -70,9 +63,6 @@ export default function UserPage() {
 
   return (
     <>
-      {/* <div>
-        {users && users?.map((el) => (<div>{ el.email }</div>))}
-      </div> */}
       <div>
         <div className="card mb-3">
           <div className="row g-0">

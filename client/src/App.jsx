@@ -12,6 +12,7 @@ import CountryPage from './components/CountryPage';
 import Login from './components/Login';
 import UserPage from './components/UserPage';
 import ReviewsPage from './components/Reviews/ReviewsPage';
+import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
       <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/users" element={<UsersCity />} />
       <Route path="/users/:id" element={<UserPage />} />
       <Route path="*" element={<NoPage />} />
 
