@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 
 const navItems = ['Общая информация', 'Стоимость проживания', 'Люди', 'Отзывы', 'Фото'];
 
-function CityNavbar(props) {
+function CityNavbar() {
   return (
     <Box sx={{ display: 'flex' }}>
       <AppBar position="static" component="nav">
@@ -18,7 +18,7 @@ function CityNavbar(props) {
             color="inherit"
             aria-label="open drawer"
             edge="start"
-                        // onClick={}
+            // onClick={}
             sx={{ mr: 2, display: { sm: 'none' } }}
           >
             <MenuIcon />
