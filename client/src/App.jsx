@@ -8,8 +8,7 @@ import PhotosList from './components/PhotosList';
 import { fetchAllCities } from './redux/actions/cityActions';
 import Scores from './components/Scores';
 import CostOfLiving from './components/CostOfLiving';
-import CountryPage from './components/CountryPage/CountryPage';
-import FormPhoto from './components/FormPhoto/FormPhoto';
+import CountryPage from './components/CountryPage';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import UserPage from './components/UserPage';
@@ -32,7 +31,6 @@ function App() {
       <Route path="/city/:id/cost" element={<CostOfLiving />} />
       <Route path="/city/:id/reviews" element={<ReviewsPage />} />
       <Route path="/city/:id" element={<CountryPage />} />
-      <Route path="/city/:id/photos" element={<FormPhoto />} />
       <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />

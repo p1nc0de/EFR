@@ -1,13 +1,12 @@
 import {
   Button, Modal, Box, ImageListItemBar,
 } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchAllPhotos } from '../../redux/actions/photoActions';
-import PhotoCard from '../PhotoCard/PhotoCard';
 import FormPhoto from '../FormPhoto/FormPhoto';
 
 const style = {
@@ -28,12 +27,12 @@ export default function MasonryImageList() {
   const dispatch = useDispatch();
   console.log('----> 1', photo);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchAllPhotos(id));
   }, []);
 
   // Modal logic
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -42,7 +41,7 @@ export default function MasonryImageList() {
       {/* <div className="row">
         {photo && photo?.map((el) => (
           <PhotoCard key={el.id} photo={el} /> */}
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Добавить фотографию</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -54,7 +53,7 @@ export default function MasonryImageList() {
         </Box>
       </Modal>
 
-      <ImageList sx={{ width: 2000 }}>
+      <ImageList sx={{ width: 1300 }}>
         {photo?.map((el) => (
           <ImageListItem key={el.img}>
             {el.photo.includes('http')
