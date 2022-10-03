@@ -1,16 +1,17 @@
 import axios from 'axios';
 import {
-  ADD_REVIEW, DELETE_REVIEW, SET_ALL_REVIEW, UPDATE_REVIEW,
+  ADD_REVIEW, DELETE_REVIEW, SET_ALL_REVIEW, UPDATE_REVIEW, SET_CITY_REVIEWS,
 } from '../types';
 
 export const setAllReview = (payload) => ({ type: SET_ALL_REVIEW, payload });
+export const setCityReviews = (payload) => ({ type: SET_CITY_REVIEWS, payload });
 export const addReview = (payload) => ({ type: ADD_REVIEW, payload });
 export const deleteReview = (payload) => ({ type: DELETE_REVIEW, payload });
 export const updateReview = (payload) => ({ type: UPDATE_REVIEW, payload });
 
-export const submitReviewAsync = (e, input, setInput) => (dispatch) => {
+export const submitReviewAsync = (e, input, setInput, id) => (dispatch) => {
   e.preventDefault();
-  axios.post('/api/reviews', { input })
+  axios.post(`/api/city/${id}/reviews`, { input })
     .then((res) => {
       dispatch(addReview(res.data));
       setInput('');
@@ -25,14 +26,20 @@ export const fetchAllReviews = () => (dispatch) => {
     .catch(console.log);
 };
 
+export const fetchCityReviews = (id) => (dispatch) => {
+  axios(`/api/city/${id}/reviews`)
+    .then((res) => dispatch(setCityReviews(res.data)))
+    .catch(console.log);
+};
+
 export const deleteReviewAsync = (id) => (dispatch) => {
-  axios(`/api/reviews/${id}`)
+  axios.delete(`/api/city/${id}/reviews`)
     .then(() => dispatch(deleteReview(id)))
     .catch(console.log());
 };
 // возможно нужно вкладывать не айди, а текст(инпут)
 export const updateReviewAsync = (id) => (dispatch) => {
-  axios(`/api/reviews/${id}`)
+  axios.patch(`/api/city/${id}/reviews`)
     .then(() => dispatch(updateReview(id)))
     .catch(console.log());
 };

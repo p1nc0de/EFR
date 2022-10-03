@@ -7,7 +7,7 @@ import EditUserPage from './EditUserPage';
 
 export default function UserPage() {
   const [edit, setEdit] = useState(false);
-  console.log(edit);
+  // console.log(edit);
 
   const dispatch = useDispatch();
   // const users = useSelector((state) => state.user);
@@ -22,10 +22,6 @@ export default function UserPage() {
 
   const { id } = useParams();
 
-  useEffect(() => {
-    dispatch(getUser(id));
-  }, []);
-
   const [form, setForm] = useState({
     avatar: user?.avatar || '',
     login: user?.login || '',
@@ -36,6 +32,20 @@ export default function UserPage() {
     current_country: user?.current_country || '1',
     future_country: user?.future_country || '1',
   });
+
+  useEffect(() => {
+    dispatch(getUser(id));
+    setForm({
+      avatar: user?.avatar || '',
+      login: user?.login || '',
+      info: user?.info || '',
+      profession: user?.profession || '',
+      telegram: user?.telegram || '',
+      birth_country: user?.birth_country || '',
+      current_country: user?.current_country || '',
+      future_country: user?.future_country || '',
+    });
+  }, [edit]);
 
   const changeHandler = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const submitHandler = (e) => dispatch(updateUser(e, form));
@@ -83,7 +93,7 @@ export default function UserPage() {
           </div>
         </div>
       </div>
-      <EditUserPage edit={edit} setEdit={setEdit} id={id} />
+      <EditUserPage edit={edit} setEdit={setEdit} id={id} form={form} />
     </>
   );
 }
