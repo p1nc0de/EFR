@@ -16,11 +16,21 @@ router.get('/', async (req, res) => {
     console.log(e);
   }
 });
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const oneCity = await City.findOne({ where: { id } })
+    res.json(JSON.parse(JSON.stringify(oneCity)));
+    // console.log(allCities);
+  } catch (e) {
+    console.log(e);
+  }
+});
 
 router.get('/country/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(City);
+    // console.log(City);
     const countryCities = await City.findAll({ where: { country_id: id } });
     // console.log('=======>', countryCities);
     res.json(countryCities);

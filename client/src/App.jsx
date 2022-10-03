@@ -10,9 +10,9 @@ import Scores from './components/Scores';
 import CostOfLiving from './components/CostOfLiving';
 import CountryPage from './components/CountryPage';
 import Login from './components/Login';
-import Signup from './components/Signup';
 import UserPage from './components/UserPage';
 import ReviewsPage from './components/Reviews/ReviewsPage';
+import Signup from './components/Signup';
 
 function App() {
   const dispatch = useDispatch();
