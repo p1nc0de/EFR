@@ -19,12 +19,12 @@ export default function Countybuttons() {
         </Button>
       </Grid>
       <Grid item>
-        <Button component={NavLink} to="/city/2" variant="contained" size="medium">
+        <Button component={NavLink} to="/city/2" variant="contained" size="medium" style={{ textDecoration: 'none' }}>
           Грузия
         </Button>
       </Grid>
       <Grid item>
-        <Button component={NavLink} to="/city/1" variant="contained" size="medium">
+        <Button component={NavLink} to="/city/1" variant="contained" size="medium" style={{ textDecoration: 'none' }}>
           Турция
         </Button>
       </Grid>
