@@ -1,22 +1,19 @@
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 
 function Video() {
 
     return (
-
-        <div className="wrapper" style={{ position: 'fixed' }}>
-            <div className="full-screen">
-                <div className="full-screen__body">
-                    <div className="full-screen__title">EFR</div>
-                    <div className="full-screen__text">
-                        the future is in your hands</div>
-                </div>
+        <Box sx={{ height: '400px' }}>
+            {/* <div className="wrapper" style={{ position: 'fixed' }}> */}
+            <Box sx={{ position: 'static' }}>
                 <video autoPlay muted loop preload="auto" className="full-screen__video">
                     <source type="video/webm" src="/Pexels Videos 2078401.mp4" />
                     {/* <source type="video/mp4" src="videos/forest.mp4"/> */}
                 </video>
-            </div >
-        </div >
+            </Box>
+        </Box >
+        // </div>
     );
 }
 

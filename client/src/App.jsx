@@ -11,11 +11,6 @@ import CostOfLiving from './components/CostOfLiving';
 import CountryPage from './components/CountryPage/CountryPage';
 import FormPhoto from './components/FormPhoto/FormPhoto';
 import Login from './components/Login';
-<<<<<<< HEAD
-
-=======
-import Signup from './components/Signup';
->>>>>>> a78ae497ed25892d8fe425a39dfde1928fd79d74
 import UserPage from './components/UserPage';
 import ReviewsPage from './components/Reviews/ReviewsPage';
 import Signup from './components/Signup';
