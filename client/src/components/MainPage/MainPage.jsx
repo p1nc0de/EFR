@@ -24,7 +24,7 @@ function MainPage() {
 
       <Countybuttons />
 
-      <Box sx={{ display: 'flex', }} xs={4}>
+      <Box sx={{ display: 'flex' }} xs={4}>
         {city && city?.map((el) => (
           <Cards key={el.id} city={el} id={el.id} />
         ))}

@@ -3,7 +3,7 @@ import cityReducer from './reducers/cityReducer';
 import authReducer from './reducers/authReducer';
 import photoReducer from './reducers/photoReducer';
 import userReducer from './reducers/userReducer';
-import reviewReducer from './reducers/reviewReducer'
+import reviewReducer from './reducers/reviewReducer';
 
 export default configureStore({
   reducer: {
