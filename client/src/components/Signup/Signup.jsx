@@ -6,6 +6,7 @@ import {
   Avatar, Box, Container, TextField, Typography,
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import { useNavigate } from 'react-router-dom';
 import { signupUserAsync } from '../../redux/actions/authActions';
 
 const theme = createTheme();
@@ -13,12 +14,15 @@ const theme = createTheme();
 export default function Signup() {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(event.currentTarget));
     // console.log(data);
     dispatch(signupUserAsync(data, setLoading));
+    navigate('/');
   };
 
   return (
