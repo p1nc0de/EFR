@@ -13,8 +13,11 @@ import FormPhoto from './components/FormPhoto/FormPhoto';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import UserPage from './components/UserPage';
+import ReviewsPage from './components/Reviews/ReviewsPage';
+
 
 function App() {
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllCities());
@@ -29,6 +32,7 @@ function App() {
       <Route path="/city" element={<AllCities />} />
       <Route path="/city/:id/scores" element={<Scores />} />
       <Route path="/city/:id/cost" element={<CostOfLiving />} />
+      <Route path="/city/:id/reviews" element={<ReviewsPage />} />
       <Route path="/city/:id" element={<CountryPage />} />
       <Route path="/city/:id/photos" element={<PhotosList />} />
       <Route path="/city/:id/photos" element={<FormPhoto />} />

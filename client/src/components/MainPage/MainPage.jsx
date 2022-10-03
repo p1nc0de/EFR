@@ -24,7 +24,7 @@ function MainPage() {
 
       <Countybuttons />
 
-      <Box container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex', }} xs={4}>
         {city && city?.map((el) => (
           <Cards key={el.id} city={el} id={el.id} />
         ))}

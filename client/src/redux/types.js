@@ -18,3 +18,10 @@ export const SET_ALL_USERS = 'SET_USERS';
 export const SET_USER = 'SET_USERS';
 export const UPDATE_USER = 'UPDATE_USER';
 export const DELETE_USER = 'DELETE_USER';
+
+// Reviews
+
+export const SET_ALL_REVIEW = 'SET_ALL_REVIEW';
+export const ADD_REVIEW = 'ADD_REVIEW';
+export const UPDATE_REVIEW = 'UPDATE_REVIEW';
+export const DELETE_REVIEW = 'DELETE_REVIEW';

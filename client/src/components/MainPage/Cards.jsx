@@ -33,7 +33,7 @@ export default function Cards({ city }) {
                 </CardContent>
             </Card>
             <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
-                <CardCover>
+                {/* <CardCover>
                     <video
                         autoPlay
                         loop
@@ -45,8 +45,8 @@ export default function Cards({ city }) {
                             type="video/mp4"
                         />
                     </video>
-                </CardCover>
-                <CardContent sx={{ justifyContent: 'center', gap: 1 }}>
+                </CardCover> */}
+                {/* <CardContent sx={{ justifyContent: 'center', gap: 1 }}>
                     <Typography
                         level="h6"
                         fontWeight="lg"
@@ -55,7 +55,7 @@ export default function Cards({ city }) {
                     >
                         Video
                     </Typography>
-                </CardContent>
+                </CardContent> */}
             </Card>
         </Box>
     );
