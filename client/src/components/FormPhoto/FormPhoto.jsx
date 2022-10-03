@@ -19,7 +19,7 @@ export default function FormPhoto() {
     data.append('photo', input.photo); // Картинка вот
 
     axios.post(`/api/city/${id}/photos`, data)
-      .then(() => navigate('/city'));
+      .then(() => navigate(`/city/${id}/photos`));
   };
 
   return (
