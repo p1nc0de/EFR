@@ -19,7 +19,7 @@ export default function FormPhoto() {
     data.append('photo', input.photo); // Картинка вот
 
     axios.post(`/api/city/${id}/photos`, data)
-      .then(() => navigate('/city'));
+      .then(() => navigate(`/city/${id}/photos`));
   };
 
   return (
@@ -43,7 +43,7 @@ export default function FormPhoto() {
               value={input.description}
               name="description"
               onChange={changeHandler}
-              type="input"
+              type="text"
               className="form-control"
               id="exampleInput"
             />
