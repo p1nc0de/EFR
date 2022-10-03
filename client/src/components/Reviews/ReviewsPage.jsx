@@ -21,7 +21,7 @@ function ReviewsPage() {
   // console.log(review);
 
   return (
-    <Grid container direction="column" sx={{ bgcolor: 'primary.main', color: 'text.primary' }}>
+    <Grid container direction="column" sx={{ color: 'text.primary' }}>
       <Grid item>
         <PhotoCard />
       </Grid>
@@ -31,7 +31,7 @@ function ReviewsPage() {
       <Grid item xs={8}>
         <TextAreaInput id={id} />
       </Grid>
-      <Grid item sx={{ height: '500px' }}>
+      <Grid item>
         {review && review?.map((el) => (
           <TextCard key={el.id} id={el.id} rev={el} />
         ))}

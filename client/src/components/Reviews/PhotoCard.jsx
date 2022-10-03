@@ -1,34 +1,40 @@
-import {
-    Card, CardContent, CardMedia, Typography,
-} from '@mui/material';
-import React from 'react';
+import * as React from 'react';
+import Box from '@mui/joy/Box';
+import Card from '@mui/joy/Card';
+import CardCover from '@mui/joy/CardCover';
+import CardContent from '@mui/joy/CardContent';
+import Typography from '@mui/joy/Typography';
 import { useSelector } from 'react-redux';
+import { Avatar, CardMedia } from '@mui/material';
 
-function PhotoCard() {
+export default function PhotoCard() {
     const oneCity = useSelector((state) => state.oneCity);
-    console.log('eto city', oneCity);
-    return (
-        <Card>
-            <CardMedia
-                component="img"
-                height="350"
-                // image="https://media.1777.ru/images/images_processing/651/6518490832801482.jpeg"
-                image={`${oneCity?.photo}`}
-                alt="Помогите, меня заставляют работать по выходным"
-            />
 
-            <CardContent sx={{ justifyContent: 'center', gap: 1 }}>
-                <Typography
-                    level="h6"
-                    fontWeight="lg"
-                    // textColor="#fff"
-                    mt={{ xs: 12, sm: 18 }}
-                >
-                    {oneCity?.name}
-                </Typography>
-            </CardContent>
-        </Card>
+    return (
+        <Box
+            component="ul"
+            sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', p: 0, m: 0 }}
+        >
+            <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
+                <CardCover>
+                    <img
+                        src={`${oneCity?.photo}`}
+                        srcSet={`${oneCity?.photo}`}
+                        alt="Помогите, меня заставляют работать по выходным"
+                    />
+                </CardCover>
+                <CardContent sx={{ justifyContent: 'flex-center', alignItems: 'center' }}>
+                    <Typography
+                        level="h3"
+                        fontWeight="lg"
+                        textColor="#fff"
+                        mt={{ xs: 12, sm: 18 }}
+                        backgroundColor="#2F4F4F"
+                    >
+                        <h3>{`${oneCity?.name}`}</h3>
+                    </Typography>
+                </CardContent>
+            </Card>
+        </Box>
     );
 }
-
-export default PhotoCard;
