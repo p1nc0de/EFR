@@ -6,8 +6,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { NavLink } from 'react-router-dom';
 
-const navItems = ['Общая информация', 'Стоимость проживания', 'Люди', 'Отзывы', 'Фото'];
+const id = 1;
+
+const navItems = [
+  { Общая_информация: `/city/${id}/scores` },
+  { Стоимость_проживания: `/city/${id}/cost` },
+  { Люди: '/users' },
+  { Отзывы: `/city/${id}/reviews` },
+  { Фото: `/city/${id}/photos` }];
 
 function CityNavbar() {
   return (
@@ -32,8 +40,8 @@ function CityNavbar() {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+              <Button key={item} sx={{ color: '#fff' }} component={NavLink} to={`${Object.values(item)}`}>
+                {Object.keys(item)}
               </Button>
             ))}
           </Box>

@@ -88,10 +88,10 @@ router.get('/:id/reviews', async (req, res) => {
 });
 router.post('/:id/reviews', async (req, res) => {
   try {
-    // нужно как-то передавать сити айди , юзер айди будем доставать из сессии
-    const { input } = req.body;
-    console.log(input);
-    const newReview = await Review.create({ review: input });
+    const { input, city_id } = req.body;
+    const { userId } = req.session;
+    const { id } = city_id;
+    const newReview = await Review.create({ review: input, user_id: userId, city_id: id });
     // const { login } = req.session.user
     // const { input } = req.body;
     // const newReview = await Review.create({ review: input, id: req.session.userId, login })
