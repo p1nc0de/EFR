@@ -27,7 +27,7 @@ export const updateUser = (id) => (dispatch) => {
     .catch(console.log);
 };
 
-export const destoyUser = (id) => (dispatch) => {
+export const destroyUser = (id) => (dispatch) => {
   axios.delete(`/api/users/${id}`)
     .then(() => dispatch(deleteUser(id)))
     .catch(console.log);
