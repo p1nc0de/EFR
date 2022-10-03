@@ -21,9 +21,9 @@ export const getUser = (id) => (dispatch) => {
     .catch(console.log);
 };
 
-export const updateUser = (id) => (dispatch) => {
-  axios.patch(`/api/users/${id}`)
-    .then(() => dispatch(changeUser(id)))
+export const updateUser = (id, form) => (dispatch) => {
+  axios.patch(`/api/users/${id}`, form)
+    .then((res) => dispatch(changeUser(res.data)))
     .catch(console.log);
 };
 
