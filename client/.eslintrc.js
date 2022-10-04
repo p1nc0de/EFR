@@ -17,5 +17,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'default-param-last': 0,
+    'no-console':0,
   },
 };
