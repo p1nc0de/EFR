@@ -1,6 +1,8 @@
 import {
-  Divider, ListItemText, Grid, CardActionArea, CardMedia, Card,
+  Grid, CardActionArea, CardMedia, Card, Box,
 } from '@mui/material';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -30,93 +32,90 @@ function Scores() {
       <Grid item>
         <CityNavbar />
       </Grid>
-
-      <div className="leaderboard__profiles">
-        <article className="leaderboard__profile">
-          <span className="leaderboard__name">⭐️ Общий рейтинг</span>
-          <span className="leaderboard__value">{`${oneCity?.rating}`}</span>
-        </article>
-        <article className="leaderboard__profile">
-          <span className="leaderboard__name">📡 Интернет</span>
-          <span className="leaderboard__value">{`${oneCity?.internet}`}</span>
-        </article>
-        <article className="leaderboard__profile">
-          <span className="leaderboard__name">💵 Стоимость проживания (USD)</span>
-          <span className="leaderboard__value">{`${oneCity?.Costs[0]?.cost_living}`}</span>
-        </article>
-        <article className="leaderboard__profile">
-          <span className="leaderboard__name">💰 Средняя зарплата (USD)</span>
-          <span className="leaderboard__value">{`${oneCity?.Costs[0]?.salary}`}</span>
-        </article>
-        <article className="leaderboard__profile">
-          <span className="leaderboard__name">💵 Стоимость проживания (USD)</span>
-          <span className="leaderboard__value">{`${oneCity?.Costs[0]?.cost_living}`}</span>
-        </article>
+      <div className="leaderboard">
+        <div className="leaderboard__profiles">
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">⭐️ Общий рейтинг</span>
+            <span className="leaderboard__value">{`${oneCity?.rating}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">📡 Интернет</span>
+            <span className="leaderboard__value">{`${oneCity?.internet}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">💵 Стоимость проживания (USD)</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.cost_living}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">💰 Средняя зарплата (USD)</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.salary}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">⭐️ Качество жизни</span>
+            <span className="leaderboard__value">
+              <Rating
+                name="size-large"
+                size="large"
+                value={`${oneCity?.quality_of_life}`}
+                readOnly
+                precision={1}
+                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+              />
+            </span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name"> 👶 Удобство для семьи</span>
+            <span className="leaderboard__value">
+              <Rating
+                name="size-large"
+                size="large"
+                value={`${oneCity?.family_score}`}
+                readOnly
+                precision={1}
+                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+              />
+            </span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">👮 Безопасность</span>
+            <span className="leaderboard__value">
+              <Rating
+                name="size-large"
+                size="large"
+                value={`${oneCity?.safety}`}
+                readOnly
+                precision={1}
+                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+              />
+            </span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">🍹 Ночная жизнь</span>
+            <span className="leaderboard__value">
+              <Rating
+                name="size-large"
+                size="large"
+                value={`${oneCity?.nightlife}`}
+                readOnly
+                precision={1}
+                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+              />
+            </span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">🗣️ Английский язык</span>
+            <span className="leaderboard__value">
+              <div className="progress" width="150">
+                <div style={{ width: `${eng}%` }} className="progress__inner">
+                  <p>{`${eng}/100`}</p>
+                </div>
+              </div>
+            </span>
+          </article>
+        </div>
       </div>
 
-
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }} className="leaderboard__profile">
-          <ListItemText className="leaderboard__name" primary="📡 Интернет" />
-        </Grid>
-        <Grid item>
-          <ListItemText className="leaderboard__value" primary={`${oneCity?.internet}`} />
-        </Grid>
-        <Divider />
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }} className="leaderboard__profile">
-          <ListItemText primary="💵 Стоимость проживания (USD)" />
-        </Grid>
-        <Grid item>
-          <ListItemText primary={`${oneCity?.Costs[0]?.cost_living}`} />
-        </Grid>
-        <Divider />
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }} className="leaderboard__profile">
-          <ListItemText primary="💰 Средняя зарплата (USD)" />
-        </Grid>
-        <Grid item>
-          <ListItemText primary={`${oneCity?.Costs[0]?.salary}`} />
-        </Grid>
-        <Divider />
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }} className="leaderboard__profile">
-          <ListItemText primary="⭐️ Качество жизни" />
-        </Grid>
-        <Grid item>
-          <ListItemText primary={(`${oneCity?.quality_of_life}`) / 5} />
-        </Grid>
-        <Divider />
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }} className="leaderboard__profile">
-          <ListItemText primary="👶 Удобство для семьи" />
-        </Grid>
-        <Grid item>
-          <ListItemText primary={(`${oneCity?.family_score}`) / 5} />
-        </Grid>
-        <Divider />
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }} className="leaderboard__profile">
-          <ListItemText primary="👮 Безопасность" />
-        </Grid>
-        <Grid item>
-          <ListItemText primary={(`${oneCity?.safety}`) / 5} />
-        </Grid>
-        <Divider />
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }} className="leaderboard__profile">
-          <ListItemText primary="🍹 Ночная жизнь" />
-        </Grid>
-        <Grid item>
-          <ListItemText primary={(`${oneCity?.nightlife}`)} />
-        </Grid>
-        <Divider />
-        <Grid item sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
-          <ListItemText primary="🗣️ Английский язык" />
-        </Grid>
-        <Grid item>
-          <div className="progress" width="150">
-            <div style={{ width: `${eng}%` }} className="progress__inner">
-              <p>{`${eng}/100`}</p>
-            </div>
-          </div>
-        </Grid>
-        <Divider /> */}
-
-      <Grid
+      {/* <Grid
         container
         xs={6}
         spacing={0.5}
@@ -134,7 +133,7 @@ function Scores() {
             />
           </CardActionArea>
         </Card>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 }

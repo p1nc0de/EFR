@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import { fetchAllCities } from '../../redux/actions/cityActions';
 import PhotoBackground from '../UI/PhotoBackground';
 import CityNavbar from '../UI/CityNavbar';
+import './index.scss';
 
 function CostOfLiving() {
   const { city } = useSelector((s) => s);
@@ -27,289 +28,50 @@ function CostOfLiving() {
       <Grid item>
         <CityNavbar />
       </Grid>
-      <Box sx={{ width: '100%' }}>
-        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="💵  Общий расход в месяц" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.cost_living}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="🏠 Аренда 1 комнатной квартиры в центре" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.apartment}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="🏨 Гостиница на месяц" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.hotel}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="🏢 Коворкинг на месяц" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.coworking}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="🍛 Обед" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.dinner}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="🍺 Пиво (0.5)" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.beer}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="☕️ Капучино" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.cappuccino}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="👶 Детский сад на месяц" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.kindergarten}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="⛽ Бензин (1 литр)" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.petrol}`} />
-          </Grid>
-          <Grid
-            item
-            xs={6}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary="💵 Средняя зарплата" />
-          </Grid>
-          <Grid
-            item
-            xs={4}
-            sx={{
-              bgcolor: 'background.paper',
-              m: 1,
-              border: 1,
-              width: '5rem',
-              height: '5rem',
-              borderColor: 'grey.500',
-            }}
-          >
-            <ListItemText primary={`${currency} ${oneCity?.Costs[0]?.salary}`} />
-          </Grid>
-        </Grid>
-      </Box>
+      <div className="leaderboard">
+        <div className="leaderboard__profiles">
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">💵 Средний расход в месяц</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.cost_living}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">🏠 Аренда 1 комнатной квартиры в центре</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.apartment}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">🏨 Гостиница на месяц</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.hotel}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">🏢 Коворкинг на месяц</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.coworking}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">🍛 Обед</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.dinner}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">🍺 Пиво (0.5)</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.beer}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">☕️ Капучино</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.cappuccino}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">👶 Детский сад на месяц</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.kindergarten}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">⛽ Бензин (1 л)</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.petrol}`}</span>
+          </article>
+          <article className="leaderboard__profile">
+            <span className="leaderboard__name">💵 Средняя зарплата</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.salary}`}</span>
+          </article>
+        </div>
+      </div>
     </Grid>
   );
 }

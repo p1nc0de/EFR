@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { deleteReview } from '../../redux/actions/reviewActions';
-import './text.card.css';
 
 export default function TextCard({ authUser, rev, id }) {
   const dispatch = useDispatch();
