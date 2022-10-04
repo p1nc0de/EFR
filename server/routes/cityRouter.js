@@ -43,7 +43,7 @@ router.get('/:id/photos', async (req, res) => {
     const { id } = req.params;
 
     const allPhotoCurrCity = await Photo.findAll({ where: { city_id: id }, include: User, order: [['id', 'DESC']] });
-    // console.log(allPhotoCurrCity);
+    console.log('current city photos ====>>>>>', allPhotoCurrCity);
     res.json(JSON.parse(JSON.stringify(allPhotoCurrCity)));
   } catch (error) {
     console.log(error);

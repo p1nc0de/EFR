@@ -69,14 +69,14 @@ export default function UserPage() {
                   <Avatar
                     alt="Remy Sharp"
                     src={user?.avatar}
-                    sx={{ width: 250, height: 250 }}
+                    sx={{ width: 150, height: 150 }}
                   />
                 )
                 : (
                   <Avatar
                     alt="Remy Sharp"
                     src={`http://localhost:3001/photos/${user?.avatar}`}
-                    sx={{ width: 250, height: 250 }}
+                    sx={{ width: 150, height: 150 }}
                   />
                 )}
               <EditAvatar id={user.id} />
