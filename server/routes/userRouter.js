@@ -5,7 +5,7 @@ const upload = require('../middlewares/multer');
 
 const router = express.Router();
 
-router.route('/')
+router.route('/city/:id')
   .get(async (req, res) => {
     const users = await User.findAll();
     res.json(users);

@@ -10,8 +10,8 @@ export const changeUser = (payload) => ({ type: UPDATE_USER, payload });
 export const changeAvatar = (payload) => ({ type: UPDATE_AVATAR_USER, payload });
 export const deleteUser = (payload) => ({ type: DELETE_USER, payload });
 
-export const getAllUsers = () => (dispatch) => {
-  axios('/api/users')
+export const getAllUsers = (id) => (dispatch) => {
+  axios(`/api/users/city/${id}`)
     .then((res) => dispatch(setAllUsers(res.data)))
     .catch(console.log);
 };
