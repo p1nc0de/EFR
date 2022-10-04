@@ -6,23 +6,24 @@ import {
   Avatar, Box, Container, TextField, Typography,
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { loginUserAsync } from '../../redux/actions/authActions';
 
 const theme = createTheme();
 
-export default function LoginPage() {
+export default function LoginPage({ setOpen }) {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(event.currentTarget));
     console.log(data);
-    dispatch(loginUserAsync(data, setLoading));
-    navigate('/');
+    dispatch(loginUserAsync(data, setLoading))
+      .then(() => setOpen(false));
+    // navigate('/');
   };
 
   return (
@@ -34,6 +35,7 @@ export default function LoginPage() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor: 'black',
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'gray' }}>

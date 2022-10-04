@@ -1,5 +1,5 @@
 import {
-  SET_ALL_USERS, SET_USER, UPDATE_USER, DELETE_USER,
+  SET_ALL_USERS, SET_USER, UPDATE_USER, UPDATE_AVATAR_USER, DELETE_USER,
 } from '../types';
 
 export default function userReducer(state = [], action) {
@@ -10,6 +10,8 @@ export default function userReducer(state = [], action) {
     case SET_USER:
       return payload;
     case UPDATE_USER:
+      return payload;
+    case UPDATE_AVATAR_USER:
       return payload;
     case DELETE_USER:
       return payload;

@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const oneCity = await City.findOne({ where: { id } });
+    const oneCity = await City.findOne({ where: { id }, include: Cost });
     res.json(JSON.parse(JSON.stringify(oneCity)));
     // console.log(allCities);
   } catch (e) {
@@ -42,8 +42,8 @@ router.get('/:id/photos', async (req, res) => {
   try {
     const { id } = req.params;
 
-    const allPhotoCurrCity = await Photo.findAll({ where: { city_id: id }, include: User });
-    // console.log(allPhotoCurrCity);
+    const allPhotoCurrCity = await Photo.findAll({ where: { city_id: id }, include: User, order: [['id', 'DESC']] });
+    console.log('current city photos ====>>>>>', allPhotoCurrCity);
     res.json(JSON.parse(JSON.stringify(allPhotoCurrCity)));
   } catch (error) {
     console.log(error);
@@ -79,7 +79,7 @@ router.get('/:id/reviews', async (req, res) => {
   try {
     const { id } = req.params;
     console.log(id);
-    const cityReviews = await Review.findAll({ where: { city_id: id } });
+    const cityReviews = await Review.findAll({ where: { city_id: id }, order: [['id', 'DESC']] });
     res.json(JSON.parse(JSON.stringify(cityReviews)));
   } catch (e) {
     console.log(e);
