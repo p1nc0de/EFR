@@ -8,14 +8,15 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginPage from '../Login';
 import { logoutUserAsync } from '../../redux/actions/authActions';
+import Signup from '../Signup';
 
 const style = {
   position: 'absolute',
-  bgcolor: 'black',
+  bgcolor: '#2e2e36',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  border: '2px solid #000',
+  border: '2px solid #2e2e36',
   borderRadius: '10%',
   boxShadow: 24,
 };
@@ -25,6 +26,11 @@ export default function CardRegistr() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // Modal logic Registration
+  const [openR, setOpenR] = React.useState(false);
+  const handleOpenR = () => setOpenR(true);
+  const handleCloseR = () => setOpenR(false);
 
   const authUser = useSelector((store) => store.authUser);
   const dispatch = useDispatch();
@@ -58,7 +64,7 @@ export default function CardRegistr() {
               <Button onClick={handleOpen} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none' }}>
                 Войти
               </Button>
-              <Button component={NavLink} to="/signup" variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+              <Button onClick={handleOpenR} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
                 Зарегистрироваться
               </Button>
             </CardActions>
@@ -71,6 +77,17 @@ export default function CardRegistr() {
         >
           <Box sx={style}>
             <LoginPage setOpen={setOpen} />
+          </Box>
+        </Modal>
+
+        <Modal
+          open={openR}
+          onClose={handleCloseR}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Signup setOpenR={setOpenR} />
           </Box>
         </Modal>
 

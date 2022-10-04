@@ -1,8 +1,4 @@
-import {
-  Grid, CardActionArea, CardMedia, Card, Box,
-} from '@mui/material';
-import Rating from '@mui/material/Rating';
-import StarIcon from '@mui/icons-material/Star';
+import { Grid } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -22,7 +18,10 @@ function Scores() {
   console.log(oneCity?.map_url);
 
   const eng = Math.round(((oneCity?.english_speaking) / 5) * 100);
-  const quality = oneCity?.quality_of_life;
+  const quality = Math.round(((oneCity?.quality_of_life) / 5) * 100);
+  const family = Math.round(((oneCity?.family_score) / 5) * 100);
+  const safety = Math.round(((oneCity?.safety) / 5) * 100);
+  const nightlife = Math.round(((oneCity?.nightlife) / 5) * 100);
 
   return (
     <Grid container direction="column" sx={{ color: 'text.primary' }}>
@@ -53,59 +52,47 @@ function Scores() {
           <article className="leaderboard__profile">
             <span className="leaderboard__name">⭐️ Качество жизни</span>
             <span className="leaderboard__value">
-              <Rating
-                name="size-large"
-                size="large"
-                value={`${oneCity?.quality_of_life}`}
-                readOnly
-                precision={1}
-                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-              />
+              <div className="progress" width="100%" height="25%">
+                <div style={{ width: `${quality}%` }} className="progress__inner">
+                  <p>{`${quality}/100`}</p>
+                </div>
+              </div>
             </span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name"> 👶 Удобство для семьи</span>
             <span className="leaderboard__value">
-              <Rating
-                name="size-large"
-                size="large"
-                value={`${oneCity?.family_score}`}
-                readOnly
-                precision={1}
-                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-              />
+              <div className="progress" width="100%" height="25%">
+                <div style={{ width: `${family}%` }} className="progress__inner">
+                  <p>{`${family}/100`}</p>
+                </div>
+              </div>
             </span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">👮 Безопасность</span>
             <span className="leaderboard__value">
-              <Rating
-                name="size-large"
-                size="large"
-                value={`${oneCity?.safety}`}
-                readOnly
-                precision={1}
-                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-              />
+              <div className="progress" width="100%" height="25%">
+                <div style={{ width: `${safety}%` }} className="progress__inner">
+                  <p>{`${safety}/100`}</p>
+                </div>
+              </div>
             </span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🍹 Ночная жизнь</span>
             <span className="leaderboard__value">
-              <Rating
-                name="size-large"
-                size="large"
-                value={`${oneCity?.nightlife}`}
-                readOnly
-                precision={1}
-                emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
-              />
+              <div className="progress" width="100%" height="25%">
+                <div style={{ width: `${nightlife}%` }} className="progress__inner">
+                  <p>{`${nightlife}/100`}</p>
+                </div>
+              </div>
             </span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🗣️ Английский язык</span>
             <span className="leaderboard__value">
-              <div className="progress" width="150">
+              <div className="progress" width="100%" height="25%">
                 <div style={{ width: `${eng}%` }} className="progress__inner">
                   <p>{`${eng}/100`}</p>
                 </div>
