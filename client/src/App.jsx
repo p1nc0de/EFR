@@ -17,7 +17,6 @@ import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
 import { checkAuthAsync } from './redux/actions/authActions';
 
-
 // const theme = createTheme({
 //   palette: {
 //     primary: {
@@ -25,7 +24,6 @@ import { checkAuthAsync } from './redux/actions/authActions';
 //     }
 //   }
 // });
-
 
 function App() {
   const dispatch = useDispatch();
