@@ -18,12 +18,13 @@ function CostOfLiving() {
   }, []);
   const { id } = useParams();
   const oneCity = city[id - 1];
+  console.log(oneCity?.map_url);
   const currency = '$';
 
   return (
     <Grid container direction="column" sx={{ color: 'text.primary' }}>
       <Grid item>
-        <PhotoBackground />
+        <PhotoBackground oneCity={oneCity} />
       </Grid>
       <Grid item>
         <CityNavbar />
