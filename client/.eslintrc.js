@@ -23,5 +23,6 @@ module.exports = {
     'react/prop-types': 0,
     'no-restricted-exports': 0,
     'react/jsx-filename-extension': [1, { allow: 'as-needed' }],
+    'no-unsafe-optional-chaining': 0,
   },
 };

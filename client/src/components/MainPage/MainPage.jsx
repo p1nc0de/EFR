@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import { fetchAllCities } from '../../redux/actions/cityActions';
 import Video from './Video';
 import Cards from './Cards';
@@ -10,7 +10,6 @@ import { checkAuthAsync } from '../../redux/actions/authActions';
 
 function MainPage() {
   const city = useSelector((s) => s.city);
-  // console.log(city);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,12 +33,12 @@ function MainPage() {
           </Grid>
           <Grid items sx={{ magrinLeft: '5vw', marginTop: '-5vw' }}>
             <div className="textCont">
-              <img src="001-planet-earth.png" alt="EFR" />
+              <img src="/giphy.gif" alt="EFR" />
               <div className="beznaz">
-                <div className='logoHigh'>
-                  <h1>EFR</h1>
+                <div className="logoHigh">
+                  <h1> E F R </h1>
                 </div>
-                <div className='logoLow'>
+                <div className="logoLow">
                   <h4>the future is in your hands</h4>
                 </div>
               </div>
@@ -57,7 +56,7 @@ function MainPage() {
           ))}
         </Grid>
       </Grid>
-    </Grid >
+    </Grid>
   );
 }
 

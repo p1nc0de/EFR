@@ -3,7 +3,6 @@ import Box from '@mui/joy/Box';
 import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
-import Typography from '@mui/joy/Typography';
 import { Link } from 'react-router-dom';
 
 export default function Cards({ city }) {
@@ -18,7 +17,7 @@ export default function Cards({ city }) {
         <Card
           component="li"
           sx={{
-            minWidth: 300, flexGrow: 1, minHeight: 300, maxHeight: 300, opacity: 0.75, "&:hover": { opacity: 1 }
+            minWidth: 300, flexGrow: 1, minHeight: 300, maxHeight: 300, opacity: 0.75, '&:hover': { opacity: 1 },
           }}
         >
           <CardCover>
@@ -30,17 +29,7 @@ export default function Cards({ city }) {
             />
           </CardCover>
           <CardContent sx={{ justifyContent: 'center', gap: 1 }}>
-            {/* <Typography
-              level="h6"
-              fontWeight="lg"
-              textColor="#fff"
-              mt={{ xs: 12, sm: 18 }}
-            // backgroundColor='black'
-            // paddingBottom=' 7%'
-            // paddingRight='7%'
-            // width='50%'
-            > */}
-            <div className='podlogka'>
+            <div className="podlogka">
               <p>{city.name}</p>
               <p>{`Лучший район: ${city.best_nbh}`}</p>
               <p>{`Неплохой район: ${city.upcoming_nbh ? city.upcoming_nbh : 'такого нет'}`}</p>
@@ -49,6 +38,6 @@ export default function Cards({ city }) {
           </CardContent>
         </Card>
       </Box>
-    </Link >
+    </Link>
   );
 }
