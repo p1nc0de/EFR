@@ -15,6 +15,7 @@ import UserPage from './components/UserPage';
 import ReviewsPage from './components/Reviews/ReviewsPage';
 import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
+import { checkAuthAsync } from './redux/actions/authActions';
 
 
 // const theme = createTheme({
@@ -30,6 +31,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchAllCities());
+    dispatch(checkAuthAsync());
   }, []);
 
   return (

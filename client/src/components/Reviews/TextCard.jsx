@@ -4,8 +4,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import { deleteReview } from '../../redux/actions/reviewActions';
 import { useDispatch } from 'react-redux';
+import { deleteReview } from '../../redux/actions/reviewActions';
 
 export default function TextCard({ rev, id }) {
   const dispatch = useDispatch();
@@ -24,7 +24,8 @@ export default function TextCard({ rev, id }) {
             {rev?.review}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Автор:{/* {user?.login} */}
+            Автор:
+            {/* {user?.login} */}
           </Typography>
         </CardContent>
         <CardActions>

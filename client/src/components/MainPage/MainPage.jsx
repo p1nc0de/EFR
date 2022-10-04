@@ -6,14 +6,16 @@ import Video from './Video';
 import Cards from './Cards';
 import Countybuttons from './Countybuttons';
 import CardRegistr from './CardRegistr';
+import { checkAuthAsync } from '../../redux/actions/authActions';
 
 function MainPage() {
-  const { city } = useSelector((s) => s);
+  const city = useSelector((s) => s.city);
   // console.log(city);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAllCities());
+    dispatch(checkAuthAsync());
   }, []);
   return (
     <Grid container>
