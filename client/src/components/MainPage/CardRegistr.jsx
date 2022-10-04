@@ -5,7 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import { Box, CardActions, Modal } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginPage from '../Login';
+import { logoutUserAsync } from '../../redux/actions/authActions';
 
 const style = {
   position: 'absolute',
@@ -19,10 +21,13 @@ const style = {
 };
 
 export default function CardRegistr() {
-// Modal logic
+  // Modal logic
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const authUser = useSelector((store) => store.authUser);
+  const dispatch = useDispatch();
 
   return (
     <Box>
@@ -38,14 +43,26 @@ export default function CardRegistr() {
                         Зарегистрируйся
                     </Typography> */}
         </CardContent>
-        <CardActions>
-          <Button onClick={handleOpen} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none' }}>
-            Войти
-          </Button>
-          <Button component={NavLink} to="/signup" variant="contained" color="error" size="sm" sx={{ textDecoration: 'none' }}>
-            Зарегаться
-          </Button>
-        </CardActions>
+        {authUser?.id ? (
+          <CardActions>
+            <Button component={NavLink} to={`/users/${authUser.id}`} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+              Личный кабинет
+            </Button>
+            <Button onClick={() => dispatch(logoutUserAsync())} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+              Выйти
+            </Button>
+          </CardActions>
+        )
+          : (
+            <CardActions>
+              <Button onClick={handleOpen} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none' }}>
+                Войти
+              </Button>
+              <Button component={NavLink} to="/signup" variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+                Зарегистрироваться
+              </Button>
+            </CardActions>
+          )}
         <Modal
           open={open}
           onClose={handleClose}

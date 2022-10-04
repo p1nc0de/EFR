@@ -47,7 +47,8 @@ router.route('/:id')
 router.patch('/:id/avatar', upload.single('avatar'), async (req, res) => {
   try {
     const { id } = req.params;
-    console.log('back!!!!!!', id);
+    console.log('ПАРАМС', req.params);
+    console.log('back1111111111111!!!!!!', id);
     const user = await User.findOne({ where: { id } });
     console.log('back!!!!!!', user);
     user.avatar = req.file.filename;
