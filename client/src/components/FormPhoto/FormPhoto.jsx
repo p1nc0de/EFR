@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function FormPhoto() {
+export default function FormPhoto({ setOpen }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [input, setInput] = useState({ description: '', photo: null });
@@ -17,9 +17,9 @@ export default function FormPhoto() {
     const data = new FormData(); // мультер без этого не работает
     data.append('description', input.description);
     data.append('photo', input.photo); // Картинка вот
-
     axios.post(`/api/city/${id}/photos`, data)
-      .then(() => navigate(`/city/${id}/photos`));
+      .then(() => navigate(`/city/${id}/photos`))
+      .then(() => setOpen(false));
   };
 
   return (
