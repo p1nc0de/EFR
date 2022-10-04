@@ -5,8 +5,14 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import { Box, CardActions } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUserAsync } from '../../redux/actions/authActions';
 
 export default function CardRegistr() {
+  const authUser = useSelector((store) => store.authUser);
+  const dispatch = useDispatch();
+
+  console.log(authUser);
   return (
     <Box>
       <Card sx={{ maxWidth: 300, bgcolor: 'text.disabled' }}>
@@ -21,14 +27,26 @@ export default function CardRegistr() {
                         Зарегистрируйся
                     </Typography> */}
         </CardContent>
-        <CardActions>
-          <Button component={NavLink} to="/login" variant="contained" color="error" size="sm" sx={{ textDecoration: 'none' }}>
-            Войти
-          </Button>
-          <Button component={NavLink} to="/signup" variant="contained" color="error" size="sm" sx={{ textDecoration: 'none' }}>
-            Зарегаться
-          </Button>
-        </CardActions>
+        {authUser?.id ? (
+          <CardActions>
+            <Button component={NavLink} to={`/users/${authUser.id}`} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+              Личный кабинет
+            </Button>
+            <Button onClick={() => dispatch(logoutUserAsync())} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+              Выйти
+            </Button>
+          </CardActions>
+        )
+          : (
+            <CardActions>
+              <Button component={NavLink} to="/login" variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+                Войти
+              </Button>
+              <Button component={NavLink} to="/signup" variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+                Зарегистрироваться
+              </Button>
+            </CardActions>
+          )}
 
       </Card>
     </Box>
