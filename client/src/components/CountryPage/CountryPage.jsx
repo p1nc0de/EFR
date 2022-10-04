@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Box } from '@mui/system';
 import { useParams } from 'react-router-dom';
 import { fetchCountryCities, setCountryCities } from '../../redux/actions/cityActions';
 import Countybuttons from '../MainPage/Countybuttons';
 import Cards from '../MainPage/Cards';
 import Video from '../MainPage/Video';
-import { useParams } from 'react-router-dom';
-import TextCard from '../Reviews/TextCard';
 import { Grid, Typography } from '@mui/material';
 import CardRegistr from '../MainPage/CardRegistr';
 
