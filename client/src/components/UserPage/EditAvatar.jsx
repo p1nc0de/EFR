@@ -21,13 +21,13 @@ export default function EditAvatar(id) {
   return (
     <>
       <button type="button" className="btn btn-outline-success" onClick={() => setEditAvatar(true)}>Редактировать фотографию</button>
-      {/* {editAvatar
-        && ( */}
-      <form onSubmit={submitHandlerMulter}>
-        <input className="form-control" name="avatar" type="file" onChange={changeHandlerMulter} />
-        <button type="submit" className="btn btn-outline-dark" onClick={() => setEditAvatar(!editAvatar)}>Сохранить</button>
-      </form>
-      {/* )} */}
+      {editAvatar
+        && (
+          <form onSubmit={submitHandlerMulter}>
+            <input className="form-control" name="avatar" type="file" onChange={changeHandlerMulter} />
+            <button type="submit" className="btn btn-outline-dark">Сохранить</button>
+          </form>
+        )}
     </>
   );
 }
