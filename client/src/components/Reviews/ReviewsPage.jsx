@@ -13,6 +13,7 @@ function ReviewsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const review = useSelector((state) => state.review);
+  const authUser = useSelector((store) => store.authUser);
   useEffect(() => {
     dispatch(fetchOneCity(id));
     dispatch(fetchCityReviews(id));
@@ -28,12 +29,15 @@ function ReviewsPage() {
       <Grid item>
         <CityNavbar />
       </Grid>
-      <Grid item xs={8}>
-        <TextAreaInput id={id} />
-      </Grid>
+      {authUser?.id ? (
+        <Grid item xs={8}>
+          <TextAreaInput id={id} />
+        </Grid>
+      )
+        : (<h1 style={{ color: 'red' }}>Чтобы оставить отзыв - необходимо зарегистрироваться!</h1>)}
       <Grid item>
         {review && review?.map((el) => (
-          <TextCard key={el.id} id={el.id} rev={el} />
+          <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
         ))}
       </Grid>
     </Grid>

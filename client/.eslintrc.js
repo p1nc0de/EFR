@@ -18,6 +18,10 @@ module.exports = {
   ],
   rules: {
     'default-param-last': 0,
-    'no-console':0,
+    'no-console': 0,
+    camelcase: 0,
+    'no-restricted-exports': 0,
+    'react/prop-types': 0,
+
   },
 };
