@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser, getUser } from '../../redux/actions/userActions';
 
-export default function EditUserPage({
+export default function EditInformation({
   edit, setEdit, id, form,
 }) {
   const dispatch = useDispatch();
