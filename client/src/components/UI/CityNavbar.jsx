@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { NavLink, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // const id = 1;
 function CityNavbar() {
@@ -31,13 +32,15 @@ function CityNavbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            EFR
-          </Typography>
+          <Link to={'/'}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, textDecoration: "none", display: { xs: 'none', sm: 'block' } }}
+            >
+              EFR
+            </Typography>
+          </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }} component={NavLink} to={`${Object.values(item)}`}>

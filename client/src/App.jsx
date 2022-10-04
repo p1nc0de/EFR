@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import AllCities from './components/AllCities';
+// import AllCities from './components/AllCities';
 import MainPage from './components/MainPage/MainPage';
 import NoPage from './components/NoPage/NoPage';
 import PhotosList from './components/PhotosList';
@@ -15,6 +16,16 @@ import ReviewsPage from './components/Reviews/ReviewsPage';
 import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
 
+
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#696969'
+//     }
+//   }
+// });
+
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -22,24 +33,22 @@ function App() {
   }, []);
 
   return (
-    // <div style={{ width: '150px', height: '150px' }}>
-    //   <iframe aria-disabled title="myFrame" data-src="https://hoodmaps.com/embed/moscow" src="https://hoodmaps.com/embed/moscow" />
-    // </div>
+    // <ThemeProvider theme={theme}>
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/city" element={<AllCities />} />
-      <Route path="/city/:id/scores" element={<Scores />} />
-      <Route path="/city/:id/cost" element={<CostOfLiving />} />
-      <Route path="/city/:id/reviews" element={<ReviewsPage />} />
-      <Route path="/city/:id" element={<CountryPage />} />
-      <Route path="/city/:id/photos" element={<PhotosList />} />
+      {/* <Route path="/city" element={<AllCities />} /> */}
+      <Route path="/:id/scores" element={<Scores />} />
+      <Route path="/:id/cost" element={<CostOfLiving />} />
+      <Route path="/:id/reviews" element={<ReviewsPage />} />
+      <Route path="/:id" element={<CountryPage />} />
+      <Route path="/:id/photos" element={<PhotosList />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/users" element={<UsersCity />} />
       <Route path="/users/:id" element={<UserPage />} />
       <Route path="*" element={<NoPage />} />
-
     </Routes>
+    // </ThemeProvider>
   );
 }
 

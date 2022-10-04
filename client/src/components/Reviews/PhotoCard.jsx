@@ -5,7 +5,6 @@ import CardCover from '@mui/joy/CardCover';
 import CardContent from '@mui/joy/CardContent';
 import Typography from '@mui/joy/Typography';
 import { useSelector } from 'react-redux';
-import { Avatar, CardMedia } from '@mui/material';
 
 export default function PhotoCard() {
     const oneCity = useSelector((state) => state.oneCity);
