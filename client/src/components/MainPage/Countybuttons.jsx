@@ -26,7 +26,7 @@ export default function Countybuttons() {
             variant="contained"
             size="medium"
             sx={{
-              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red' },
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
             Лучшие города
@@ -39,7 +39,7 @@ export default function Countybuttons() {
             variant="contained"
             size="medium"
             sx={{
-              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red' },
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
             Грузия
@@ -52,7 +52,7 @@ export default function Countybuttons() {
             variant="contained"
             size="medium"
             sx={{
-              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red' },
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
             Турция
@@ -65,7 +65,7 @@ export default function Countybuttons() {
             variant="contained"
             size="medium"
             sx={{
-              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red' },
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
             ОАЭ
@@ -78,7 +78,7 @@ export default function Countybuttons() {
             variant="contained"
             size="medium"
             sx={{
-              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red' },
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
             Португалия
@@ -91,7 +91,7 @@ export default function Countybuttons() {
             variant="contained"
             size="medium"
             sx={{
-              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red' },
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
             Тайланд

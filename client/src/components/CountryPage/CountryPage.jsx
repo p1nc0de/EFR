@@ -6,7 +6,6 @@ import { fetchCountryCities, setCountryCities } from '../../redux/actions/cityAc
 import Countybuttons from '../MainPage/Countybuttons';
 import Cards from '../MainPage/Cards';
 import Video from '../MainPage/Video';
-import { Grid, Typography } from '@mui/material';
 import CardRegistr from '../MainPage/CardRegistr';
 
 function CountryPage() {

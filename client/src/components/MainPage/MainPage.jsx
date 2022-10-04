@@ -19,7 +19,7 @@ function MainPage() {
   }, []);
   return (
     <Grid container>
-      <Grid item sx={{ height: '400px' }}>
+      <Grid item sx={{ height: '400px', width: '100%' }}>
         <Video />
       </Grid>
       {/* <Grid item  alignItems='flex-end' sx={{ position: 'absolute' }}> */}
@@ -40,10 +40,9 @@ function MainPage() {
               the future is in your hands
             </Typography>
           </Grid>
-          {/* </div> */}
         </Grid>
       </Grid>
-      <Grid item sx={{ bgcolor: 'text.disabled' }}>
+      <Grid item sx={{ bgcolor: '#101010' }}>
         <Countybuttons />
         <Grid container spacing={2}>
           {city && city?.map((el) => (
@@ -53,7 +52,7 @@ function MainPage() {
           ))}
         </Grid>
       </Grid>
-    </Grid>
+    </Grid >
   );
 }
 

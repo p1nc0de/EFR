@@ -18,7 +18,7 @@ export default function Cards({ city }) {
         <Card
           component="li"
           sx={{
-            minWidth: 300, flexGrow: 1, minHeight: 300, maxHeight: 300,
+            minWidth: 300, flexGrow: 1, minHeight: 300, maxHeight: 300, opacity: 0.75, "&:hover": { opacity: 1 }
           }}
         >
           <CardCover>
