@@ -22,27 +22,25 @@ function ReviewsPage() {
   // console.log(review);
 
   return (
-    <>
-      <PhotoCard />
-      <CityNavbar />
+    <Grid container direction="column" sx={{ color: 'text.primary' }}>
+      <Grid item>
+        <PhotoCard />
+      </Grid>
+      <Grid item>
+        <CityNavbar />
+      </Grid>
       {authUser?.id ? (
-        <TextAreaInput id={id} />
+        <Grid item xs={8}>
+          <TextAreaInput id={id} />
+        </Grid>
       )
         : (<h1 style={{ color: 'red' }}>Чтобы оставить отзыв - необходимо зарегистрироваться!</h1>)}
-      <Grid
-        container
-        direction="row"
-        justifyContent="space-around"
-        alignItems="flex-start"
-        sx={{ color: 'text.primary' }}
-      >
-        <Grid item xs={4}>
-          {review && review?.map((el) => (
-            <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
-          ))}
-        </Grid>
+      <Grid item>
+        {review && review?.map((el) => (
+          <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
+        ))}
       </Grid>
-    </>
+    </Grid>
   );
 }
 

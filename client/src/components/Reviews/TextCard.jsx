@@ -6,12 +6,15 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { deleteReview } from '../../redux/actions/reviewActions';
+import './text.card.css';
 
 export default function TextCard({ authUser, rev, id }) {
   const dispatch = useDispatch();
 
   return (
+
     <Card sx={{ maxWidth: 345 }}>
+
       <CardActionArea>
         <CardMedia
           component="img"
@@ -20,10 +23,8 @@ export default function TextCard({ authUser, rev, id }) {
           alt="фотография 10х12"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="body2" component="div">
             {rev?.review}
-            {' '}
-
           </Typography>
           <small>
             {' '}
@@ -34,18 +35,27 @@ export default function TextCard({ authUser, rev, id }) {
           </small>
           <Typography variant="body2" color="text.secondary">
             Автор:
-            {rev?.User?.login}
+            <Button sx={{ color: 'red' }}>{rev?.User?.login}</Button>
           </Typography>
         </CardContent>
         {/* //отображение кнопок только автору ревью */}
         { authUser.id === rev?.User?.id
-        && (
-        <CardActions>
-          <Button onClick={() => dispatch(deleteReview(id))} variant="contained" color="error">Удалить</Button>
-          <Button variant="contained" color="inherit">Исправить</Button>
-        </CardActions>
-        )}
+      && (
+      <CardActions>
+        <Button
+          onClick={() => dispatch(deleteReview(id))}
+          variant="contained"
+          color="error"
+        >
+          Удалить
+
+        </Button>
+        <Button variant="contained" color="inherit">Исправить</Button>
+      </CardActions>
+      )}
       </CardActionArea>
+
     </Card>
+
   );
 }
