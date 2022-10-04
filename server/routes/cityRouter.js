@@ -79,7 +79,7 @@ router.get('/:id/reviews', async (req, res) => {
   try {
     const { id } = req.params;
     console.log(id);
-    const cityReviews = await Review.findAll({ where: { city_id: id }, order: [['id', 'DESC']] });
+    const cityReviews = await Review.findAll({ where: { city_id: id }, order: [['id', 'DESC']], include: User });
     res.json(JSON.parse(JSON.stringify(cityReviews)));
   } catch (e) {
     console.log(e);
