@@ -18,6 +18,10 @@ module.exports = {
   ],
   rules: {
     'default-param-last': 0,
-    'no-console':0,
+    'no-console': 0,
+    camelcase: 'off',
+    'react/prop-types': 0,
+    'no-restricted-exports': 0,
+    'react/jsx-filename-extension': [1, { allow: 'as-needed' }],
   },
 };

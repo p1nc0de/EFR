@@ -41,7 +41,7 @@ function App() {
       <Route path="/:id/cost" element={<CostOfLiving />} />
       <Route path="/:id/reviews" element={<ReviewsPage />} />
       <Route path="/:id" element={<CountryPage />} />
-      <Route path="/city/:id/photos" element={<PhotosList />} />
+      <Route path="/:id/photos" element={<PhotosList />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/users" element={<UsersCity />} />
