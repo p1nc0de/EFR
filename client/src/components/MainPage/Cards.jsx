@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 export default function Cards({ city }) {
   return (
-    <Link to={`/city/${city.id}/reviews`} style={{ textDecoration: 'none' }}>
+    <Link to={`/${city.id}/reviews`} style={{ textDecoration: 'none' }}>
       <Box
         component="ul"
         sx={{
@@ -25,7 +25,7 @@ export default function Cards({ city }) {
             <img
               src={city.photo}
               srcSet={city.photo}
-                            // srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x"
+              // srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x"
               alt={`${city.name}`}
             />
           </CardCover>
