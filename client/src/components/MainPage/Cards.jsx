@@ -30,19 +30,25 @@ export default function Cards({ city }) {
             />
           </CardCover>
           <CardContent sx={{ justifyContent: 'center', gap: 1 }}>
-            <Typography
+            {/* <Typography
               level="h6"
               fontWeight="lg"
               textColor="#fff"
               mt={{ xs: 12, sm: 18 }}
-            >
+            // backgroundColor='black'
+            // paddingBottom=' 7%'
+            // paddingRight='7%'
+            // width='50%'
+            > */}
+            <div className='podlogka'>
               <p>{city.name}</p>
               <p>{`Лучший район: ${city.best_nbh}`}</p>
               <p>{`Неплохой район: ${city.upcoming_nbh ? city.upcoming_nbh : 'такого нет'}`}</p>
-            </Typography>
+            </div>
+            {/* </Typography> */}
           </CardContent>
         </Card>
       </Box>
-    </Link>
+    </Link >
   );
 }

@@ -33,7 +33,6 @@ function App() {
   }, []);
 
   return (
-    // <ThemeProvider theme={theme}>
     <Routes>
       <Route path="/" element={<MainPage />} />
       {/* <Route path="/city" element={<AllCities />} /> */}
@@ -41,14 +40,13 @@ function App() {
       <Route path="/:id/cost" element={<CostOfLiving />} />
       <Route path="/:id/reviews" element={<ReviewsPage />} />
       <Route path="/:id" element={<CountryPage />} />
-      <Route path="/city/:id/photos" element={<PhotosList />} />
+      <Route path="/:id/photos" element={<PhotosList />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/users" element={<UsersCity />} />
       <Route path="/users/:id" element={<UserPage />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
-    // </ThemeProvider>
   );
 }
 

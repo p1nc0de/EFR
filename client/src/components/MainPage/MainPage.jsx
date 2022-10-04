@@ -32,13 +32,18 @@ function MainPage() {
           <Grid item sx={{ marginLeft: '53vw', marginTop: '5vw' }}>
             <CardRegistr />
           </Grid>
-          <Grid items sx={{ magrinLeft: '5vw' }}>
-            <Typography variant="h2">
-              EFR
-            </Typography>
-            <Typography variant="h5">
-              the future is in your hands
-            </Typography>
+          <Grid items sx={{ magrinLeft: '5vw', marginTop: '-5vw' }}>
+            <div className="textCont">
+              <img src="001-planet-earth.png" alt="EFR" />
+              <div className="beznaz">
+                <div className='logoHigh'>
+                  <h1>EFR</h1>
+                </div>
+                <div className='logoLow'>
+                  <h4>the future is in your hands</h4>
+                </div>
+              </div>
+            </div>
           </Grid>
         </Grid>
       </Grid>
