@@ -28,14 +28,14 @@ export default function MasonryImageList() {
   const dispatch = useDispatch();
   console.log('----> 1', photo);
 
-  React.useEffect(() => {
-    dispatch(fetchAllPhotos(id));
-  }, []);
-
   // Modal logic
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  React.useEffect(() => {
+    dispatch(fetchAllPhotos(id));
+  }, [open]);
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function MasonryImageList() {
             <ImageListItemBar
               title={el.description}
               subtitle={(
-                <a href="/userpage">
+                <a href={`/users/${el?.User?.id}`}>
                   by:
                   {' '}
                   {el.User?.login}
