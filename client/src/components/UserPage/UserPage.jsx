@@ -31,7 +31,6 @@ export default function UserPage() {
   useEffect(() => {
     dispatch(getUser(id));
     setForm({
-      avatar: user?.avatar || '',
       login: user?.login || '',
       info: user?.info || '',
       profession: user?.profession || '',
