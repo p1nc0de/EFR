@@ -1,55 +1,105 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { NavLink, useParams, Link } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+import { createTheme, Grid, ThemeProvider } from '@mui/material';
 
+const theme = createTheme({
+  palette: { primary: { main: '#2e2e36' } },
+});
 // const id = 1;
 function CityNavbar() {
   const { id } = useParams();
-  const navItems = [
-    { Общая_информация: `/${id}/scores` },
-    { Стоимость_проживания: `/${id}/cost` },
-    { Люди: '/users' },
-    { Отзывы: `/${id}/reviews` },
-    { Фото: `/${id}/photos` }];
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <AppBar position="static" component="nav" sx={{ backgroundColor: '#2F4F4F' }}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            // onClick={}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+    <ThemeProvider theme={theme}>
+
+      <Grid
+        container
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="center"
+        spacing={4}
+      >
+        <Grid item>
+          <Button
+            component={NavLink}
+            to="/"
+            variant="contained"
+            size="medium"
+            sx={{
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Link to="/">
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, textDecoration: 'none', display: { xs: 'none', sm: 'block' } }}
-            >
-              EFR
-            </Typography>
-          </Link>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }} component={NavLink} to={`${Object.values(item)}`}>
-                {Object.keys(item)}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
+            На главную
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            component={NavLink}
+            to={`/${id}/scores`}
+            variant="contained"
+            size="medium"
+            sx={{
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
+            }}
+          >
+            Общая информация
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            component={NavLink}
+            to={`/${id}/cost`}
+            variant="contained"
+            size="medium"
+            sx={{
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
+            }}
+          >
+            Стоимость проживания
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            component={NavLink}
+            to={`/${id}/users`}
+            variant="contained"
+            size="medium"
+            sx={{
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
+            }}
+          >
+            Люди
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            component={NavLink}
+            to={`/${id}/reviews`}
+            variant="contained"
+            size="medium"
+            sx={{
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
+            }}
+          >
+            Отзывы
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            component={NavLink}
+            to={`/${id}/photos`}
+            variant="contained"
+            size="medium"
+            sx={{
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
+            }}
+          >
+            Фото
+          </Button>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
   );
 }
 

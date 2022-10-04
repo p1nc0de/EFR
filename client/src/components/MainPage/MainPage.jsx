@@ -19,7 +19,7 @@ function MainPage() {
   }, []);
   return (
     <Grid container>
-      <Grid item sx={{ height: '400px' }}>
+      <Grid item sx={{ height: '400px', width: '100%' }}>
         <Video />
       </Grid>
       {/* <Grid item  alignItems='flex-end' sx={{ position: 'absolute' }}> */}
@@ -32,18 +32,22 @@ function MainPage() {
           <Grid item sx={{ marginLeft: '53vw', marginTop: '5vw' }}>
             <CardRegistr />
           </Grid>
-          <Grid items sx={{ magrinLeft: '5vw' }}>
-            <Typography variant="h2">
-              EFR
-            </Typography>
-            <Typography variant="h5">
-              the future is in your hands
-            </Typography>
+          <Grid items sx={{ magrinLeft: '5vw', marginTop: '-5vw' }}>
+            <div className="textCont">
+              <img src="001-planet-earth.png" alt="EFR" />
+              <div className="beznaz">
+                <div className='logoHigh'>
+                  <h1>EFR</h1>
+                </div>
+                <div className='logoLow'>
+                  <h4>the future is in your hands</h4>
+                </div>
+              </div>
+            </div>
           </Grid>
-          {/* </div> */}
         </Grid>
       </Grid>
-      <Grid item sx={{ bgcolor: 'text.disabled' }}>
+      <Grid item sx={{ bgcolor: '#101010' }}>
         <Countybuttons />
         <Grid container spacing={2}>
           {city && city?.map((el) => (
@@ -53,7 +57,7 @@ function MainPage() {
           ))}
         </Grid>
       </Grid>
-    </Grid>
+    </Grid >
   );
 }
 
