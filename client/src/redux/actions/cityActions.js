@@ -14,5 +14,3 @@ export const fetchCountryCities = (id) => (dispatch) => {
     .then((res) => dispatch(setCountryCities(res.data)))
     .catch(console.log);
 };
-
-
