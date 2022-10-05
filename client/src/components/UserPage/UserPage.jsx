@@ -22,6 +22,7 @@ import Card from '@mui/material/Card';
 import { getUser, updateUser } from '../../redux/actions/userActions';
 import EditInformation from './EditInformation';
 import EditAvatar from './EditAvatar';
+import TelegramButton from './TelegramButton';
 
 const theme = createTheme({
   palette: { primary: { main: '#FFFFFF' } },
@@ -51,7 +52,6 @@ export default function UserPage() {
       login: user?.login || '',
       info: user?.info || '',
       profession: user?.profession || '',
-
       birth_country: user?.birth_country || '',
       current_country: user?.current_country || '',
       future_country: user?.future_country || '',
@@ -62,6 +62,7 @@ export default function UserPage() {
   const changeHandler = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const submitHandler = (e) => dispatch(updateUser(e, form));
 
+  console.log(user.avatar);
   return (
     <ThemeProvider theme={theme}>
       <Card sx={{
@@ -70,6 +71,9 @@ export default function UserPage() {
         marginLeft: 10,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#f1f1f3',
+        boxShadow: 15,
+        // opacity: 0.9,
       }}
       >
         <Container component="main" maxWidth="lg">
@@ -77,7 +81,9 @@ export default function UserPage() {
             <Divider variant="inset" component="li" />
             <Box
               sx={{
-                // marginTop: 10,
+                marginTop: 1,
+                marginBottom: 3,
+                marginRight: 5,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'left',
@@ -90,47 +96,63 @@ export default function UserPage() {
               >
                 {user?.login}
               </Typography>
-              <p className="card-text"><small className="text-muted">{user?.email}</small></p>
+
+              {authUser?.id && (
+              <Typography
+                variant="body2"
+                color="#2e2e36"
+                mt={{ sm: 1 }}
+              >
+                {user?.email}
+              </Typography>
+              )}
+
               {authUser?.id === user?.id ? (
-                <Badge
-                  overlap="circular"
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                  badgeContent={(
-                    <EditAvatar id={user.id} />
+                <>
+                  <Badge
+                    overlap="circular"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    badgeContent={(
+                      <EditAvatar id={user.id} />
                     )}
-                >
-                  {user?.avatar?.includes('http')
-                    ? (
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={user?.avatar}
-                        sx={{ minWidth: 400, minHeight: 400 }}
-                      />
-                    )
-                    : (
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={`http://localhost:3001/photos/${user?.avatar}`}
-                        sx={{ minWidth: 400, minHeight: 400 }}
-                      />
-                    )}
-                </Badge>
+                  >
+                    {user?.avatar?.includes('http')
+                      ? (
+                        <Avatar
+                          alt={user?.login}
+                          src={user?.avatar}
+                          sx={{ minWidth: 400, minHeight: 400 }}
+                          style={{
+                            border: '1px solid lightgray',
+                          }}
+                        />
+
+                      )
+                      : (
+                        <Avatar
+                          alt={user?.login}
+                          src={`http://localhost:3001/photos/${user?.avatar}`}
+                          sx={{ minWidth: 400, minHeight: 400 }}
+                        />
+                      )}
+                  </Badge>
+                </>
               )
                 : (
                   <>
                     {user?.avatar?.includes('http')
                       ? (
                         <Avatar
-                          alt="Remy Sharp"
+                          alt={user?.login}
                           src={user?.avatar}
-                          sx={{ minWidth: 300, minHeight: 300 }}
+                          sx={{ minWidth: 400, minHeight: 400 }}
                         />
                       )
                       : (
                         <Avatar
-                          alt="Remy Sharp"
+                          alt={user?.login}
                           src={`http://localhost:3001/photos/${user?.avatar}`}
-                          sx={{ minWidth: 300, minHeight: 300 }}
+                          sx={{ minWidth: 400, minHeight: 400 }}
                         />
                       )}
                   </>
@@ -165,16 +187,7 @@ export default function UserPage() {
                           <Person2 fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
-                      <ListItemText primary={`${user?.info}`} secondary="О себе" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <TelegramIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.telegram}`} secondary="Telegram" />
+                      <ListItemText primary={`${user?.info ? user?.info : ''}`} secondary="О себе" />
                     </ListItem>
                     <Divider variant="inset" component="li" />
                     <ListItem>
@@ -183,10 +196,9 @@ export default function UserPage() {
                           <WorkIcon fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
-                      <ListItemText primary={`${user?.profession}`} secondary="Профессия" />
+                      <ListItemText primary={`${user?.profession ? user?.profession : ''}`} secondary="Профессия" />
                     </ListItem>
                     <Divider variant="inset" component="li" />
-
                     <ListItem>
                       <ListItemAvatar>
                         <Avatarka>
@@ -211,8 +223,20 @@ export default function UserPage() {
                           <CakeIcon fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
-                      <ListItemText primary={`${user?.birth_country}`} secondary="Страна рождения" />
+                      <ListItemText primary={`${user?.birth_country ? user?.birth_country : ''}`} secondary="Страна рождения" />
                     </ListItem>
+                    <Divider variant="inset" component="li" />
+
+                    {authUser?.id && (
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <TelegramIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.telegram ? user?.telegram : ''}`} secondary="Telegram" />
+                    </ListItem>
+                    )}
                   </List>
                 ) : (
                   <form className="row" onSubmit={submitHandler}>
@@ -227,11 +251,19 @@ export default function UserPage() {
                   </form>
                 )}
               {authUser?.id === user?.id ? (
-                <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
+                <>
+                  <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
+                  <Typography
+                    variant="caption"
+                    color="#2e2e36"
+                    mt={{ sm: -2 }}
+                  >
+                    {`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}
+                  </Typography>
+                </>
               ) : (
-                <div />
+                <TelegramButton user={user} />
               )}
-              <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
             </Box>
             <Divider variant="inset" component="li" />
           </Grid>
