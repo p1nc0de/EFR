@@ -1,13 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CardActions } from '@mui/material';
 import Button from '@mui/material/Button';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
 
-export default function TelegramButton({ user }) {
-  const authUser = useSelector((store) => store.authUser);
+export default function TelegramButton({ user, authUser }) {
   return (
     <>
       {authUser?.id
@@ -16,8 +14,8 @@ export default function TelegramButton({ user }) {
             <Button
               component={Link}
               target="_blank"
+              // onClick={() => window.location.reload()}
               to={`/${user?.telegram}`}
-    // onClick={() => window.location.reload()}
               variant="contained"
               color="error"
               size="sm"
