@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@mui/system": "^5.10.7"
+    "@mui/system": "^5.10.7",
+    "react-open-weather-widget": "^1.1.0"
   }
 }
