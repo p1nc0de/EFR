@@ -1,5 +1,5 @@
 import { Grid } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchAllCities } from '../../redux/actions/cityActions';
@@ -8,6 +8,7 @@ import CityNavbar from '../UI/CityNavbar';
 import './index.scss';
 
 function CostOfLiving() {
+  const [k, setK] = useState(2.00);
   const { city } = useSelector((s) => s);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -16,7 +17,10 @@ function CostOfLiving() {
   const { id } = useParams();
   const oneCity = city[id - 1];
   console.log(oneCity?.map_url);
-  const currency = '$';
+
+
+
+  const currency = 'usd';
 
   return (
     <Grid container direction="column" sx={{ color: 'text.primary' }}>
@@ -30,11 +34,11 @@ function CostOfLiving() {
         <div className="leaderboard__profiles">
           <article className="leaderboard__profile">
             <span className="leaderboard__name">💵 Средний расход в месяц</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.cost_living}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.cost_living * k} ${currency} `}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🏠 Аренда 1 комнатной квартиры в центре</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.apartment}`}</span>
+            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.apartment * k}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🏨 Гостиница на месяц</span>

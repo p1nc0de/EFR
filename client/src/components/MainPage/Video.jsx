@@ -10,7 +10,7 @@ function Video() {
 
         </video>
       </Box>
-    </Box >
+    </Box>
   );
 }
 
