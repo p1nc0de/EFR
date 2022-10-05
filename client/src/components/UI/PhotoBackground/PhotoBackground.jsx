@@ -18,7 +18,7 @@ export default function PhotoBackground({ oneCity }) {
           <img
             src={`${oneCity?.photo}`}
             srcSet={`${oneCity?.photo}`}
-            alt="Помогите, меня заставляют работать по выходным"
+            alt="background"
           />
         </CardCover>
         <CardContent sx={{ justifyContent: 'flex-center', alignItems: 'center' }}>

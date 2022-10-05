@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  Avatar,
-  Button,
-  CardActions,
-  // Modal,
-  // Box,
-} from '@mui/material';
+import { Grid } from '@mui/material';
+
 import { getAllUsers } from '../../redux/actions/userActions';
+import { fetchAllCities } from '../../redux/actions/cityActions';
+import PhotoBackground from '../UI/PhotoBackground';
+import CityNavbar from '../UI/CityNavbar';
+import UsersToday from './UsersToday';
+import UsersTomorrow from './UsersTomorrow';
+
 // import UserPage from '../UserPage/UserPage';
 
 // const style = {
@@ -25,58 +26,37 @@ import { getAllUsers } from '../../redux/actions/userActions';
 // };
 
 export default function UsersCity() {
-  const { id } = useParams();
   const dispatch = useDispatch();
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch(fetchAllCities());
+  }, []);
+  const { city } = useSelector((s) => s);
+  const oneCity = city[id - 1];
+
   const users = useSelector((state) => state.user);
-
-  // const [open, setOpen] = React.useState(false);
-
   useEffect(() => {
     dispatch(getAllUsers(id));
   }, []);
 
+  // console.log('main', id);
+  // console.log('main', city);
+  // console.log('main', oneCity);
+  
+  // const [open, setOpen] = React.useState(false);
+
   return (
-    <div className="row d-flex">
-      <h3>Уже живут там</h3>
-      {users && users?.map((user) => (
-        <div className="col-md-2">
-          {user?.avatar?.includes('http')
-            ? (
-              <Avatar
-                alt="Remy Sharp"
-                src={user?.avatar}
-                sx={{ width: 100, height: 100 }}
-              />
-            )
-            : (
-              <Avatar
-                alt="Remy Sharp"
-                src={`http://localhost:3001/photos/${user?.avatar}`}
-                sx={{ width: 100, height: 100 }}
-              />
-            )}
-          <CardActions>
-            <Button component={NavLink} to={`/users/${user?.id}`} variant="contained" color="grey" size="sm" sx={{ textDecoration: 'none' }}>
-              {user?.login}
-            </Button>
+    <Grid container direction="column" sx={{ color: 'text.primary' }}>
+      <Grid item>
+        <PhotoBackground oneCity={oneCity} />
+      </Grid>
+      <Grid item>
+        <CityNavbar />
+      </Grid>
 
-          </CardActions>
-          {' '}
-          {' '}
-
-          {/* <Modal
-            open={open}
-            setOpen={setOpen}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
-            <Box sx={style}>
-              <UserPage />
-            </Box>
-          </Modal> */}
-        </div>
-      ))}
-    </div>
-
+      <UsersToday users={users} oneCity={oneCity} />
+      <UsersTomorrow users={users} oneCity={oneCity} />
+    </Grid>
   );
 }

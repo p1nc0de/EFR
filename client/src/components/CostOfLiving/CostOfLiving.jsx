@@ -1,7 +1,4 @@
-import {
-  ListItemText, Grid,
-} from '@mui/material';
-import { Box } from '@mui/system';
+import { Grid } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -18,12 +15,13 @@ function CostOfLiving() {
   }, []);
   const { id } = useParams();
   const oneCity = city[id - 1];
+  console.log(oneCity?.map_url);
   const currency = '$';
 
   return (
     <Grid container direction="column" sx={{ color: 'text.primary' }}>
       <Grid item>
-        <PhotoBackground />
+        <PhotoBackground oneCity={oneCity} />
       </Grid>
       <Grid item>
         <CityNavbar />
