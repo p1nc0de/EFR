@@ -262,7 +262,7 @@ export default function UserPage() {
                   </Typography>
                 </>
               ) : (
-                <TelegramButton user={user} />
+                <TelegramButton user={user} authUser={authUser} />
               )}
             </Box>
             <Divider variant="inset" component="li" />
