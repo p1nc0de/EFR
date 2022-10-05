@@ -32,7 +32,7 @@ export default function UserPage() {
     profession: user?.profession || '',
     telegram: user?.telegram || '',
     birth_country: user?.birth_country || '',
-    current_country: user?.current_country || '1',
+    current_country: user?.current_country || '',
     future_country: user?.future_country || '1',
   });
 
