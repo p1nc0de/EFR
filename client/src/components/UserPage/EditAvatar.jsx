@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import EditIcon from '@mui/icons-material/Edit';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import Fab from '@mui/material/Fab';
 import Button from '@mui/material/Button';
@@ -31,7 +30,6 @@ export default function EditAvatar(id) {
         <AddPhotoAlternateIcon onClick={() => { setEditAvatar(!editAvatar); setOpen(!open); }} />
       </Fab>
       )}
-      {/* <button type="button" className="btn btn-outline-success" onClick={() => setEditAvatar(true)}>Редактировать фотографию</button> */}
       {editAvatar
         && (
           <form onSubmit={submitHandlerMulter}>
