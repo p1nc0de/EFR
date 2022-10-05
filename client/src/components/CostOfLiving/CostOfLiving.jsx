@@ -14,11 +14,10 @@ function CostOfLiving() {
   useEffect(() => {
     dispatch(fetchAllCities());
   }, []);
+
   const { id } = useParams();
   const oneCity = city[id - 1];
-  console.log(oneCity?.map_url);
-
-
+  console.log(oneCity);
 
   const currency = 'usd';
 
@@ -38,39 +37,39 @@ function CostOfLiving() {
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🏠 Аренда 1 комнатной квартиры в центре</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.apartment * k}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.apartment * k} ${currency} `}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🏨 Гостиница на месяц</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.hotel}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.hotel} ${currency}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🏢 Коворкинг на месяц</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.coworking}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.coworking} ${currency}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🍛 Обед</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.dinner}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.dinner} ${currency}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">🍺 Пиво (0.5)</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.beer}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.beer} ${currency}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">☕️ Капучино</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.cappuccino}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.cappuccino} ${currency}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">👶 Детский сад на месяц</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.kindergarten}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.kindergarten} ${currency}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">⛽ Бензин (1 л)</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.petrol}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.petrol} ${currency}`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">💵 Средняя зарплата</span>
-            <span className="leaderboard__value">{`${currency} ${oneCity?.Costs[0]?.salary}`}</span>
+            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.salary} ${currency}`}</span>
           </article>
         </div>
       </div>
