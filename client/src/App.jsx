@@ -17,6 +17,7 @@ import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
 import { checkAuthAsync } from './redux/actions/authActions';
 import AllCities from './components/AllCities';
+import Weather from './components/Weather';
 
 // const theme = createTheme({
 //   palette: {
@@ -47,6 +48,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/users" element={<UsersCity />} />
       <Route path="/users/:id" element={<UserPage />} />
+      <Route path="/:id/weather" element={<Weather />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
   );
