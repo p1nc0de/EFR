@@ -6,23 +6,25 @@ import {
   Avatar, Box, Container, TextField, Typography,
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { signupUserAsync } from '../../redux/actions/authActions';
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: { primary: { main: '#FFFFFF' } },
+});
 
-export default function Signup() {
+export default function Signup({ setOpenR }) {
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
     const data = Object.fromEntries(new FormData(event.currentTarget));
-    // console.log(data);
-    dispatch(signupUserAsync(data, setLoading));
-    navigate('/');
+    dispatch(signupUserAsync(data, setLoading))
+      .then(() => setOpenR(false));
+    // navigate('/');
   };
 
   return (
@@ -39,8 +41,8 @@ export default function Signup() {
           <Avatar sx={{ m: 1, bgcolor: 'gray' }}>
             <HailOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign Up
+          <Typography color="white" component="h1" variant="h5">
+            Зарегистрироваться
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -48,13 +50,13 @@ export default function Signup() {
               // required
               fullWidth
               id="login"
-              label="Name"
+              label="Имя"
               name="login"
               autoFocus
             />
             <TextField
               margin="normal"
-              required
+              // required
               fullWidth
               id="email"
               label="Email"
@@ -62,15 +64,16 @@ export default function Signup() {
             />
             <TextField
               margin="normal"
-              required
+              // required
               fullWidth
               name="password"
-              label="Password"
+              label="Пароль"
               type="password"
               id="password"
             />
             <LoadingButton
               loading={loading}
+              color="success"
               type="submit"
               fullWidth
               variant="contained"
@@ -78,7 +81,7 @@ export default function Signup() {
                 mt: 3, mb: 2, bgcolor: 'gray',
               }}
             >
-              Join
+              Присоединиться
             </LoadingButton>
           </Box>
         </Box>

@@ -2,13 +2,20 @@ import React, { useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Avatar,
-  Button,
-  CardActions,
+  Avatar, Grid,
+  // Button,
+  // CardActions,
   // Modal,
   // Box,
 } from '@mui/material';
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { getAllUsers } from '../../redux/actions/userActions';
+
 // import UserPage from '../UserPage/UserPage';
 
 // const style = {
@@ -36,47 +43,57 @@ export default function UsersCity() {
   }, []);
 
   return (
-    <div className="row d-flex">
-      <h3>Уже живут там</h3>
-      {users && users?.map((user) => (
-        <div className="col-md-2">
-          {user?.avatar?.includes('http')
-            ? (
-              <Avatar
-                alt="Remy Sharp"
-                src={user?.avatar}
-                sx={{ width: 100, height: 100 }}
-              />
-            )
-            : (
-              <Avatar
-                alt="Remy Sharp"
-                src={`http://localhost:3001/photos/${user?.avatar}`}
-                sx={{ width: 100, height: 100 }}
-              />
-            )}
-          <CardActions>
-            <Button component={NavLink} to={`/users/${user?.id}`} variant="contained" color="grey" size="sm" sx={{ textDecoration: 'none' }}>
-              {user?.login}
-            </Button>
+    <>
+      <Typography variant="h2" component="div">
+        Обитатели
+      </Typography>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing={3}
+      >
 
-          </CardActions>
-          {' '}
-          {' '}
+        {users && users?.map((user) => (
+          <Grid
+            container
+            item
+            xs={2}
+            key={user.id}
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
 
-          {/* <Modal
-            open={open}
-            setOpen={setOpen}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
           >
-            <Box sx={style}>
-              <UserPage />
-            </Box>
-          </Modal> */}
-        </div>
-      ))}
-    </div>
+            <Card sx={{ minWidth: 275 }}>
+              <CardContent justifyContent="center" alignItems="center">
+                {user?.avatar?.includes('http')
+                  ? (
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={user?.avatar}
+                      sx={{ width: 170, height: 170 }}
+                    />
+                  )
+                  : (
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={`http://localhost:3001/photos/${user?.avatar}`}
+                      sx={{ width: 170, height: 170 }}
+                    />
+                  )}
+              </CardContent>
+              <CardActions>
+                <Button component={NavLink} to={`/users/${user?.id}`} variant="contained" color="grey" size="sm" sx={{ textDecoration: 'none' }}>
+                  {user?.login}
+                </Button>
 
+              </CardActions>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </>
   );
 }

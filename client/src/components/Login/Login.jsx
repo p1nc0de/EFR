@@ -9,7 +9,9 @@ import LoadingButton from '@mui/lab/LoadingButton';
 // import { useNavigate } from 'react-router-dom';
 import { loginUserAsync } from '../../redux/actions/authActions';
 
-const theme = createTheme();
+const theme = createTheme({
+  palette: { primary: { main: '#FFFFFF' } },
+});
 
 export default function LoginPage({ setOpen }) {
   const [loading, setLoading] = useState(false);
@@ -35,14 +37,13 @@ export default function LoginPage({ setOpen }) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: 'black',
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'gray' }}>
             <EmojiPeopleOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Log in
+          <Typography color="white" component="h1" variant="h5">
+            Войти
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -59,7 +60,7 @@ export default function LoginPage({ setOpen }) {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Пароль"
               type="password"
               id="password"
             />
@@ -67,11 +68,12 @@ export default function LoginPage({ setOpen }) {
               loading={loading}
             //   variant="outlined"
               type="submit"
+              color="success"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2, bgcolor: 'gray' }}
             >
-              Sign In
+              Войти
             </LoadingButton>
           </Box>
         </Box>
