@@ -40,7 +40,6 @@ export default function LoginPage({ setOpen }) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            bgcolor: 'black',
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'gray' }}>
@@ -52,7 +51,7 @@ export default function LoginPage({ setOpen }) {
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
-              required
+              error
               fullWidth
               id="email"
               label="Email"
@@ -61,7 +60,7 @@ export default function LoginPage({ setOpen }) {
             />
             <TextField
               margin="normal"
-              required
+              error
               fullWidth
               name="password"
               label="Пароль"
@@ -70,7 +69,7 @@ export default function LoginPage({ setOpen }) {
             />
             <LoadingButton
               loading={loading}
-            //   variant="outlined"
+              //   variant="outlined"
               type="submit"
               color="success"
               fullWidth

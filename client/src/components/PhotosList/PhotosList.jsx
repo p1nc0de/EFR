@@ -8,6 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchAllPhotos } from '../../redux/actions/photoActions';
 import FormPhoto from '../FormPhoto';
+import PhotoCard from '../Reviews/PhotoCard';
+import CityNavbar from '../UI/CityNavbar';
+import { fetchOneCity } from '../../redux/actions/oneCityActions';
 
 const style = {
   position: 'absolute',
@@ -22,6 +25,7 @@ const style = {
   p: 4,
 };
 
+
 export default function MasonryImageList() {
   const { id } = useParams();
   const photo = useSelector((state) => state.photo);
@@ -34,15 +38,32 @@ export default function MasonryImageList() {
   const handleClose = () => setOpen(false);
 
   React.useEffect(() => {
+    dispatch(fetchOneCity(id))
     dispatch(fetchAllPhotos(id));
   }, [open]);
 
   return (
-    <>
+    <Box sx={{ bgcolor: '#101010' }}>
+      <PhotoCard />
+      <CityNavbar />
       {/* <div className="row">
         {photo && photo?.map((el) => (
           <PhotoCard key={el.id} photo={el} /> */}
-      <Button onClick={handleOpen}> 📷 Добавить фотографию </Button>
+      {/* <Button onClick={handleOpen}> 📷 Добавить фотографию </Button> */}
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginRight: 10, marginBottom: 1 }}>
+        <Button
+          onClick={handleOpen}
+          variant="contained"
+          size="lagre"
+          // color="danger"
+          sx={{
+            textDecoration: 'none', backgroundColor: 'red', color: 'black', '&:hover': { backgroundColor: 'black', color: 'red' },
+            // textDecoration: 'none', color: 'darkviolet', '&:hover': { backgroundColor: 'red', color: 'black' },
+          }}
+        >
+          Добавить фотографию
+        </Button>
+      </Box>
       <Modal
         open={open}
         onClose={handleClose}
@@ -97,7 +118,7 @@ export default function MasonryImageList() {
                   {' '}
                   {el.User?.login}
                 </a>
-                      )}
+              )}
               position="below"
             />
 
@@ -106,6 +127,6 @@ export default function MasonryImageList() {
         ))}
       </ImageList>
 
-    </>
+    </Box>
   );
 }

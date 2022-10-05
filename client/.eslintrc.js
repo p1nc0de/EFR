@@ -24,5 +24,6 @@ module.exports = {
     'no-restricted-exports': 0,
     'react/jsx-filename-extension': [1, { allow: 'as-needed' }],
     'no-unsafe-optional-chaining': 0,
+    'react/jsx-no-useless-fragment': 0,
   },
 };
