@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { fetchCountryCities, setCountryCities } from '../../redux/actions/cityActions';
 import Countybuttons from '../MainPage/Countybuttons';
 import Cards from '../MainPage/Cards';
@@ -19,8 +19,8 @@ function CountryPage() {
     dispatch(fetchCountryCities(id));
   }, [id]);
   return (
-    <Grid container >
-      <Grid item sx={{ height: '400px', width: '100%' }}>
+    <Grid container>
+      <Grid item sx={{ height: '400px' }}>
         <Video />
       </Grid>
       {/* <Grid item  alignItems='flex-end' sx={{ position: 'absolute' }}> */}
@@ -33,22 +33,18 @@ function CountryPage() {
           <Grid item sx={{ marginLeft: '53vw', marginTop: '5vw' }}>
             <CardRegistr />
           </Grid>
-          <Grid items sx={{ magrinLeft: '5vw', marginTop: '-5vw' }}>
-            <div className="textCont">
-              <img src="/giphy.gif" alt="EFR" />
-              <div className="beznaz">
-                <div className="logoHigh">
-                  <h1> E F R </h1>
-                </div>
-                <div className="logoLow">
-                  <h4>the future is in your hands</h4>
-                </div>
-              </div>
-            </div>
+          <Grid items sx={{ magrinLeft: '5vw' }}>
+            <Typography variant="h2">
+              EFR
+            </Typography>
+            <Typography variant="h5">
+              the future is in your hands
+            </Typography>
           </Grid>
+          {/* </div> */}
         </Grid>
       </Grid>
-      <Grid item sx={{ bgcolor: '#101010', width: "100%", minHeight: "420px" }}>
+      <Grid item sx={{ bgcolor: 'text.disabled' }}>
         <Countybuttons />
         <Grid container spacing={2}>
           {city && city?.map((el) => (

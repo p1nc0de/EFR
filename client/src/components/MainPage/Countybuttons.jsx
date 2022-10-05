@@ -18,6 +18,8 @@ export default function Countybuttons() {
         justifyContent="flex-start"
         alignItems="center"
         spacing={4}
+        marginBottom="10px"
+        marginLeft="10px"
       >
         <Grid item>
           <Button
