@@ -46,17 +46,19 @@ export default function Signup({ setOpenR }) {
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
+              style={{ color: 'white' }}
               margin="normal"
-              // required
+              error
               fullWidth
               id="login"
               label="Имя"
               name="login"
+              variant="outlined"
               autoFocus
             />
             <TextField
               margin="normal"
-              // required
+              error
               fullWidth
               id="email"
               label="Email"
@@ -64,7 +66,7 @@ export default function Signup({ setOpenR }) {
             />
             <TextField
               margin="normal"
-              // required
+              error
               fullWidth
               name="password"
               label="Пароль"

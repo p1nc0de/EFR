@@ -20,11 +20,11 @@ export default function UsersToday({ users, oneCity }) {
         spacing={2}
       >
         <Typography
-          textColor="#fff"
+          textColor="#FFFFFF"
           mt={{ sm: 5 }}
         >
           {/* <h3>{`Уже живут в городе ${oneCity.name}`}</h3> */}
-          <h3>Уже живут в городе</h3>
+          <h3 style={{ color: 'white', marginBottom: "20px" }}>Уже живут в городе</h3>
         </Typography>
       </Grid>
       <Grid
@@ -45,7 +45,7 @@ export default function UsersToday({ users, oneCity }) {
             justifyContent="center"
             alignItems="center"
           >
-            <Card sx={{ minWidth: 275 }}>
+            <Card sx={{ minWidth: 220, backgroundColor: "#2e2e36", justifyContent: 'center' }}>
               <CardContent justifyContent="center" alignItems="center">
                 {user?.avatar?.includes('http')
                   ? (
@@ -64,7 +64,7 @@ export default function UsersToday({ users, oneCity }) {
                   )}
               </CardContent>
               <CardActions>
-                <Button component={NavLink} to={`/users/${user?.id}`} variant="contained" color="grey" size="sm" sx={{ textDecoration: 'none' }}>
+                <Button component={NavLink} to={`/users/${user?.id}`} variant="contained" size="sm" sx={{ textDecoration: 'none', backgroundColor: 'gray', color: 'black', '&:hover': { backgroundColor: 'red', color: 'black' } }}>
                   {user?.login}
                 </Button>
               </CardActions>

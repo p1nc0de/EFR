@@ -30,7 +30,7 @@ function ReviewsPage() {
       {authUser?.id ? (
         <TextAreaInput id={id} />
       )
-        : (<h1 style={{ color: 'red' }}>Чтобы оставить отзыв - необходимо зарегистрироваться!</h1>)}
+        : (<h1 style={{ color: 'ivory' }}>Чтобы оставить отзыв - необходимо зарегистрироваться или авторизоваться!</h1>)}
 
       {/* <Container className="cardGrid"> */}
       <Grid
