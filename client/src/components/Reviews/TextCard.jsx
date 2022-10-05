@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
 import {
   Avatar, Button, CardActions, Grid,
 } from '@mui/material';
@@ -10,38 +9,42 @@ export default function TextCard({ authUser, rev, id }) {
   const dispatch = useDispatch();
 
   return (
-
-    <Grid items sx={{ magrinLeft: '5vw', marginTop: '-5vw' }}>
-      <div className="total-review">
+    <Grid
+      item
+      md={4}
+      sm={6}
+      xs={12}
+      // md={{ magrinLeft: '5vw', marginTop: '5vw' }}
+    >
+      <div className="card">
         <Avatar
           alt="EFR"
           src={`${rev?.User?.avatar}`}
           sx={{ width: 54, height: 54 }}
         />
-        <div className="right-text">
-          <div className="high">
-            <h6>
-              {' '}
-              {rev?.review}
-            </h6>
-          </div>
-          <div className="low">
-            <small>
-              {' '}
-              Дата публикации:
-              {' '}
-              {new Date(rev?.createdAt).toLocaleString()}
-              {' '}
-            </small>
-            <div className="name">
-              {' '}
-              Автор:
-              <Button sx={{ color: 'red' }}>{rev?.User?.login}</Button>
-
-            </div>
-          </div>
+        <small>
+          {' '}
+          Дата публикации:
+          {' '}
+          {new Date(rev?.createdAt).toLocaleString()}
+          {' '}
+        </small>
+        <div className="name">
+          {' '}
+          Автор:
+          <Button sx={{ color: 'red' }}>{rev?.User?.login}</Button>
 
         </div>
+      </div>
+      <div className="right-text">
+        <div className="high">
+          <h6>
+            {' '}
+            {rev?.review}
+          </h6>
+        </div>
+        <div className="low" />
+
       </div>
       {/* //отображение кнопок только автору ревью */}
       { authUser.id === rev?.User?.id
@@ -58,6 +61,5 @@ export default function TextCard({ authUser, rev, id }) {
       </CardActions>
       )}
     </Grid>
-
   );
 }

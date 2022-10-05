@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -29,19 +29,23 @@ function ReviewsPage() {
         <TextAreaInput id={id} />
       )
         : (<h1 style={{ color: 'red' }}>Чтобы оставить отзыв - необходимо зарегистрироваться!</h1>)}
-      <Grid
-        container
-        direction="row"
-        justifyContent="space-around"
-        alignItems="flex-start"
-        sx={{ color: 'text.primary' }}
-      >
-        <Grid item xs={4}>
+
+      <Container className="cardGrid">
+        <Grid
+          container
+          spaicing={4}
+          direction="row"
+          justifyContent="space-around"
+          alignItems="flex-start"
+          sx={{ color: 'text.primary' }}
+        >
+
           {review && review?.map((el) => (
             <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
           ))}
+
         </Grid>
-      </Grid>
+      </Container>
     </>
   );
 }

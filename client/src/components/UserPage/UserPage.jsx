@@ -132,13 +132,13 @@ export default function UserPage() {
               ) : (
                 <form className="row" onSubmit={submitHandler}>
                   <p className="card-text"><small className="text-muted">{user?.email}</small></p>
-                  <input className="form-control" name="login" type="text" value={form.login} onChange={changeHandler} />
-                  <input className="form-control" name="info" type="text" value={form.info} onChange={changeHandler} />
-                  <input className="form-control" name="profession" type="text" value={form.profession} onChange={changeHandler} />
-                  <input className="form-control" name="birth_country" type="text" value={form.birth_country} onChange={changeHandler} />
-                  <input className="form-control" name="current_country" type="text" value={form.current_country} onChange={changeHandler} />
-                  <input className="form-control" name="future_country" type="text" value={form.future_country} onChange={changeHandler} />
-                  <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
+                  <input placeholder="Логин" className="form-control" name="login" type="text" value={form.login} onChange={changeHandler} />
+                  <input placeholder="О себе" className="form-control" name="info" type="text" value={form.info} onChange={changeHandler} />
+                  <input placeholder="Профессия" className="form-control" name="profession" type="text" value={form.profession} onChange={changeHandler} />
+                  <input placeholder="Страна рождения" className="form-control" name="birth_country" type="text" value={form.birth_country} onChange={changeHandler} />
+                  <input placeholder="Страна проживания" className="form-control" name="current_country" type="text" value={form.current_country} onChange={changeHandler} />
+                  <input placeholder="Место мечты" className="form-control" name="future_country" type="text" value={form.future_country} onChange={changeHandler} />
+                  <input placeholder="Telegram" className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
                 </form>
               )}
             <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />

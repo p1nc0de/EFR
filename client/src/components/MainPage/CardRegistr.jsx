@@ -19,6 +19,8 @@ const style = {
   border: '2px solid #2e2e36',
   borderRadius: '10%',
   boxShadow: 24,
+  opacity: 0.75,
+
 };
 
 export default function CardRegistr() {
