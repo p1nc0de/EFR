@@ -23,7 +23,7 @@ export default function EditAvatar(id) {
   };
   return (
     <>
-      <Fab color="secondary" aria-label="edit">
+      <Fab color="error" aria-label="edit">
         <AddPhotoAlternateIcon onClick={() => setEditAvatar(!editAvatar)} />
       </Fab>
       {/* <button type="button" className="btn btn-outline-success" onClick={() => setEditAvatar(true)}>Редактировать фотографию</button> */}

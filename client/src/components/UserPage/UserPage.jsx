@@ -5,10 +5,20 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
   Avatar, Box, Grid, Container, Badge,
 } from '@mui/material';
-// import EditIcon from '@mui/icons-material/Edit';
-// import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-// import Fab from '@mui/material/Fab';
 import Typography from '@mui/material/Typography';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatarka from '@mui/material/Avatar';
+import Person2 from '@mui/icons-material/Person2';
+import WorkIcon from '@mui/icons-material/Work';
+import CakeIcon from '@mui/icons-material/Cake';
+import TravelExploreIcon from '@mui/icons-material/TravelExplore';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import PlaceIcon from '@mui/icons-material/Place';
+import Divider from '@mui/material/Divider';
+import Card from '@mui/material/Card';
 import { getUser, updateUser } from '../../redux/actions/userActions';
 import EditInformation from './EditInformation';
 import EditAvatar from './EditAvatar';
@@ -32,7 +42,7 @@ export default function UserPage() {
     profession: user?.profession || '',
     telegram: user?.telegram || '',
     birth_country: user?.birth_country || '',
-    current_country: user?.current_country || '1',
+    current_country: user?.current_country || '',
     future_country: user?.future_country || '1',
   });
 
@@ -56,32 +66,33 @@ export default function UserPage() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="lg">
-        <Grid container direction="row">
-          <Box
-            sx={{
-              marginTop: 10,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Typography
-              variant="h2"
-              textColor="#fff"
-              mt={{ sm: 1 }}
-            >
-              {user?.login}
-            </Typography>
-            <p className="card-text"><small className="text-muted">{user?.email}</small></p>
+      <Card sx={{
+        maxWidth: 1000,
+        marginTop: 10,
+        marginLeft: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      >
+        <Container component="main" maxWidth="lg">
+          <Grid container direction="row">
+            <Divider variant="inset" component="li" />
             <Box
               sx={{
-                marginTop: 1,
+                // marginTop: 10,
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
+                alignItems: 'left',
               }}
             >
+              <Typography
+                variant="h2"
+                textColor="#fff"
+                mt={{ sm: 1 }}
+              >
+                {user?.login}
+              </Typography>
+              <p className="card-text"><small className="text-muted">{user?.email}</small></p>
               <Badge
                 overlap="circular"
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
@@ -108,29 +119,82 @@ export default function UserPage() {
             </Box>
             <Box
               sx={{
-                marginTop: 8,
+                marginTop: 10,
+                marginLeft: 10,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'left',
+                justifyContent: 'space-evenly',
+                p: 1,
+                m: 1,
+                bgcolor: 'background.paper',
+                borderRadius: 1,
               }}
             >
               {!edit
                 ? (
-                  <>
-                    <Typography
-                      variant="h4"
-                      textColor="#fff"
-                      mt={{ sm: 1 }}
-                    >
-                      Информация о пользователе
-                    </Typography>
-                    <p className="card-text">{`О себе: ${user?.info}`}</p>
-                    <p className="card-text">{`Профессия: ${user?.profession}`}</p>
-                    <p className="card-text">{`Страна рождения: ${user?.birth_country}`}</p>
-                    <p className="card-text">{`Страна проживания: ${user?.current_country}`}</p>
-                    <p className="card-text">{`Место мечты: ${user?.future_country}`}</p>
-                    <p className="card-text">{`Telegram: ${user?.telegram}`}</p>
-                  </>
+                  <List
+                    sx={{
+                      width: '100%',
+                      maxWidth: 360,
+                      bgcolor: 'background.paper',
+                    }}
+                  >
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <Person2 fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.info}`} secondary="О себе" />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <TelegramIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.telegram}`} secondary="Telegram" />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <WorkIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.profession}`} secondary="Профессия" />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <PlaceIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.current_country}`} secondary="Город проживания" />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <TravelExploreIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.future_country}`} secondary="Место мечты" />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <CakeIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.birth_country}`} secondary="Страна рождения" />
+                    </ListItem>
+                  </List>
                 ) : (
                   <form className="row" onSubmit={submitHandler}>
                     <p className="card-text"><small className="text-muted">{user?.email}</small></p>
@@ -146,10 +210,10 @@ export default function UserPage() {
               <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
               <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
             </Box>
-
-          </Box>
-        </Grid>
-      </Container>
+            <Divider variant="inset" component="li" />
+          </Grid>
+        </Container>
+      </Card>
     </ThemeProvider>
   );
 }

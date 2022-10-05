@@ -1,51 +1,65 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import {
+  Avatar, Button, CardActions, Grid,
+} from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { deleteReview } from '../../redux/actions/reviewActions';
+import { deleteReviewAsync } from '../../redux/actions/reviewActions';
 
 export default function TextCard({ authUser, rev, id }) {
   const dispatch = useDispatch();
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="240"
-          image={`${rev?.User?.avatar}`}
-          alt="фотография 10х12"
+    <Grid
+      item
+      md={4}
+      sm={6}
+      xs={12}
+      // md={{ magrinLeft: '5vw', marginTop: '5vw' }}
+    >
+      <div className="card">
+        <Avatar
+          alt="EFR"
+          src={`${rev?.User?.avatar}`}
+          sx={{ width: 54, height: 54 }}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {rev?.review}
-            {' '}
+        <small>
+          {' '}
+          Дата публикации:
+          {' '}
+          {new Date(rev?.createdAt).toLocaleString()}
+          {' '}
+        </small>
+        <div className="name">
+          {' '}
+          Автор:
+          <Button sx={{ color: 'red' }}>{rev?.User?.login}</Button>
 
-          </Typography>
-          <small>
+        </div>
+      </div>
+      <div className="right-text">
+        <div className="high">
+          <h6>
             {' '}
-            Дата публикации:
-            {' '}
-            {new Date(rev?.createdAt).toLocaleString()}
-            {' '}
-          </small>
-          <Typography variant="body2" color="text.secondary">
-            Автор:
-            {rev?.User?.login}
-          </Typography>
-        </CardContent>
-        {/* //отображение кнопок только автору ревью */}
-        { authUser.id === rev?.User?.id
-        && (
-        <CardActions>
-          <Button onClick={() => dispatch(deleteReview(id))} variant="contained" color="error">Удалить</Button>
-          <Button variant="contained" color="inherit">Исправить</Button>
-        </CardActions>
-        )}
-      </CardActionArea>
-    </Card>
+            {rev?.review}
+          </h6>
+        </div>
+        <div className="low" />
+
+      </div>
+      {/* //отображение кнопок только автору ревью */}
+      { authUser.id === rev?.User?.id
+      && (
+      <CardActions>
+        <Button
+          onClick={() => dispatch(deleteReviewAsync(id))}
+          variant="contained"
+          color="error"
+        >
+          Удалить
+
+        </Button>
+      </CardActions>
+      )}
+    </Grid>
   );
 }

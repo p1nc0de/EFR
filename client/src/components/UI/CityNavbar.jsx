@@ -24,8 +24,7 @@ function CityNavbar() {
       >
         <Grid item>
           <Button
-            component={NavLink}
-            to="/"
+            href="/"
             variant="contained"
             size="medium"
             sx={{

@@ -27,18 +27,27 @@ function ReviewsPage() {
     <Box sx={{ bgcolor: '#101010' }}>
       <PhotoCard />
       <CityNavbar />
-
       {authUser?.id ? (
         <TextAreaInput id={id} />
       )
         : (<h1 style={{ color: 'red' }}>Чтобы оставить отзыв - необходимо зарегистрироваться!</h1>)}
-      <Grid container direction="column" sx={{ color: 'text.primary' }}>
-        <Grid item>
-          {review && review?.map((el) => (
-            <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
-          ))}
-        </Grid>
+
+      {/* <Container className="cardGrid"> */}
+      <Grid
+        container
+        spaicing={4}
+        direction="row"
+        justifyContent="space-around"
+        alignItems="flex-start"
+        sx={{ color: 'text.primary' }}
+      >
+
+        {review && review?.map((el) => (
+          <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
+        ))}
+
       </Grid>
+      {/* </Grid> */}
     </Box>
   );
 }
