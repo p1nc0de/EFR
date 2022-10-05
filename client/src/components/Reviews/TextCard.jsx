@@ -11,12 +11,18 @@ export default function TextCard({ authUser, rev, id }) {
   return (
     <Grid
       item
-      md={4}
-      sm={6}
+      md={3}
+      sm={4}
       xs={12}
       // md={{ magrinLeft: '5vw', marginTop: '5vw' }}
+      sx={{
+        bgcolor: '#544c4c',
+        margin: '1px',
+        marginBottom: '1px',
+      }}
+
     >
-      <div className="card">
+      <div>
         <Avatar
           alt="EFR"
           src={`${rev?.User?.avatar}`}

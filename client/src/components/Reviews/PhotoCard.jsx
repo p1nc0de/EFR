@@ -26,7 +26,7 @@ export default function PhotoCard() {
             alt="Помогите, меня заставляют работать по выходным"
           />
         </CardCover>
-        <div className='dark'></div>
+        <div className="dark" />
         <CardContent sx={{ justifyContent: 'flex-center', alignItems: 'center' }}>
           <Typography
             level="h1"
@@ -38,7 +38,7 @@ export default function PhotoCard() {
           </Typography>
         </CardContent>
       </Card>
-    </Box >
+    </Box>
 
   );
 }
