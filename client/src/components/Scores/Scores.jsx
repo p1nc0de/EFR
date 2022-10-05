@@ -26,8 +26,8 @@ function Scores() {
   const nightlife = Math.round(((oneCity?.nightlife) / 5) * 100);
 
   return (
-    <Grid container direction="column" sx={{ color: 'text.primary' }}>
-      <Grid item>
+    <Grid container direction="column" sx={{ color: 'text.primary', bgcolor: '#101010' }}>
+      <Grid itemv>
         <PhotoBackground oneCity={oneCity} />
       </Grid>
       <Grid item>

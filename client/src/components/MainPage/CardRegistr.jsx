@@ -13,13 +13,14 @@ import Signup from '../Signup';
 const style = {
   position: 'absolute',
   bgcolor: '#2e2e36',
+  color: '#35d8ad',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   border: '2px solid #2e2e36',
   borderRadius: '10%',
   boxShadow: 24,
-  opacity: 0.75,
+  opacity: 0.85,
 
 };
 

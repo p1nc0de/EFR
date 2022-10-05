@@ -1,4 +1,5 @@
-import { Container, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -22,7 +23,8 @@ function ReviewsPage() {
   // console.log(review);
 
   return (
-    <>
+
+    <Box sx={{ bgcolor: '#101010' }}>
       <PhotoCard />
       <CityNavbar />
       {authUser?.id ? (
@@ -30,23 +32,23 @@ function ReviewsPage() {
       )
         : (<h1 style={{ color: 'red' }}>Чтобы оставить отзыв - необходимо зарегистрироваться!</h1>)}
 
-      <Container className="cardGrid">
-        <Grid
-          container
-          spaicing={4}
-          direction="row"
-          justifyContent="space-around"
-          alignItems="flex-start"
-          sx={{ color: 'text.primary' }}
-        >
+      {/* <Container className="cardGrid"> */}
+      <Grid
+        container
+        spaicing={4}
+        direction="row"
+        justifyContent="space-around"
+        alignItems="flex-start"
+        sx={{ color: 'text.primary' }}
+      >
 
-          {review && review?.map((el) => (
-            <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
-          ))}
+        {review && review?.map((el) => (
+          <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
+        ))}
 
-        </Grid>
-      </Container>
-    </>
+      </Grid>
+      {/* </Grid> */}
+    </Box>
   );
 }
 
