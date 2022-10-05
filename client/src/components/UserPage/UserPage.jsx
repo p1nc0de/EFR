@@ -1,12 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
-  Avatar, Box, Card,
+  Avatar, Box, Grid, Container, Badge,
 } from '@mui/material';
+// import EditIcon from '@mui/icons-material/Edit';
+// import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+// import Fab from '@mui/material/Fab';
+import Typography from '@mui/material/Typography';
 import { getUser, updateUser } from '../../redux/actions/userActions';
 import EditInformation from './EditInformation';
 import EditAvatar from './EditAvatar';
+
+const theme = createTheme({
+  palette: { primary: { main: '#FFFFFF' } },
+});
 
 export default function UserPage() {
   const [edit, setEdit] = useState(false);
@@ -46,41 +55,81 @@ export default function UserPage() {
   const submitHandler = (e) => dispatch(updateUser(e, form));
 
   return (
-    <Box>
-      <Card sx={{ bgcolor: 'text.disabled' }}>
-        <div className="card">
-          <div className="card-body">
-            {user?.avatar?.includes('http')
-              ? (
-                <Avatar
-                  alt="Remy Sharp"
-                  src={user?.avatar}
-                  sx={{ width: 150, height: 150 }}
-                />
-              )
-              : (
-                <Avatar
-                  alt="Remy Sharp"
-                  src={`http://localhost:3001/photos/${user?.avatar}`}
-                  sx={{ width: 150, height: 150 }}
-                />
-              )}
-            <EditAvatar id={user.id} />
-          </div>
-          <div className="col-md-8">
-            <div className="card-body">
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="lg">
+        <Grid container direction="row">
+          <Box
+            sx={{
+              marginTop: 10,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Typography
+              variant="h2"
+              textColor="#fff"
+              mt={{ sm: 1 }}
+            >
+              {user?.login}
+            </Typography>
+            <p className="card-text"><small className="text-muted">{user?.email}</small></p>
+            <Box
+              sx={{
+                marginTop: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Badge
+                overlap="circular"
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                badgeContent={(
+                  <EditAvatar id={user.id} />
+                )}
+              >
+                {user?.avatar?.includes('http')
+                  ? (
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={user?.avatar}
+                      sx={{ minWidth: 400, minHeight: 400 }}
+                    />
+                  )
+                  : (
+                    <Avatar
+                      alt="Remy Sharp"
+                      src={`http://localhost:3001/photos/${user?.avatar}`}
+                      sx={{ minWidth: 400, minHeight: 400 }}
+                    />
+                  )}
+              </Badge>
+            </Box>
+            <Box
+              sx={{
+                marginTop: 8,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'left',
+              }}
+            >
               {!edit
                 ? (
                   <>
-                    <h5 className="card-title">{user?.login}</h5>
-                    <p className="card-text"><small className="text-muted">{user?.email}</small></p>
+                    <Typography
+                      variant="h4"
+                      textColor="#fff"
+                      mt={{ sm: 1 }}
+                    >
+                      Информация о пользователе
+                    </Typography>
                     <p className="card-text">{`О себе: ${user?.info}`}</p>
                     <p className="card-text">{`Профессия: ${user?.profession}`}</p>
                     <p className="card-text">{`Страна рождения: ${user?.birth_country}`}</p>
                     <p className="card-text">{`Страна проживания: ${user?.current_country}`}</p>
                     <p className="card-text">{`Место мечты: ${user?.future_country}`}</p>
                     <p className="card-text">{`Telegram: ${user?.telegram}`}</p>
-                    <p className="card-text"><small className="text-muted">{`Дата регистрации: ${new Date(user?.createdAt).toLocaleString()}`}</small></p>
                   </>
                 ) : (
                   <form className="row" onSubmit={submitHandler}>
@@ -94,12 +143,13 @@ export default function UserPage() {
                     <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
                   </form>
                 )}
-            </div>
-          </div>
-        </div>
-        <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
-      </Card>
-    </Box>
+              <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
+              <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
+            </Box>
 
+          </Box>
+        </Grid>
+      </Container>
+    </ThemeProvider>
   );
 }
