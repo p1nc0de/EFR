@@ -75,30 +75,40 @@ router.post('/:id/photos', upload.single('photo'), async (req, res) => {
   }
 });
 
-router.get('/:id/reviews', async (req, res) => {
-  try {
-    const { id } = req.params;
-    console.log(id);
-    const cityReviews = await Review.findAll({ where: { city_id: id }, order: [['id', 'DESC']], include: User });
-    res.json(JSON.parse(JSON.stringify(cityReviews)));
-  } catch (e) {
-    console.log(e);
-  }
-});
-router.post('/:id/reviews', async (req, res) => {
-  try {
-    const { input, city_id } = req.body;
-    const { userId } = req.session;
-    const { id } = city_id;
-    const newReview = await Review.create({ review: input, user_id: userId, city_id: id });
-    // const { login } = req.session.user
-    // const { input } = req.body;
-    // const newReview = await Review.create({ review: input, id: req.session.userId, login })
-    res.json(newReview);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(500);
-  }
-});
+router.route('/:id/reviews')
+  .get(async (req, res) => {
+    try {
+      const { id } = req.params;
+      console.log(id);
+      const cityReviews = await Review.findAll({ where: { city_id: id }, order: [['id', 'DESC']], include: User });
+      res.json(JSON.parse(JSON.stringify(cityReviews)));
+    } catch (e) {
+      console.log(e);
+    }
+  })
+  .post(async (req, res) => {
+    try {
+      const { input, city_id } = req.body;
+      const { userId } = req.session;
+      const { id } = city_id;
+      const newReview = await Review.create({ review: input, user_id: userId, city_id: id });
+      // const { login } = req.session.user
+      // const { input } = req.body;
+      // const newReview = await Review.create({ review: input, id: req.session.userId, login })
+      res.json(newReview);
+    } catch (error) {
+      console.log(error);
+      res.sendStatus(500);
+    }
+  })
+  .delete(async (req, res) => {
+    try {
+      await Review.destroy({ where: { id: req.params.id } });
+      res.sendStatus(200);
+    } catch (e) {
+      console.log(e);
+      res.sendStatus(500);
+    }
+  });
 
 module.exports = router;

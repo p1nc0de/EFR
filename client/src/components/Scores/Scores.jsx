@@ -10,9 +10,11 @@ import './index.scss';
 function Scores() {
   const { city } = useSelector((s) => s);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchAllCities());
   }, []);
+
   const { id } = useParams();
   const oneCity = city[id - 1];
   console.log(oneCity?.map_url);

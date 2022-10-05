@@ -22,17 +22,21 @@ function ReviewsPage() {
   // console.log(review);
 
   return (
-
     <>
       <PhotoCard />
       <CityNavbar />
-
       {authUser?.id ? (
         <TextAreaInput id={id} />
       )
         : (<h1 style={{ color: 'red' }}>Чтобы оставить отзыв - необходимо зарегистрироваться!</h1>)}
-      <Grid container direction="column" sx={{ color: 'text.primary' }}>
-        <Grid item>
+      <Grid
+        container
+        direction="row"
+        justifyContent="space-around"
+        alignItems="flex-start"
+        sx={{ color: 'text.primary' }}
+      >
+        <Grid item xs={4}>
           {review && review?.map((el) => (
             <TextCard authUser={authUser} key={el.id} id={el.id} rev={el} />
           ))}
