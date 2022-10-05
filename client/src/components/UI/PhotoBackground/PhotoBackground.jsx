@@ -13,7 +13,7 @@ export default function PhotoBackground({ oneCity }) {
         display: 'flex', gap: 2, flexWrap: 'wrap', p: 0, m: 0,
       }}
     >
-      <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
+      <Card component="li" sx={{ minWidth: 300, flexGrow: 1, height: 390 }}>
         <CardCover>
           <img
             src={`${oneCity?.photo}`}
@@ -21,15 +21,15 @@ export default function PhotoBackground({ oneCity }) {
             alt="background"
           />
         </CardCover>
+        <div className='dark'></div>
         <CardContent sx={{ justifyContent: 'flex-center', alignItems: 'center' }}>
           <Typography
-            level="h3"
+            level="h1"
             fontWeight="lg"
             textColor="#fff"
             mt={{ xs: 12, sm: 18 }}
-            backgroundColor="#2F4F4F"
           >
-            <h3>{`${oneCity?.name}`}</h3>
+            <h1>{`${oneCity?.name}`}</h1>
           </Typography>
         </CardContent>
       </Card>

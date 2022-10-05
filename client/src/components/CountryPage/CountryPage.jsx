@@ -48,7 +48,7 @@ function CountryPage() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item sx={{ bgcolor: '#101010', width: "100%", minHeight: "420px" }}>
+      <Grid item sx={{ bgcolor: '#101010', width: "100%", minHeight: "610px" }}>
         <Countybuttons />
         <Grid container spacing={2}>
           {city && city?.map((el) => (
