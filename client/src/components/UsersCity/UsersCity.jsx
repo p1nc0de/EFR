@@ -47,7 +47,7 @@ export default function UsersCity() {
   // const [open, setOpen] = React.useState(false);
 
   return (
-    <Grid container direction="column" sx={{ color: 'text.primary' }}>
+    <Grid container direction="column" sx={{ bgcolor: '#101010', color: 'text.primary' }}>
       <Grid item>
         <PhotoBackground oneCity={oneCity} />
       </Grid>

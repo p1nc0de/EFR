@@ -54,12 +54,24 @@ export default function MasonryImageList() {
         </Box>
       </Modal>
 
-      <ImageList sx={{ width: 2000 }}>
+      <ImageList
+        cols={3}
+        sx={{
+          marginLeft: '20px',
+          width: '100% ',
+        }}
+      >
         {photo?.map((el) => (
-          <ImageListItem key={el.img}>
+          <ImageListItem
+            sx={{
+              width: '600px',
+            }}
+            key={el.img}
+          >
             {el.photo.includes('http')
               ? (
                 <img
+                  style={{ border: 'solid 3px #db840880' }}
                   src={`${el.photo}?w=248&fit=crop&auto=format`}
                   srcSet={`${el.photo}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={el.description}
@@ -69,6 +81,7 @@ export default function MasonryImageList() {
               )
               : (
                 <img
+                  style={{ border: 'solid 3px #db840880' }}
                   src={`http://localhost:3001/photos/${el.photo}?w=248&fit=crop&auto=format`}
                   srcSet={`${el.photo}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={el.description}
@@ -76,6 +89,7 @@ export default function MasonryImageList() {
                 />
               )}
             <ImageListItemBar
+              sx={{ color: 'white' }}
               title={el.description}
               subtitle={(
                 <a href={`/users/${el?.User?.id}`}>

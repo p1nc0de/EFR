@@ -7,34 +7,38 @@ import Typography from '@mui/joy/Typography';
 import { useSelector } from 'react-redux';
 
 export default function PhotoCard() {
-    const oneCity = useSelector((state) => state.oneCity);
+  const oneCity = useSelector((state) => state.oneCity);
 
-    return (
-        <Box
-            component="ul"
-            sx={{
-                display: 'flex', gap: 2, flexWrap: 'wrap', p: 0, m: 0,
-            }}
-        >
-            <Card component="li" sx={{ minWidth: 300, flexGrow: 1 }}>
-                <CardCover>
-                    <img
-                        src={`${oneCity?.photo}`}
-                        srcSet={`${oneCity?.photo}`}
-                        alt="Помогите, меня заставляют работать по выходным"
-                    />
-                </CardCover>
-                <CardContent sx={{ justifyContent: 'flex-center', alignItems: 'center' }}>
-                    <Typography
-                        level="h3"
-                        fontWeight="lg"
-                        textColor="#fff"
-                        mt={{ xs: 12, sm: 18 }}
-                    >
-                        <h3>{`${oneCity?.name}`}</h3>
-                    </Typography>
-                </CardContent>
-            </Card>
-        </Box>
-    );
+  return (
+
+    <Box
+      component="ul"
+      sx={{
+        display: 'flex', gap: 2, flexWrap: 'wrap', p: 0, m: 0,
+      }}
+    >
+      <Card component="li" sx={{ minWidth: 400, flexGrow: 1, height: 390 }}>
+        <CardCover>
+
+          <img
+            src={`${oneCity?.photo}`}
+            srcSet={`${oneCity?.photo}`}
+            alt="Помогите, меня заставляют работать по выходным"
+          />
+        </CardCover>
+        <div className='dark'></div>
+        <CardContent sx={{ justifyContent: 'flex-center', alignItems: 'center' }}>
+          <Typography
+            level="h1"
+            fontWeight="lg"
+            textColor="#fff"
+            mt={{ xs: 12, sm: 18 }}
+          >
+            <h1>{`${oneCity?.name}`}</h1>
+          </Typography>
+        </CardContent>
+      </Card>
+    </Box >
+
+  );
 }

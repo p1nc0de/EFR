@@ -7,10 +7,13 @@ import {
 } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 // import { useNavigate } from 'react-router-dom';
+
 import { loginUserAsync } from '../../redux/actions/authActions';
 
 const theme = createTheme({
-  palette: { primary: { main: '#FFFFFF' } },
+  palette: {
+    primary: { main: '#FFFFFF' },
+  },
 });
 
 export default function LoginPage({ setOpen }) {
@@ -37,6 +40,7 @@ export default function LoginPage({ setOpen }) {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            bgcolor: 'black',
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'gray' }}>
@@ -71,7 +75,9 @@ export default function LoginPage({ setOpen }) {
               color="success"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2, bgcolor: 'gray' }}
+              sx={{
+                mt: 3, mb: 2, bgcolor: 'darkgray',
+              }}
             >
               Войти
             </LoadingButton>

@@ -22,8 +22,8 @@ function CostOfLiving() {
   const currency = 'usd';
 
   return (
-    <Grid container direction="column" sx={{ color: 'text.primary' }}>
-      <Grid item>
+    <Grid container direction="column" sx={{ color: 'text.primary', bgcolor: '#101010' }}>
+      <Grid item >
         <PhotoBackground oneCity={oneCity} />
       </Grid>
       <Grid item>

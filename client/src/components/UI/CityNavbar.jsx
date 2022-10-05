@@ -19,11 +19,12 @@ function CityNavbar() {
         justifyContent="flex-start"
         alignItems="center"
         spacing={4}
+        marginBottom="10px"
+        marginLeft="10px"
       >
         <Grid item>
           <Button
-            component={NavLink}
-            to="/"
+            href="/"
             variant="contained"
             size="medium"
             sx={{
