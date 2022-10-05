@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
-  Avatar, Box, Grid, Container, Badge, CardActions,
+  Avatar, Box, Grid, Container, Badge,
 } from '@mui/material';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -23,6 +22,7 @@ import Card from '@mui/material/Card';
 import { getUser, updateUser } from '../../redux/actions/userActions';
 import EditInformation from './EditInformation';
 import EditAvatar from './EditAvatar';
+import TelegramButton from './TelegramButton';
 
 const theme = createTheme({
   palette: { primary: { main: '#FFFFFF' } },
@@ -199,7 +199,6 @@ export default function UserPage() {
                       <ListItemText primary={`${user?.profession ? user?.profession : ''}`} secondary="Профессия" />
                     </ListItem>
                     <Divider variant="inset" component="li" />
-
                     <ListItem>
                       <ListItemAvatar>
                         <Avatarka>
@@ -263,26 +262,7 @@ export default function UserPage() {
                   </Typography>
                 </>
               ) : (
-                <>
-                  <CardActions>
-                    <Button
-                      component={Link}
-                    // target="_blank"
-                    // to={`/${user?.telegram}`}
-                    // onClick={() => window.location.reload()}
-                      variant="contained"
-                      color="error"
-                      size="sm"
-                      sx={{ textDecoration: 'none', margin: '1rem', width: 330 }}
-                      type="button"
-                    >
-                      Связаться в Telegram
-                      {' '}
-                      {' '}
-                      <TelegramIcon color="white" fontSize="small" />
-                    </Button>
-                  </CardActions>
-                </>
+                <TelegramButton user={user} />
               )}
             </Box>
             <Divider variant="inset" component="li" />
