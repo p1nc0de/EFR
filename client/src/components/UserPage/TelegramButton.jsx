@@ -19,7 +19,9 @@ export default function TelegramButton({ user, authUser }) {
               variant="contained"
               color="error"
               size="sm"
-              sx={{ textDecoration: 'none', margin: '1rem', width: 330 }}
+              sx={{
+                textDecoration: 'none', margin: '1rem', width: 330, color: 'w', '&:hover': { backgroundColor: 'white' },
+              }}
               type="button"
             >
               Связаться в Telegram

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   CardActions,
@@ -10,18 +10,42 @@ export default function EditInformation({
   edit, setEdit, id, form,
 }) {
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(true);
   return (
     <>
+      {open
+      && (
       <CardActions>
-        <Button type="button" onClick={() => setEdit(!edit)} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem', width: 330 }}>
+        <Button type="button" onClick={() => { setEdit(!edit); setOpen(!open); }} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem', width: 330 }}>
           Редактировать
         </Button>
       </CardActions>
+      )}
       {edit
         && (
         <>
-          <button type="button" className="btn btn-outline-secondary" onClick={() => dispatch(getUser(id), setEdit(!edit))}>Отменить</button>
-          <button type="button" className="btn btn-outline-success" onClick={() => dispatch(updateUser(id, form), setEdit(!edit))}>Сохранить</button>
+          <Button
+            onClick={() => dispatch(updateUser(id, form), setEdit(!edit), setOpen(!open))}
+            type="submit"
+            variant="contained"
+            size="sm"
+            sx={{
+              textDecoration: 'none', width: 330, backgroundColor: 'gray', opacity: 0.8, color: 'black', '&:hover': { backgroundColor: 'red', color: 'white' },
+            }}
+          >
+            Сохранить
+          </Button>
+          <Button
+            onClick={() => dispatch(getUser(id), setEdit(!edit), setOpen(!open))}
+            type="button"
+            variant="contained"
+            size="sm"
+            sx={{
+              textDecoration: 'none', width: 330, backgroundColor: 'gray', opacity: 0.8, color: 'black', '&:hover': { backgroundColor: 'grey', color: 'white' },
+            }}
+          >
+            Отменить
+          </Button>
         </>
 
         )}

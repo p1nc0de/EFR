@@ -5,6 +5,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
   Avatar, Box, Grid, Container, Badge,
 } from '@mui/material';
+import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -202,6 +203,15 @@ export default function UserPage() {
                     <ListItem>
                       <ListItemAvatar>
                         <Avatarka>
+                          <CakeIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.birth_country ? user?.birth_country : ''}`} secondary="Страна рождения" />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
                           <PlaceIcon fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
@@ -217,15 +227,6 @@ export default function UserPage() {
                       <ListItemText primary={`${user?.future_country}`} secondary="Место мечты" />
                     </ListItem>
                     <Divider variant="inset" component="li" />
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <CakeIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.birth_country ? user?.birth_country : ''}`} secondary="Страна рождения" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
 
                     {authUser?.id && (
                     <ListItem>
@@ -239,16 +240,75 @@ export default function UserPage() {
                     )}
                   </List>
                 ) : (
-                  <form className="row" onSubmit={submitHandler}>
-                    <p className="card-text"><small className="text-muted">{user?.email}</small></p>
-                    <input className="form-control" name="login" type="text" value={form.login} onChange={changeHandler} />
-                    <input className="form-control" name="info" type="text" value={form.info} onChange={changeHandler} />
-                    <input className="form-control" name="profession" type="text" value={form.profession} onChange={changeHandler} />
-                    <input className="form-control" name="birth_country" type="text" value={form.birth_country} onChange={changeHandler} />
-                    <input className="form-control" name="current_country" type="text" value={form.current_country} onChange={changeHandler} />
-                    <input className="form-control" name="future_country" type="text" value={form.future_country} onChange={changeHandler} />
-                    <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
-                  </form>
+
+                  <Box
+                    component="form"
+                    sx={{
+                      '& .MuiTextField-root': { m: 1, width: '35ch' },
+                      display: 'flex',
+                      flexDirection: 'column',
+                    }}
+                    noValidate
+                    autoComplete="off"
+                    onSubmit={submitHandler}
+                  >
+                    <TextField
+                      name="login"
+                      type="text"
+                      label="Имя пользователя"
+                      defaultValue={form.login}
+                      variant="standard"
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      name="info"
+                      type="text"
+                      label="Информация о себе"
+                      defaultValue={form.info}
+                      variant="standard"
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      name="profession"
+                      type="text"
+                      label="Профессия"
+                      defaultValue={form.profession}
+                      variant="standard"
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      name="birth_country"
+                      type="text"
+                      label="Страна рождения"
+                      defaultValue={form.birth_country}
+                      variant="standard"
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      name="future_country"
+                      type="text"
+                      label="Место мечты"
+                      defaultValue={form.future_country}
+                      variant="standard"
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      name="current_country"
+                      type="text"
+                      label="Город проживания"
+                      defaultValue={form.current_country}
+                      variant="standard"
+                      onChange={changeHandler}
+                    />
+                    <TextField
+                      name="telegram"
+                      type="text"
+                      label="Telegram"
+                      defaultValue={form.telegram}
+                      variant="standard"
+                      onChange={changeHandler}
+                    />
+                  </Box>
                 )}
               {authUser?.id === user?.id ? (
                 <>
