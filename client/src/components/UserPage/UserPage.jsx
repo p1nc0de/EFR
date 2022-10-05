@@ -29,7 +29,7 @@ const theme = createTheme({
 
 export default function UserPage() {
   const [edit, setEdit] = useState(false);
-  const authUser = useSelector((store) => store.authUser);
+  // const authUser = useSelector((store) => store.authUser);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const { id } = useParams();
@@ -51,7 +51,6 @@ export default function UserPage() {
       login: user?.login || '',
       info: user?.info || '',
       profession: user?.profession || '',
-
       birth_country: user?.birth_country || '',
       current_country: user?.current_country || '',
       future_country: user?.future_country || '',
@@ -62,6 +61,7 @@ export default function UserPage() {
   const changeHandler = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   const submitHandler = (e) => dispatch(updateUser(e, form));
 
+  console.log(user.avatar);
   return (
     <ThemeProvider theme={theme}>
       <Card sx={{
@@ -91,50 +91,50 @@ export default function UserPage() {
                 {user?.login}
               </Typography>
               <p className="card-text"><small className="text-muted">{user?.email}</small></p>
-              {authUser?.id === user?.id ? (
-                <Badge
-                  overlap="circular"
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                  badgeContent={(
-                    <EditAvatar id={user.id} />
+              {/* {authUser?.id === user?.id ? ( */}
+              <Badge
+                overlap="circular"
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                badgeContent={(
+                  <EditAvatar id={user.id} />
                     )}
-                >
-                  {user?.avatar?.includes('http')
-                    ? (
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={user?.avatar}
-                        sx={{ minWidth: 400, minHeight: 400 }}
-                      />
-                    )
-                    : (
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={`http://localhost:3001/photos/${user?.avatar}`}
-                        sx={{ minWidth: 400, minHeight: 400 }}
-                      />
-                    )}
-                </Badge>
-              )
+              >
+                {user?.avatar?.includes('http')
+                  ? (
+                    <Avatar
+                      alt={user?.login}
+                      src={user?.avatar}
+                      sx={{ minWidth: 400, minHeight: 400 }}
+                    />
+                  )
+                  : (
+                    <Avatar
+                      alt={user?.login}
+                      src={`http://localhost:3001/photos/${user?.avatar}`}
+                      sx={{ minWidth: 400, minHeight: 400 }}
+                    />
+                  )}
+              </Badge>
+              {/* )
                 : (
                   <>
                     {user?.avatar?.includes('http')
                       ? (
                         <Avatar
-                          alt="Remy Sharp"
+                          alt={user?.login}
                           src={user?.avatar}
                           sx={{ minWidth: 300, minHeight: 300 }}
                         />
                       )
                       : (
                         <Avatar
-                          alt="Remy Sharp"
+                          alt={user?.login}
                           src={`http://localhost:3001/photos/${user?.avatar}`}
                           sx={{ minWidth: 300, minHeight: 300 }}
                         />
                       )}
                   </>
-                )}
+                )} */}
             </Box>
             <Box
               sx={{
@@ -165,16 +165,7 @@ export default function UserPage() {
                           <Person2 fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
-                      <ListItemText primary={`${user?.info}`} secondary="О себе" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <TelegramIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.telegram}`} secondary="Telegram" />
+                      <ListItemText primary={`${user?.info ? user?.info : ''}`} secondary="О себе" />
                     </ListItem>
                     <Divider variant="inset" component="li" />
                     <ListItem>
@@ -183,7 +174,7 @@ export default function UserPage() {
                           <WorkIcon fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
-                      <ListItemText primary={`${user?.profession}`} secondary="Профессия" />
+                      <ListItemText primary={`${user?.profession ? user?.profession : ''}`} secondary="Профессия" />
                     </ListItem>
                     <Divider variant="inset" component="li" />
 
@@ -211,7 +202,16 @@ export default function UserPage() {
                           <CakeIcon fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
-                      <ListItemText primary={`${user?.birth_country}`} secondary="Страна рождения" />
+                      <ListItemText primary={`${user?.birth_country ? user?.birth_countr : ''}`} secondary="Страна рождения" />
+                    </ListItem>
+                    <Divider variant="inset" component="li" />
+                    <ListItem>
+                      <ListItemAvatar>
+                        <Avatarka>
+                          <TelegramIcon fontSize="small" />
+                        </Avatarka>
+                      </ListItemAvatar>
+                      <ListItemText primary={`${user?.telegram ? user?.telegram : ''}`} secondary="Telegram" />
                     </ListItem>
                   </List>
                 ) : (
@@ -226,11 +226,11 @@ export default function UserPage() {
                     <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
                   </form>
                 )}
-              {authUser?.id === user?.id ? (
-                <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
-              ) : (
-                <div />
-              )}
+              {/* {authUser?.id === user?.id ? ( */}
+              <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
+              {/* ) : ( */}
+              <div />
+              {/* )} */}
               <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
             </Box>
             <Divider variant="inset" component="li" />
