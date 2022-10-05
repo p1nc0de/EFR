@@ -23,7 +23,7 @@ function CostOfLiving() {
 
   return (
     <Grid container direction="column" sx={{ color: 'text.primary', bgcolor: '#101010' }}>
-      <Grid item >
+      <Grid item>
         <PhotoBackground oneCity={oneCity} />
       </Grid>
       <Grid item>

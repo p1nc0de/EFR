@@ -19,7 +19,7 @@ function CountryPage() {
     dispatch(fetchCountryCities(id));
   }, [id]);
   return (
-    <Grid container >
+    <Grid container>
       <Grid item sx={{ height: '400px', width: '100%' }}>
         <Video />
       </Grid>
@@ -48,7 +48,7 @@ function CountryPage() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item sx={{ bgcolor: '#101010', width: "100%", minHeight: "610px" }}>
+      <Grid item sx={{ bgcolor: '#101010', width: '100%', minHeight: '610px' }}>
         <Countybuttons />
         <Grid container spacing={2}>
           {city && city?.map((el) => (

@@ -10,16 +10,21 @@ export default function TextAreaInput(id) {
   const changeHandler = useCallback((e) => setInput(e.target.value), []);
   const submitHandler = (e) => dispatch(submitReviewAsync(e, input, setInput, id));
   return (
-    <Box component="form" onSubmit={submitHandler}>
+    <Box
+      sx={{ bgcolor: '#101010' }}
+      component="form"
+      onSubmit={submitHandler}
+    >
       <Textarea
-        color="danger"
+        sx={{ bgcolor: '#544c4c' }}
         disabled={false}
-        minRows={2}
-        placeholder="Напиши что-нибудь"
-        size="lg"
+        minRows={3}
+        placeholder="Напиши cвои впечатления о городе"
+        size="md"
         variant="outlined"
         value={input}
         onChange={changeHandler}
+
       />
       <Button type="submit" variant="contained" color="error">
         Оставить отзыв
