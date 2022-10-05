@@ -248,6 +248,18 @@ h1 {
 	left: 0;
 }
 
+#login {
+	color: white;
+}
+
+#email {
+	color: white;
+}
+
+#password {
+	color: white;
+}
+
 /* .photoCardphoto {
 	background-color: black;
 } */
