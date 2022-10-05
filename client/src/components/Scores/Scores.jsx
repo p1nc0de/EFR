@@ -1,5 +1,5 @@
 import {
-  Grid, CardActionArea, CardMedia, Card, Box,
+  Grid
 } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -22,7 +22,7 @@ function Scores() {
   console.log(oneCity?.map_url);
 
   const eng = Math.round(((oneCity?.english_speaking) / 5) * 100);
-  const quality = oneCity?.quality_of_life;
+
 
   return (
     <Grid container direction="column" sx={{ color: 'text.primary' }}>
