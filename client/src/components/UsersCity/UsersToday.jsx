@@ -67,7 +67,6 @@ export default function UsersToday({ users, oneCity }) {
                 <Button component={NavLink} to={`/users/${user?.id}`} variant="contained" color="grey" size="sm" sx={{ textDecoration: 'none' }}>
                   {user?.login}
                 </Button>
-
               </CardActions>
             </Card>
           </Grid>

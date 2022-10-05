@@ -12,19 +12,6 @@ import UsersTomorrow from './UsersTomorrow';
 
 // import UserPage from '../UserPage/UserPage';
 
-// const style = {
-//   position: 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: 400,
-//   bgcolor: 'background.paper',
-//   border: '2px solid #000',
-//   borderRadius: '10%',
-//   boxShadow: 24,
-//   p: 4,
-// };
-
 export default function UsersCity() {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -39,12 +26,6 @@ export default function UsersCity() {
   useEffect(() => {
     dispatch(getAllUsers(id));
   }, []);
-
-  // console.log('main', id);
-  // console.log('main', city);
-  // console.log('main', oneCity);
-
-  // const [open, setOpen] = React.useState(false);
 
   return (
     <Grid container direction="column" sx={{ bgcolor: '#101010', color: 'text.primary' }}>

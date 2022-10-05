@@ -29,11 +29,9 @@ const theme = createTheme({
 
 export default function UserPage() {
   const [edit, setEdit] = useState(false);
-
+  const authUser = useSelector((store) => store.authUser);
   const dispatch = useDispatch();
-
   const user = useSelector((state) => state.user);
-
   const { id } = useParams();
 
   const [form, setForm] = useState({
@@ -93,29 +91,50 @@ export default function UserPage() {
                 {user?.login}
               </Typography>
               <p className="card-text"><small className="text-muted">{user?.email}</small></p>
-              <Badge
-                overlap="circular"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                badgeContent={(
-                  <EditAvatar id={user.id} />
+              {authUser?.id === user?.id ? (
+                <Badge
+                  overlap="circular"
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                  badgeContent={(
+                    <EditAvatar id={user.id} />
+                    )}
+                >
+                  {user?.avatar?.includes('http')
+                    ? (
+                      <Avatar
+                        alt="Remy Sharp"
+                        src={user?.avatar}
+                        sx={{ minWidth: 400, minHeight: 400 }}
+                      />
+                    )
+                    : (
+                      <Avatar
+                        alt="Remy Sharp"
+                        src={`http://localhost:3001/photos/${user?.avatar}`}
+                        sx={{ minWidth: 400, minHeight: 400 }}
+                      />
+                    )}
+                </Badge>
+              )
+                : (
+                  <>
+                    {user?.avatar?.includes('http')
+                      ? (
+                        <Avatar
+                          alt="Remy Sharp"
+                          src={user?.avatar}
+                          sx={{ minWidth: 300, minHeight: 300 }}
+                        />
+                      )
+                      : (
+                        <Avatar
+                          alt="Remy Sharp"
+                          src={`http://localhost:3001/photos/${user?.avatar}`}
+                          sx={{ minWidth: 300, minHeight: 300 }}
+                        />
+                      )}
+                  </>
                 )}
-              >
-                {user?.avatar?.includes('http')
-                  ? (
-                    <Avatar
-                      alt="Remy Sharp"
-                      src={user?.avatar}
-                      sx={{ minWidth: 400, minHeight: 400 }}
-                    />
-                  )
-                  : (
-                    <Avatar
-                      alt="Remy Sharp"
-                      src={`http://localhost:3001/photos/${user?.avatar}`}
-                      sx={{ minWidth: 400, minHeight: 400 }}
-                    />
-                  )}
-              </Badge>
             </Box>
             <Box
               sx={{
@@ -207,7 +226,11 @@ export default function UserPage() {
                     <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
                   </form>
                 )}
-              <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
+              {authUser?.id === user?.id ? (
+                <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
+              ) : (
+                <div />
+              )}
               <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
             </Box>
             <Divider variant="inset" component="li" />
