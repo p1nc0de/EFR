@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
-  Avatar, Box, Grid, Container, Badge,
+  Avatar, Box, Grid, Container, Badge, CardActions,
 } from '@mui/material';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -29,7 +30,7 @@ const theme = createTheme({
 
 export default function UserPage() {
   const [edit, setEdit] = useState(false);
-  // const authUser = useSelector((store) => store.authUser);
+  const authUser = useSelector((store) => store.authUser);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const { id } = useParams();
@@ -70,6 +71,9 @@ export default function UserPage() {
         marginLeft: 10,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#f1f1f3',
+        boxShadow: 15,
+        // opacity: 0.9,
       }}
       >
         <Container component="main" maxWidth="lg">
@@ -77,7 +81,9 @@ export default function UserPage() {
             <Divider variant="inset" component="li" />
             <Box
               sx={{
-                // marginTop: 10,
+                marginTop: 1,
+                marginBottom: 3,
+                marginRight: 5,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'left',
@@ -90,32 +96,48 @@ export default function UserPage() {
               >
                 {user?.login}
               </Typography>
-              <p className="card-text"><small className="text-muted">{user?.email}</small></p>
-              {/* {authUser?.id === user?.id ? ( */}
-              <Badge
-                overlap="circular"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                badgeContent={(
-                  <EditAvatar id={user.id} />
-                    )}
+
+              {authUser?.id && (
+              <Typography
+                variant="body2"
+                color="#2e2e36"
+                mt={{ sm: 1 }}
               >
-                {user?.avatar?.includes('http')
-                  ? (
-                    <Avatar
-                      alt={user?.login}
-                      src={user?.avatar}
-                      sx={{ minWidth: 400, minHeight: 400 }}
-                    />
-                  )
-                  : (
-                    <Avatar
-                      alt={user?.login}
-                      src={`http://localhost:3001/photos/${user?.avatar}`}
-                      sx={{ minWidth: 400, minHeight: 400 }}
-                    />
-                  )}
-              </Badge>
-              {/* )
+                {user?.email}
+              </Typography>
+              )}
+
+              {authUser?.id === user?.id ? (
+                <>
+                  <Badge
+                    overlap="circular"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    badgeContent={(
+                      <EditAvatar id={user.id} />
+                    )}
+                  >
+                    {user?.avatar?.includes('http')
+                      ? (
+                        <Avatar
+                          alt={user?.login}
+                          src={user?.avatar}
+                          sx={{ minWidth: 400, minHeight: 400 }}
+                          style={{
+                            border: '1px solid lightgray',
+                          }}
+                        />
+
+                      )
+                      : (
+                        <Avatar
+                          alt={user?.login}
+                          src={`http://localhost:3001/photos/${user?.avatar}`}
+                          sx={{ minWidth: 400, minHeight: 400 }}
+                        />
+                      )}
+                  </Badge>
+                </>
+              )
                 : (
                   <>
                     {user?.avatar?.includes('http')
@@ -123,18 +145,18 @@ export default function UserPage() {
                         <Avatar
                           alt={user?.login}
                           src={user?.avatar}
-                          sx={{ minWidth: 300, minHeight: 300 }}
+                          sx={{ minWidth: 400, minHeight: 400 }}
                         />
                       )
                       : (
                         <Avatar
                           alt={user?.login}
                           src={`http://localhost:3001/photos/${user?.avatar}`}
-                          sx={{ minWidth: 300, minHeight: 300 }}
+                          sx={{ minWidth: 400, minHeight: 400 }}
                         />
                       )}
                   </>
-                )} */}
+                )}
             </Box>
             <Box
               sx={{
@@ -202,9 +224,11 @@ export default function UserPage() {
                           <CakeIcon fontSize="small" />
                         </Avatarka>
                       </ListItemAvatar>
-                      <ListItemText primary={`${user?.birth_country ? user?.birth_countr : ''}`} secondary="Страна рождения" />
+                      <ListItemText primary={`${user?.birth_country ? user?.birth_country : ''}`} secondary="Страна рождения" />
                     </ListItem>
                     <Divider variant="inset" component="li" />
+
+                    {authUser?.id && (
                     <ListItem>
                       <ListItemAvatar>
                         <Avatarka>
@@ -213,6 +237,7 @@ export default function UserPage() {
                       </ListItemAvatar>
                       <ListItemText primary={`${user?.telegram ? user?.telegram : ''}`} secondary="Telegram" />
                     </ListItem>
+                    )}
                   </List>
                 ) : (
                   <form className="row" onSubmit={submitHandler}>
@@ -226,12 +251,39 @@ export default function UserPage() {
                     <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
                   </form>
                 )}
-              {/* {authUser?.id === user?.id ? ( */}
-              <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
-              {/* ) : ( */}
-              <div />
-              {/* )} */}
-              <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
+              {authUser?.id === user?.id ? (
+                <>
+                  <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
+                  <Typography
+                    variant="caption"
+                    color="#2e2e36"
+                    mt={{ sm: -2 }}
+                  >
+                    {`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  <CardActions>
+                    <Button
+                      component={Link}
+                    // target="_blank"
+                    // to={`/${user?.telegram}`}
+                    // onClick={() => window.location.reload()}
+                      variant="contained"
+                      color="error"
+                      size="sm"
+                      sx={{ textDecoration: 'none', margin: '1rem', width: 330 }}
+                      type="button"
+                    >
+                      Связаться в Telegram
+                      {' '}
+                      {' '}
+                      <TelegramIcon color="white" fontSize="small" />
+                    </Button>
+                  </CardActions>
+                </>
+              )}
             </Box>
             <Divider variant="inset" component="li" />
           </Grid>

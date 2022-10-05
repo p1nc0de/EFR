@@ -13,7 +13,7 @@ export default function EditInformation({
   return (
     <>
       <CardActions>
-        <Button type="button" onClick={() => setEdit(!edit)} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+        <Button type="button" onClick={() => setEdit(!edit)} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem', width: 330 }}>
           Редактировать
         </Button>
       </CardActions>
