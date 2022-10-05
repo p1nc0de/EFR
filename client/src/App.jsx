@@ -33,7 +33,6 @@ function App() {
   }, []);
 
   return (
-    // <ThemeProvider theme={theme}>
     <Routes>
       <Route path="/" element={<MainPage />} />
       {/* <Route path="/city" element={<AllCities />} /> */}
@@ -49,7 +48,6 @@ function App() {
       <Route path="/users/:id" element={<UserPage />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
-    // </ThemeProvider>
   );
 }
 

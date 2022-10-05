@@ -202,3 +202,52 @@ h1 {
 	line-height: 150%;
 }
  */
+
+.podlogka {
+	width: 107%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+	height: 41%;
+	position: relative;
+	left: -3.5%;
+	top: 35%;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	color: white;
+	padding-left: 15px;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+.logoHigh {
+	margin-left: 130px;
+	font-weight: bold;
+	color: white;
+}
+
+.logoLow {
+	margin-left: 70px;
+	font-weight: lighter;
+	color: white;
+
+}
+
+.textCont {
+	background: black;
+	opacity: 0.65;
+	display: flex;
+	position: relative;
+	/* left: ; */
+}
+
+.textCont img {
+	height: 75px;
+	margin-left: 15px;
+
+}
+
+.beznaz {
+	position: relative;
+	/* margin-right: 40px; */
+	right: 40px;
+}

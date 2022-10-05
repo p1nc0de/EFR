@@ -5,53 +5,59 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { deleteReview } from '../../redux/actions/reviewActions';
+import { Col, Row } from 'reactstrap';
+import { deleteReviewAsync } from '../../redux/actions/reviewActions';
 
 export default function TextCard({ authUser, rev, id }) {
   const dispatch = useDispatch();
 
   return (
 
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 1000 }}>
 
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="240"
-          image={`${rev?.User?.avatar}`}
-          alt="фотография 10х12"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="body2" component="div">
-            {rev?.review}
-          </Typography>
-          <small>
-            {' '}
-            Дата публикации:
-            {' '}
-            {new Date(rev?.createdAt).toLocaleString()}
-            {' '}
-          </small>
-          <Typography variant="body2" color="text.secondary">
-            Автор:
-            <Button sx={{ color: 'red' }}>{rev?.User?.login}</Button>
-          </Typography>
-        </CardContent>
-        {/* //отображение кнопок только автору ревью */}
-        { authUser.id === rev?.User?.id
+        <Row>
+          <Col>
+            <CardMedia
+              component="img"
+              height="240"
+              image={`${rev?.User?.avatar}`}
+              alt="фотография 10х12"
+            />
+          </Col>
+          <Col>
+            <CardContent sx={{ width: '500px' }}>
+              <Typography gutterBottom variant="body2" component="div">
+                {rev?.review}
+              </Typography>
+              <small>
+                {' '}
+                Дата публикации:
+                {' '}
+                {new Date(rev?.createdAt).toLocaleString()}
+                {' '}
+              </small>
+              <Typography variant="body2" color="text.secondary">
+                Автор:
+                <Button sx={{ color: 'red' }}>{rev?.User?.login}</Button>
+              </Typography>
+            </CardContent>
+          </Col>
+          {/* //отображение кнопок только автору ревью */}
+          { authUser.id === rev?.User?.id
       && (
       <CardActions>
         <Button
-          onClick={() => dispatch(deleteReview(id))}
+          onClick={() => dispatch(deleteReviewAsync(id))}
           variant="contained"
           color="error"
         >
           Удалить
 
         </Button>
-        <Button variant="contained" color="inherit">Исправить</Button>
       </CardActions>
       )}
+        </Row>
       </CardActionArea>
 
     </Card>
