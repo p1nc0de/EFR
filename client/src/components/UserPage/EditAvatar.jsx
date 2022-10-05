@@ -1,6 +1,9 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import EditIcon from '@mui/icons-material/Edit';
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import Fab from '@mui/material/Fab';
 import { updateAvatar } from '../../redux/actions/userActions';
 
 export default function EditAvatar(id) {
@@ -20,12 +23,15 @@ export default function EditAvatar(id) {
   };
   return (
     <>
-      <button type="button" className="btn btn-outline-success" onClick={() => setEditAvatar(true)}>Редактировать фотографию</button>
+      <Fab color="secondary" aria-label="edit">
+        <AddPhotoAlternateIcon onClick={() => setEditAvatar(!editAvatar)} />
+      </Fab>
+      {/* <button type="button" className="btn btn-outline-success" onClick={() => setEditAvatar(true)}>Редактировать фотографию</button> */}
       {editAvatar
         && (
           <form onSubmit={submitHandlerMulter}>
             <input className="form-control" name="avatar" type="file" onChange={changeHandlerMulter} />
-            <button type="submit" className="btn btn-outline-dark">Сохранить</button>
+            <button type="submit" className="btn btn-outline-success">Сохранить</button>
           </form>
         )}
     </>
