@@ -76,14 +76,14 @@ function CityNavbar() {
         <Grid item>
           <Button
             component={NavLink}
-            to={`/${id}/users`}
+            to={`/${id}/photos`}
             variant="contained"
             size="medium"
             sx={{
               textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
-            Люди
+            Фото
           </Button>
         </Grid>
         <Grid item>
@@ -102,14 +102,14 @@ function CityNavbar() {
         <Grid item>
           <Button
             component={NavLink}
-            to={`/${id}/photos`}
+            to={`/${id}/users`}
             variant="contained"
             size="medium"
             sx={{
               textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
             }}
           >
-            Фото
+            Люди
           </Button>
         </Grid>
       </Grid>

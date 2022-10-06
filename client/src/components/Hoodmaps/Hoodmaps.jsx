@@ -31,7 +31,7 @@ function Hoodmaps() {
         marginTop: '1%',
       }}
       >
-        <iframe title="tilte" src={`${oneCity?.nbhs_map}`} width="100%" height="800px" />
+        <iframe title="tilte" src={`${oneCity?.nbhs_map}`} width="100%" height="700px" />
       </div>
     </Grid>
   );

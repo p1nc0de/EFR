@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 // import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-// import AllCities from './components/AllCities';
 import MainPage from './components/MainPage/MainPage';
 import NoPage from './components/NoPage/NoPage';
 import PhotosList from './components/PhotosList';
@@ -17,8 +16,6 @@ import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
 import { checkAuthAsync } from './redux/actions/authActions';
 import Hoodmaps from './components/Hoodmaps';
-// import AllCities from './components/AllCities';
-// import Weather from './components/Weather';
 
 // const theme = createTheme({
 //   palette: {
@@ -38,7 +35,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      {/* <Route path="/city" element={<AllCities />} /> */}
       <Route path="/:id/scores" element={<Scores />} />
       <Route path="/:id/cost" element={<CostOfLiving />} />
       <Route path="/:id/reviews" element={<ReviewsPage />} />

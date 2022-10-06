@@ -17,7 +17,8 @@ function Scores() {
 
   const { id } = useParams();
   const oneCity = city[id - 1];
-  console.log(oneCity?.map_url);
+
+  const cross = 60.52;
 
   const eng = Math.round(((oneCity?.english_speaking) / 5) * 100);
   const quality = Math.round(((oneCity?.quality_of_life) / 5) * 100);
@@ -44,12 +45,12 @@ function Scores() {
             <span className="leaderboard__value">{`${oneCity?.internet}`}</span>
           </article>
           <article className="leaderboard__profile">
-            <span className="leaderboard__name">💵 Стоимость проживания (USD)</span>
-            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.cost_living}`}</span>
+            <span className="leaderboard__name">💵 Стоимость проживания</span>
+            <span className="leaderboard__value">{`$ ${oneCity?.Costs[0]?.cost_living} | ${(oneCity?.Costs[0]?.cost_living * cross).toFixed(0)} ₽`}</span>
           </article>
           <article className="leaderboard__profile">
-            <span className="leaderboard__name">💰 Средняя зарплата (USD)</span>
-            <span className="leaderboard__value">{`${oneCity?.Costs[0]?.salary}`}</span>
+            <span className="leaderboard__name">💰 Средняя зарплата</span>
+            <span className="leaderboard__value">{`$ ${oneCity?.Costs[0]?.salary} | ${(oneCity?.Costs[0]?.salary * cross).toFixed(0)} ₽`}</span>
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">⭐️ Качество жизни</span>
