@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,13 +24,31 @@ function ReviewsPage() {
 
   return (
 
-    <Box sx={{ bgcolor: '#101010', height: "100%" }}>
+    <Box sx={{ bgcolor: '#101010', height: '100%' }}>
       <PhotoCard />
       <CityNavbar />
       {authUser?.id ? (
-        <TextAreaInput id={id} />
+        <div className="rp-container">
+
+          <TextAreaInput id={id} />
+        </div>
       )
-        : (<h1 style={{ color: 'ivory' }}>Чтобы оставить отзыв - необходимо зарегистрироваться или авторизоваться!</h1>)}
+
+        : (
+          <Typography
+            textColor="#FFFFFF"
+            mt={{ sm: 5 }}
+
+          >
+            {/* <h3>{`Уже живут в городе ${oneCity.name}`}</h3> */}
+            <h3 style={{
+              textAlign: 'center', paddingBottom: '20px', color: 'white', marginBottom: '20px',
+            }}
+            >
+              Чтобы оставить отзыв - необходимо зарегистрироваться или авторизоваться!
+            </h3>
+          </Typography>
+        )}
 
       {/* <Container className="cardGrid"> */}
       <Grid

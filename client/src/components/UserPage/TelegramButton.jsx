@@ -30,9 +30,7 @@ export default function TelegramButton({ user, authUser }) {
         ? (
           <CardActions>
             <Button
-              // component={Link}
               target="_blank"
-              // onClick={() => window.location.reload()}
               href={`tg://resolve?domain=${user?.telegram}`}
               variant="contained"
               color="error"
