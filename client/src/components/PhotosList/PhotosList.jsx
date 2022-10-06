@@ -42,7 +42,7 @@ export default function MasonryImageList() {
   }, [open]);
 
   return (
-    <Box sx={{ bgcolor: '#101010', height: "100%" }}>
+    <Box sx={{ bgcolor: '#101010', height: '100%' }}>
       <PhotoCard />
       <CityNavbar />
       {/* <div className="row">
