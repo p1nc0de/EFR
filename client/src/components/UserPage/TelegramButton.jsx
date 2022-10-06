@@ -3,7 +3,7 @@ import { Box, CardActions, Modal } from '@mui/material';
 import Button from '@mui/material/Button';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
-import LoginPage from '../Login';
+import Signup from '../Signup';
 
 const style = {
   position: 'absolute',
@@ -20,9 +20,9 @@ const style = {
 
 export default function TelegramButton({ user, authUser }) {
   // Modal logic
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openR, setOpenR] = React.useState(false);
+  const handleOpenR = () => setOpenR(true);
+  const handleCloseR = () => setOpenR(false);
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function TelegramButton({ user, authUser }) {
         ) : (
           <CardActions>
             <Button
-              onClick={handleOpen}
+              onClick={handleOpenR}
               variant="contained"
               color="error"
               size="sm"
@@ -58,7 +58,7 @@ export default function TelegramButton({ user, authUser }) {
               }}
               type="button"
             >
-              Чтобы написать, авторизуйтесь
+              Чтобы написать, зарегистрируйтесь
               {' '}
               {' '}
               <LockPersonIcon color="white" fontSize="small" />
@@ -66,13 +66,13 @@ export default function TelegramButton({ user, authUser }) {
           </CardActions>
         )}
       <Modal
-        open={open}
-        onClose={handleClose}
+        open={openR}
+        onClose={handleCloseR}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <LoginPage setOpen={setOpen} />
+          <Signup setOpenR={setOpenR} />
         </Box>
       </Modal>
     </>
