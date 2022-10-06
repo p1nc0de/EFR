@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function Cards({ city }) {
   return (
-    <Link to={`/${city.id}/reviews`} style={{ textDecoration: 'none' }}>
+    <Link to={`/${city.id}/scores`} style={{ textDecoration: 'none' }}>
       <Box
         component="ul"
         sx={{
