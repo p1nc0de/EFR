@@ -38,7 +38,7 @@ export default function TelegramButton({ user, authUser }) {
               color="error"
               size="sm"
               sx={{
-                textDecoration: 'none', margin: '1rem', width: 330, color: 'w', '&:hover': { backgroundColor: 'white' },
+                textDecoration: 'none', margin: '1rem', width: 330, color: 'w', '&:hover': { backgroundColor: 'red', color: 'black' },
               }}
               type="button"
             >
@@ -55,7 +55,9 @@ export default function TelegramButton({ user, authUser }) {
               variant="contained"
               color="error"
               size="sm"
-              sx={{ textDecoration: 'none', margin: '1rem', width: 330 }}
+              sx={{
+                textDecoration: 'none', margin: '1rem', width: 330, '&:hover': { backgroundColor: 'red', color: 'black' },
+              }}
               type="button"
             >
               Чтобы написать, авторизуйтесь
