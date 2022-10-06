@@ -45,7 +45,12 @@ export default function UsersToday({ users, oneCity }) {
             justifyContent="center"
             alignItems="center"
           >
-            <Card sx={{ minWidth: 220, backgroundColor: '#2e2e36', justifyContent: 'center' }}>
+            <Card sx={{
+              minWidth: 220,
+              backgroundColor: '#2e2e36',
+              justifyContent: 'center',
+            }}
+            >
               <CardContent justifyContent="center" alignItems="center">
                 {user?.avatar?.includes('http')
                   ? (
@@ -70,7 +75,7 @@ export default function UsersToday({ users, oneCity }) {
                   variant="contained"
                   size="sm"
                   sx={{
-                    textDecoration: 'none', backgroundColor: 'gray', color: 'black', '&:hover': { backgroundColor: 'red', color: 'black' },
+                    textDecoration: 'none', width: 200, backgroundColor: 'gray', opacity: 0.8, color: 'black', '&:hover': { backgroundColor: 'red', color: 'white' },
                   }}
                 >
                   {user?.login}

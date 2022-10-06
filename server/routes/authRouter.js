@@ -11,7 +11,7 @@ authRouter.post('/signup', async (req, res) => {
     try {
       const [user, created] = await User.findOrCreate({
         where: { email },
-        defaults: { login, password: await bcrypt.hash(password, 10) },
+        defaults: { login, password: await bcrypt.hash(password, 10), avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNjEw5JZ9OZd3xQx6bd2ENSgMnACsS7xt2Rw&usqp=CAU' },
       });
       if (created) {
         const sessionUser = JSON.parse(JSON.stringify(user));
