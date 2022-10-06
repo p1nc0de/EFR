@@ -123,8 +123,8 @@ router.get('/currency', async (req, res) => {
       },
     });
     const currToCurr = resp.data;
-    res.json(currToCurr);
     console.log(currToCurr);
+    res.json(currToCurr);
   } catch (e) {
     console.log(e);
   }
