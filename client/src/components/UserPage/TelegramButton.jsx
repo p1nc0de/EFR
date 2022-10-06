@@ -1,12 +1,29 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { CardActions } from '@mui/material';
+import { Box, CardActions, Modal } from '@mui/material';
 import Button from '@mui/material/Button';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
+import LoginPage from '../Login';
+
+const style = {
+  position: 'absolute',
+  bgcolor: '#2e2e36',
+  color: '#35d8ad',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  border: '2px solid #2e2e36',
+  borderRadius: '10%',
+  boxShadow: 24,
+  opacity: 0.85,
+};
 
 export default function TelegramButton({ user, authUser }) {
-  console.log(user.telegram);
+  // Modal logic
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       {authUser?.id
@@ -32,9 +49,7 @@ export default function TelegramButton({ user, authUser }) {
         ) : (
           <CardActions>
             <Button
-              component={Link}
-              target="_blank"
-              to="/login"
+              onClick={handleOpen}
               variant="contained"
               color="error"
               size="sm"
@@ -50,6 +65,16 @@ export default function TelegramButton({ user, authUser }) {
             </Button>
           </CardActions>
         )}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <LoginPage setOpen={setOpen} />
+        </Box>
+      </Modal>
     </>
   );
 }
