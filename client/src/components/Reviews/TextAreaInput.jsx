@@ -26,7 +26,17 @@ export default function TextAreaInput(id) {
         onChange={changeHandler}
 
       />
-      <Button type="submit" variant="contained" color="error">
+      <Button
+        style={{
+          position: 'relative',
+          left: '84%',
+          width: '16%',
+          top: '10px',
+        }}
+        type="submit"
+        variant="contained"
+        color="error"
+      >
         Оставить отзыв
       </Button>
     </Box>
