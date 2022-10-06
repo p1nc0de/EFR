@@ -16,6 +16,7 @@ import ReviewsPage from './components/Reviews/ReviewsPage';
 import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
 import { checkAuthAsync } from './redux/actions/authActions';
+import Hoodmaps from './components/Hoodmaps';
 // import AllCities from './components/AllCities';
 // import Weather from './components/Weather';
 
@@ -48,7 +49,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/users" element={<UsersCity />} />
       <Route path="/users/:id" element={<UserPage />} />
-      {/* <Route path="/weather" element={<Weather />} /> */}
+      <Route path="/:id/hoodmap" element={<Hoodmaps />} />
       <Route path="*" element={<NoPage />} />
     </Routes>
   );
