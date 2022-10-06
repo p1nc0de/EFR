@@ -3,6 +3,7 @@ import {
   Avatar, Button, CardActions, Grid,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { deleteReviewAsync } from '../../redux/actions/reviewActions';
 
 export default function TextCard({ authUser, rev, id }) {
@@ -14,15 +15,22 @@ export default function TextCard({ authUser, rev, id }) {
       md={3}
       sm={4}
       xs={12}
-      // md={{ magrinLeft: '5vw', marginTop: '5vw' }}
       sx={{
-        bgcolor: '#544c4c',
+        bgcolor: '#37383E',
+        color: 'white',
         margin: '1px',
-        marginBottom: '1px',
+        marginBottom: '30px',
+        minHeight: '300px',
+        maxHeight: '100px',
+        borderRadius: '10px',
       }}
 
     >
-      <div>
+      <div style={{
+        marginLeft: '3%',
+        marginTop: '2%',
+      }}
+      >
         <Avatar
           alt="EFR"
           src={`${rev?.User?.avatar}`}
@@ -38,16 +46,34 @@ export default function TextCard({ authUser, rev, id }) {
         <div className="name">
           {' '}
           Автор:
-          <Button sx={{ color: 'red' }}>{rev?.User?.login}</Button>
+          <Button
+            component={NavLink}
+            to={`/users/${rev?.User?.id}`}
+            sx={{ color: 'red' }}
+          >
+            {rev?.User?.login}
+
+          </Button>
 
         </div>
       </div>
       <div className="right-text">
-        <div className="high">
-          <h6>
+        <div
+          className="high"
+          style={{
+            width: '90%',
+            maxHeight: '140px',
+            height: '45%',
+            marginLeft: '5%',
+            marginTop: '7px',
+            overflowY: 'scroll',
+
+          }}
+        >
+          <p>
             {' '}
             {rev?.review}
-          </h6>
+          </p>
         </div>
         <div className="low" />
 

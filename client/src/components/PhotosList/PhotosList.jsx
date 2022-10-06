@@ -42,7 +42,7 @@ export default function MasonryImageList() {
   }, [open]);
 
   return (
-    <Box sx={{ bgcolor: '#101010', height: "100%" }}>
+    <Box sx={{ bgcolor: '#101010', height: '100%' }}>
       <PhotoCard />
       <CityNavbar />
       {/* <div className="row">
@@ -60,6 +60,7 @@ export default function MasonryImageList() {
           // color="danger"
           sx={{
             textDecoration: 'none', backgroundColor: 'red', color: 'black', '&:hover': { backgroundColor: 'black', color: 'red' },
+            // eslint-disable-next-line max-len
             // textDecoration: 'none', color: 'darkviolet', '&:hover': { backgroundColor: 'red', color: 'black' },
           }}
         >
@@ -113,7 +114,6 @@ export default function MasonryImageList() {
               )}
             <ImageListItemBar
               sx={{ color: 'white' }}
-              title={el.description}
               subtitle={(
                 <a href={`/users/${el?.User?.id}`}>
                   by:

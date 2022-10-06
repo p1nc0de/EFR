@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 
 export default function UsersToday({ users, oneCity }) {
   console.log('today', oneCity);
+
   return (
     <>
       <Grid
@@ -35,7 +36,7 @@ export default function UsersToday({ users, oneCity }) {
         spacing={3}
       >
 
-        {users && users?.map((user) => (
+        {users && users?.filter((el) => (el.current_city_id === oneCity.id)).map((user) => (
           <Grid
             container
             item

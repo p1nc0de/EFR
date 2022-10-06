@@ -1,4 +1,4 @@
-// const axios = require('axios');
+const axios = require('axios');
 const express = require('express');
 const {
   City, Cost, Photo, User, Review,
@@ -110,5 +110,24 @@ router.route('/:id/reviews')
       res.sendStatus(500);
     }
   });
+
+router.get('/currency', async (req, res) => {
+  try {
+    const { curr } = req.body;
+    console.log('currrrrrrr', curr);
+    const resp = await axios('https://currency-converter-by-api-ninjas.p.rapidapi.com/v1/convertcurrency', {
+      params: { have: 'USD', want: `${curr}`, amount: '1' },
+      headers: {
+        'X-RapidAPI-Key': '1b7d5bba64msh7c9d3f71bf84163p16e835jsna426236a6792',
+        'X-RapidAPI-Host': 'currency-converter-by-api-ninjas.p.rapidapi.com',
+      },
+    });
+    const currToCurr = resp.data;
+    res.json(currToCurr);
+    console.log(currToCurr);
+  } catch (e) {
+    console.log(e);
+  }
+});
 
 module.exports = router;

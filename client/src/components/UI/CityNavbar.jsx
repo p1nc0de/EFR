@@ -63,6 +63,19 @@ function CityNavbar() {
         <Grid item>
           <Button
             component={NavLink}
+            to={`/${id}/hoodmap`}
+            variant="contained"
+            size="medium"
+            sx={{
+              textDecoration: 'none', backgoundColor: 'black', color: 'anger', '&:hover': { backgroundColor: 'red', color: 'black' },
+            }}
+          >
+            Карта районов
+          </Button>
+        </Grid>
+        <Grid item>
+          <Button
+            component={NavLink}
             to={`/${id}/users`}
             variant="contained"
             size="medium"

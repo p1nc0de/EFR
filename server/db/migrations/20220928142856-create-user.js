@@ -45,6 +45,20 @@ module.exports = {
       telegram: {
         type: Sequelize.STRING,
       },
+      current_city_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Cities',
+          key: 'id',
+        },
+      },
+      future_city_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Cities',
+          key: 'id',
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
