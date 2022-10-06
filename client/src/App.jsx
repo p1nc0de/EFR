@@ -16,7 +16,8 @@ import ReviewsPage from './components/Reviews/ReviewsPage';
 import UsersCity from './components/UsersCity';
 import Signup from './components/Signup';
 import { checkAuthAsync } from './redux/actions/authActions';
-import AllCities from './components/AllCities';
+// import AllCities from './components/AllCities';
+// import Weather from './components/Weather';
 
 // const theme = createTheme({
 //   palette: {
@@ -36,7 +37,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
-      <Route path="/city" element={<AllCities />} />
+      {/* <Route path="/city" element={<AllCities />} /> */}
       <Route path="/:id/scores" element={<Scores />} />
       <Route path="/:id/cost" element={<CostOfLiving />} />
       <Route path="/:id/reviews" element={<ReviewsPage />} />
@@ -47,6 +48,7 @@ function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/users" element={<UsersCity />} />
       <Route path="/users/:id" element={<UserPage />} />
+      {/* <Route path="/weather" element={<Weather />} /> */}
       <Route path="*" element={<NoPage />} />
     </Routes>
   );

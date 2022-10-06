@@ -24,7 +24,7 @@ function ReviewsPage() {
 
   return (
 
-    <Box sx={{ bgcolor: '#101010' }}>
+    <Box sx={{ bgcolor: '#101010', height: "100%" }}>
       <PhotoCard />
       <CityNavbar />
       {authUser?.id ? (

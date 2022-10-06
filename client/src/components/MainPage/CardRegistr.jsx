@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+// import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import { Box, CardActions, Modal } from '@mui/material';
@@ -47,11 +47,11 @@ export default function CardRegistr() {
           alt="Надо зарегаться"
           image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNjEw5JZ9OZd3xQx6bd2ENSgMnACsS7xt2Rw&usqp=CAU"
         />
-        <CardContent>
-          {/* <Typography gutterBottom variant="h6" component="div">
+        {/* <CardContent>
+          <Typography gutterBottom variant="h6" component="div">
                         Зарегистрируйся
-                    </Typography> */}
-        </CardContent>
+                    </Typography>
+        </CardContent> */}
         {authUser?.id ? (
           <CardActions>
             <Button component={NavLink} to={`/users/${authUser.id}`} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
