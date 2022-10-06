@@ -67,24 +67,24 @@ export default function UserPage() {
 
   console.log(user.avatar);
   return (
-    <Box sx={{ bgcolor: '#000000' }}>
+    <Box sx={{ bgcolor: '#000000', position: 'absolute', width: '100%' }}>
       <PhotoCard />
       <CityNavbar />
 
       <ThemeProvider theme={theme}>
         <Card sx={{
-          maxWidth: 1000,
+          maxWidth: '60%',
           marginTop: 10,
-          marginLeft: 10,
-          alignItems: 'center',
-          justifyContent: 'center',
           backgroundColor: '#2e2e36',
           boxShadow: 15,
+          position: 'relative',
+          left: '20%',
+          marginBottom: '10%',
           // opacity: 0.9,
         }}
         >
-          <Container component="main" maxWidth="lg" >
-            <Grid container direction="row" >
+          <Container component="main" maxWidth="lg">
+            <Grid container direction="row">
               <Divider variant="inset" component="li" />
               <Box
                 sx={{
@@ -168,7 +168,9 @@ export default function UserPage() {
               <Box
                 sx={{
                   marginTop: 10,
-                  marginLeft: 10,
+                  // marginLeft: 300,
+                  position: 'relative',
+                  left: '10%',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'left',
