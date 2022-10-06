@@ -22,6 +22,12 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Review, {
         foreignKey: 'user_id',
       });
+      this.belongsTo(models.City, {
+        foreignKey: 'current_city_id',
+      });
+      this.belongsTo(models.City, {
+        foreignKey: 'future_city_id',
+      });
     }
   }
   User.init({
@@ -46,6 +52,8 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: false,
     },
     telegram: DataTypes.STRING,
+    current_city_id: DataTypes.INTEGER,
+    future_city_id: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'User',
