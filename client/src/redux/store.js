@@ -5,6 +5,7 @@ import photoReducer from './reducers/photoReducer';
 import userReducer from './reducers/userReducer';
 import reviewReducer from './reducers/reviewReducer';
 import oneCityReducer from './reducers/oneCityReducer';
+import currencyReducer from './reducers/currencyReducer';
 
 export default configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
     photo: photoReducer,
     user: userReducer,
     review: reviewReducer,
+    currencies: currencyReducer,
   },
 });
