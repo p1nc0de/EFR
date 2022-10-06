@@ -24,7 +24,7 @@ export default function UsersToday({ users, oneCity }) {
           mt={{ sm: 5 }}
         >
           {/* <h3>{`Уже живут в городе ${oneCity.name}`}</h3> */}
-          <h3 style={{ color: 'white', marginBottom: "20px" }}>Уже живут в городе</h3>
+          <h3 style={{ color: 'white', marginBottom: '20px' }}>Уже живут в городе</h3>
         </Typography>
       </Grid>
       <Grid
@@ -45,7 +45,12 @@ export default function UsersToday({ users, oneCity }) {
             justifyContent="center"
             alignItems="center"
           >
-            <Card sx={{ minWidth: 220, backgroundColor: "#2e2e36", justifyContent: 'center' }}>
+            <Card sx={{
+              minWidth: 220,
+              backgroundColor: '#2e2e36',
+              justifyContent: 'center',
+            }}
+            >
               <CardContent justifyContent="center" alignItems="center">
                 {user?.avatar?.includes('http')
                   ? (
@@ -64,7 +69,15 @@ export default function UsersToday({ users, oneCity }) {
                   )}
               </CardContent>
               <CardActions>
-                <Button component={NavLink} to={`/users/${user?.id}`} variant="contained" size="sm" sx={{ textDecoration: 'none', backgroundColor: 'gray', color: 'black', '&:hover': { backgroundColor: 'red', color: 'black' } }}>
+                <Button
+                  component={NavLink}
+                  to={`/users/${user?.id}`}
+                  variant="contained"
+                  size="sm"
+                  sx={{
+                    textDecoration: 'none', width: 200, backgroundColor: 'gray', opacity: 0.8, color: 'black', '&:hover': { backgroundColor: 'red', color: 'white' },
+                  }}
+                >
                   {user?.login}
                 </Button>
               </CardActions>

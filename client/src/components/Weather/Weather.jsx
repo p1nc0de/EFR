@@ -3,7 +3,7 @@
 
 // export default function Weather() {
 //   const { data, isLoading, errorMessage } = useOpenWeather({
-//     key: 'YOUR-API-KEY',
+//     key: '24605a6b8b11fd54c50705497a22d199',
 //     lat: '48.137154',
 //     lon: '11.576124',
 //     lang: 'en',
