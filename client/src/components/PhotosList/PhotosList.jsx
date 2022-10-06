@@ -18,7 +18,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: 'background.paper',
+  bgcolor: '#2e2e36',
   border: '2px solid #000',
   borderRadius: '10%',
   boxShadow: 24,
@@ -43,7 +43,7 @@ export default function MasonryImageList() {
   }, [open]);
 
   return (
-    <Box sx={{ bgcolor: '#101010' }}>
+    <Box sx={{ bgcolor: '#101010', height: "100%" }}>
       <PhotoCard />
       <CityNavbar />
       {/* <div className="row">
@@ -92,7 +92,7 @@ export default function MasonryImageList() {
             {el.photo.includes('http')
               ? (
                 <img
-                  style={{ border: 'solid 3px #db840880' }}
+                  style={{ border: 'solid 2px #6c757d' }}
                   src={`${el.photo}?w=248&fit=crop&auto=format`}
                   srcSet={`${el.photo}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={el.description}
@@ -102,7 +102,7 @@ export default function MasonryImageList() {
               )
               : (
                 <img
-                  style={{ border: 'solid 3px #db840880' }}
+                  style={{ border: 'solid 2px #6c757d' }}
                   src={`http://localhost:3001/photos/${el.photo}?w=248&fit=crop&auto=format`}
                   srcSet={`${el.photo}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={el.description}

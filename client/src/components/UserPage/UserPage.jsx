@@ -22,6 +22,8 @@ import Card from '@mui/material/Card';
 import { getUser, updateUser } from '../../redux/actions/userActions';
 import EditInformation from './EditInformation';
 import EditAvatar from './EditAvatar';
+import PhotoCard from '../Reviews/PhotoCard';
+import CityNavbar from '../UI/CityNavbar';
 
 const theme = createTheme({
   palette: { primary: { main: '#FFFFFF' } },
@@ -63,180 +65,185 @@ export default function UserPage() {
   const submitHandler = (e) => dispatch(updateUser(e, form));
 
   return (
-    <ThemeProvider theme={theme}>
-      <Card sx={{
-        maxWidth: 1000,
-        marginTop: 10,
-        marginLeft: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-      >
-        <Container component="main" maxWidth="lg">
-          <Grid container direction="row">
-            <Divider variant="inset" component="li" />
-            <Box
-              sx={{
-                // marginTop: 10,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'left',
-              }}
-            >
-              <Typography
-                variant="h2"
-                textColor="#fff"
-                mt={{ sm: 1 }}
+    <Box sx={{ bgcolor: '#000000' }}>
+      <PhotoCard />
+      <CityNavbar />
+
+      <ThemeProvider theme={theme}>
+        <Card sx={{
+          maxWidth: 1000,
+          marginTop: 10,
+          marginLeft: 10,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        >
+          <Container component="main" maxWidth="lg">
+            <Grid container direction="row">
+              <Divider variant="inset" component="li" />
+              <Box
+                sx={{
+                  // marginTop: 10,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'left',
+                }}
               >
-                {user?.login}
-              </Typography>
-              <p className="card-text"><small className="text-muted">{user?.email}</small></p>
-              {authUser?.id === user?.id ? (
-                <Badge
-                  overlap="circular"
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                  badgeContent={(
-                    <EditAvatar id={user.id} />
-                    )}
+                <Typography
+                  variant="h2"
+                  textColor="#fff"
+                  mt={{ sm: 1 }}
                 >
-                  {user?.avatar?.includes('http')
-                    ? (
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={user?.avatar}
-                        sx={{ minWidth: 400, minHeight: 400 }}
-                      />
-                    )
-                    : (
-                      <Avatar
-                        alt="Remy Sharp"
-                        src={`http://localhost:3001/photos/${user?.avatar}`}
-                        sx={{ minWidth: 400, minHeight: 400 }}
-                      />
+                  {user?.login}
+                </Typography>
+                <p className="card-text"><small className="text-muted">{user?.email}</small></p>
+                {authUser?.id === user?.id ? (
+                  <Badge
+                    overlap="circular"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    badgeContent={(
+                      <EditAvatar id={user.id} />
                     )}
-                </Badge>
-              )
-                : (
-                  <>
+                  >
                     {user?.avatar?.includes('http')
                       ? (
                         <Avatar
                           alt="Remy Sharp"
                           src={user?.avatar}
-                          sx={{ minWidth: 300, minHeight: 300 }}
+                          sx={{ minWidth: 400, minHeight: 400 }}
                         />
                       )
                       : (
                         <Avatar
                           alt="Remy Sharp"
                           src={`http://localhost:3001/photos/${user?.avatar}`}
-                          sx={{ minWidth: 300, minHeight: 300 }}
+                          sx={{ minWidth: 400, minHeight: 400 }}
                         />
                       )}
-                  </>
-                )}
-            </Box>
-            <Box
-              sx={{
-                marginTop: 10,
-                marginLeft: 10,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'left',
-                justifyContent: 'space-evenly',
-                p: 1,
-                m: 1,
-                bgcolor: 'background.paper',
-                borderRadius: 1,
-              }}
-            >
-              {!edit
-                ? (
-                  <List
-                    sx={{
-                      width: '100%',
-                      maxWidth: 360,
-                      bgcolor: 'background.paper',
-                    }}
-                  >
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <Person2 fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.info}`} secondary="О себе" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <TelegramIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.telegram}`} secondary="Telegram" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <WorkIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.profession}`} secondary="Профессия" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
+                  </Badge>
+                )
+                  : (
+                    <>
+                      {user?.avatar?.includes('http')
+                        ? (
+                          <Avatar
+                            alt="Remy Sharp"
+                            src={user?.avatar}
+                            sx={{ minWidth: 300, minHeight: 300 }}
+                          />
+                        )
+                        : (
+                          <Avatar
+                            alt="Remy Sharp"
+                            src={`http://localhost:3001/photos/${user?.avatar}`}
+                            sx={{ minWidth: 300, minHeight: 300 }}
+                          />
+                        )}
+                    </>
+                  )}
+              </Box>
+              <Box
+                sx={{
+                  marginTop: 10,
+                  marginLeft: 10,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'left',
+                  justifyContent: 'space-evenly',
+                  p: 1,
+                  m: 1,
+                  bgcolor: 'background.paper',
+                  borderRadius: 1,
+                }}
+              >
+                {!edit
+                  ? (
+                    <List
+                      sx={{
+                        width: '100%',
+                        maxWidth: 360,
+                        bgcolor: 'background.paper',
+                      }}
+                    >
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatarka>
+                            <Person2 fontSize="small" />
+                          </Avatarka>
+                        </ListItemAvatar>
+                        <ListItemText primary={`${user?.info}`} secondary="О себе" />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatarka>
+                            <TelegramIcon fontSize="small" />
+                          </Avatarka>
+                        </ListItemAvatar>
+                        <ListItemText primary={`${user?.telegram}`} secondary="Telegram" />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatarka>
+                            <WorkIcon fontSize="small" />
+                          </Avatarka>
+                        </ListItemAvatar>
+                        <ListItemText primary={`${user?.profession}`} secondary="Профессия" />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
 
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <PlaceIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.current_country}`} secondary="Город проживания" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <TravelExploreIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.future_country}`} secondary="Место мечты" />
-                    </ListItem>
-                    <Divider variant="inset" component="li" />
-                    <ListItem>
-                      <ListItemAvatar>
-                        <Avatarka>
-                          <CakeIcon fontSize="small" />
-                        </Avatarka>
-                      </ListItemAvatar>
-                      <ListItemText primary={`${user?.birth_country}`} secondary="Страна рождения" />
-                    </ListItem>
-                  </List>
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatarka>
+                            <PlaceIcon fontSize="small" />
+                          </Avatarka>
+                        </ListItemAvatar>
+                        <ListItemText primary={`${user?.current_country}`} secondary="Город проживания" />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatarka>
+                            <TravelExploreIcon fontSize="small" />
+                          </Avatarka>
+                        </ListItemAvatar>
+                        <ListItemText primary={`${user?.future_country}`} secondary="Место мечты" />
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem>
+                        <ListItemAvatar>
+                          <Avatarka>
+                            <CakeIcon fontSize="small" />
+                          </Avatarka>
+                        </ListItemAvatar>
+                        <ListItemText primary={`${user?.birth_country}`} secondary="Страна рождения" />
+                      </ListItem>
+                    </List>
+                  ) : (
+                    <form className="row" onSubmit={submitHandler}>
+                      <p className="card-text"><small className="text-muted">{user?.email}</small></p>
+                      <input className="form-control" name="login" type="text" value={form.login} onChange={changeHandler} />
+                      <input className="form-control" name="info" type="text" value={form.info} onChange={changeHandler} />
+                      <input className="form-control" name="profession" type="text" value={form.profession} onChange={changeHandler} />
+                      <input className="form-control" name="birth_country" type="text" value={form.birth_country} onChange={changeHandler} />
+                      <input className="form-control" name="current_country" type="text" value={form.current_country} onChange={changeHandler} />
+                      <input className="form-control" name="future_country" type="text" value={form.future_country} onChange={changeHandler} />
+                      <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
+                    </form>
+                  )}
+                {authUser?.id === user?.id ? (
+                  <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
                 ) : (
-                  <form className="row" onSubmit={submitHandler}>
-                    <p className="card-text"><small className="text-muted">{user?.email}</small></p>
-                    <input className="form-control" name="login" type="text" value={form.login} onChange={changeHandler} />
-                    <input className="form-control" name="info" type="text" value={form.info} onChange={changeHandler} />
-                    <input className="form-control" name="profession" type="text" value={form.profession} onChange={changeHandler} />
-                    <input className="form-control" name="birth_country" type="text" value={form.birth_country} onChange={changeHandler} />
-                    <input className="form-control" name="current_country" type="text" value={form.current_country} onChange={changeHandler} />
-                    <input className="form-control" name="future_country" type="text" value={form.future_country} onChange={changeHandler} />
-                    <input className="form-control" name="telegram" type="text" value={form.telegram} onChange={changeHandler} />
-                  </form>
+                  <div />
                 )}
-              {authUser?.id === user?.id ? (
-                <EditInformation edit={edit} setEdit={setEdit} id={id} form={form} />
-              ) : (
-                <div />
-              )}
-              <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
-            </Box>
-            <Divider variant="inset" component="li" />
-          </Grid>
-        </Container>
-      </Card>
-    </ThemeProvider>
+                <p className="card-text"><small className="text-muted">{`Последнее обновление: ${new Date(user?.updatedAt).toLocaleString()}`}</small></p>
+              </Box>
+              <Divider variant="inset" component="li" />
+            </Grid>
+          </Container>
+        </Card>
+      </ThemeProvider>
+    </Box>
   );
 }

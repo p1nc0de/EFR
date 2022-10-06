@@ -21,8 +21,8 @@ export default function PhotoCard() {
         <CardCover>
 
           <img
-            src={`${oneCity?.photo}`}
-            srcSet={`${oneCity?.photo}`}
+            src={oneCity.photo ? (`${oneCity?.photo}`) : ('/карта аааа.jpg')}
+            // srcSet={oneCity.photo ? (`${oneCity?.photo}`) : ('/карта аааа.jpg')}
             alt="Помогите, меня заставляют работать по выходным"
           />
         </CardCover>
@@ -34,7 +34,7 @@ export default function PhotoCard() {
             textColor="#fff"
             mt={{ xs: 12, sm: 18 }}
           >
-            <h1>{`${oneCity?.name}`}</h1>
+            <h1>{oneCity.name ? (`${oneCity?.name}`) : ('')}</h1>
           </Typography>
         </CardContent>
       </Card>

@@ -25,7 +25,7 @@ export default function FormPhoto({ setOpen }) {
   return (
     <div className="d-flex justify-content-center">
       <form onSubmit={(e) => submitHandler(e, input)}>
-        <label className="form-label" htmlFor="photo">
+        <label className="form-label" htmlFor="photo" style={{ color: 'white' }}>
           Фото
           <input
             name="photo" // Обязательно!
@@ -37,7 +37,7 @@ export default function FormPhoto({ setOpen }) {
 
         </label>
         <div className="mb-3">
-          <label htmlFor="input" className="form-label">
+          <label htmlFor="input" className="form-label" style={{ color: 'white' }}>
             Немного деталей
             <input
               value={input.description}
@@ -49,7 +49,7 @@ export default function FormPhoto({ setOpen }) {
             />
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">Добавить фото</button>
+        <button type="submit" className="btn btn-danger" style={{ color: 'black' }}>Добавить фото</button>
       </form>
     </div>
   );
