@@ -83,8 +83,8 @@ export default function UserPage() {
           // opacity: 0.9,
         }}
         >
-          <Container component="main" maxWidth="lg" >
-            <Grid container direction="row" >
+          <Container component="main" maxWidth="lg">
+            <Grid container direction="row">
               <Divider variant="inset" component="li" />
               <Box
                 sx={{
@@ -330,6 +330,7 @@ export default function UserPage() {
                 ) : (
                   <TelegramButton user={user} authUser={authUser} />
                 )}
+
               </Box>
               <Divider variant="inset" component="li" />
             </Grid>
