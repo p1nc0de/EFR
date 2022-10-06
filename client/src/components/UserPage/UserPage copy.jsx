@@ -83,8 +83,8 @@ export default function UserPage() {
           // opacity: 0.9,
         }}
         >
-          <Container className='boxUserPage' component="div" maxWidth="lg">
-            <Grid container direction="row">
+          <Container component="main" maxWidth="lg" >
+            <Grid container direction="row" >
               <Divider variant="inset" component="li" />
               <Box
                 sx={{
