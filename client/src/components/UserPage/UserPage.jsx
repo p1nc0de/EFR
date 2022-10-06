@@ -332,6 +332,7 @@ export default function UserPage() {
                 ) : (
                   <TelegramButton user={user} authUser={authUser} />
                 )}
+
               </Box>
               <Divider variant="inset" component="li" />
             </Grid>
