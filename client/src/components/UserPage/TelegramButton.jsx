@@ -6,15 +6,14 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import LockPersonIcon from '@mui/icons-material/LockPerson';
 
 export default function TelegramButton({ user, authUser }) {
+  console.log(user.telegram);
   return (
     <>
       {authUser?.id
         ? (
           <CardActions>
             <Button
-              // component={Link}
               target="_blank"
-              // onClick={() => window.location.reload()}
               href={`tg://resolve?domain=${user?.telegram}`}
               variant="contained"
               color="error"
@@ -36,11 +35,12 @@ export default function TelegramButton({ user, authUser }) {
               component={Link}
               target="_blank"
               to="/login"
-              // onClick={() => window.location.reload()}
               variant="contained"
               color="error"
               size="sm"
-              sx={{ textDecoration: 'none', margin: '1rem', width: 330, '&:hover': { backgroundColor: 'red', color: 'black' }, }}
+              sx={{
+                textDecoration: 'none', margin: '1rem', width: 330, '&:hover': { backgroundColor: 'red', color: 'black' },
+              }}
               type="button"
             >
               Чтобы написать, авторизуйтесь
@@ -49,8 +49,7 @@ export default function TelegramButton({ user, authUser }) {
               <LockPersonIcon color="white" fontSize="small" />
             </Button>
           </CardActions>
-        )
-      }
+        )}
     </>
   );
 }
