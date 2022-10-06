@@ -223,7 +223,7 @@ export default function UserPage() {
                             <PlaceIcon fontSize="small" />
                           </Avatarka>
                         </ListItemAvatar>
-                        <ListItemText primary={`${user?.current_country}`} secondary="Город проживания" />
+                        <ListItemText primary={`${user?.current_country ? user?.current_country : ''}`} secondary="Город проживания" />
                       </ListItem>
                       <Divider variant="inset" component="li" />
                       <ListItem>
@@ -232,7 +232,7 @@ export default function UserPage() {
                             <TravelExploreIcon fontSize="small" />
                           </Avatarka>
                         </ListItemAvatar>
-                        <ListItemText primary={`${user?.future_country}`} secondary="Место мечты" />
+                        <ListItemText primary={`${user?.future_country ? user?.future_country : ''}`} secondary="Место мечты" />
                       </ListItem>
                       <Divider variant="inset" component="li" />
 
