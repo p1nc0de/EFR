@@ -25,7 +25,6 @@ const style = {
   p: 4,
 };
 
-
 export default function MasonryImageList() {
   const { id } = useParams();
   const photo = useSelector((state) => state.photo);
@@ -38,7 +37,7 @@ export default function MasonryImageList() {
   const handleClose = () => setOpen(false);
 
   React.useEffect(() => {
-    dispatch(fetchOneCity(id))
+    dispatch(fetchOneCity(id));
     dispatch(fetchAllPhotos(id));
   }, [open]);
 
@@ -50,7 +49,10 @@ export default function MasonryImageList() {
         {photo && photo?.map((el) => (
           <PhotoCard key={el.id} photo={el} /> */}
       {/* <Button onClick={handleOpen}> 📷 Добавить фотографию </Button> */}
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginRight: 10, marginBottom: 1 }}>
+      <Box sx={{
+        display: 'flex', justifyContent: 'flex-end', marginRight: 10, marginBottom: 1,
+      }}
+      >
         <Button
           onClick={handleOpen}
           variant="contained"
