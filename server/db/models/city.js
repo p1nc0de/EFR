@@ -25,6 +25,12 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.Review, {
         foreignKey: 'city_id',
       });
+      this.hasMany(models.User, {
+        foreignKey: 'current_city_id',
+      });
+      this.hasMany(models.User, {
+        foreignKey: 'future_city_id',
+      });
     }
   }
   City.init({
