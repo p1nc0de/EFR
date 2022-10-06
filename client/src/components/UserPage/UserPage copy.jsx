@@ -67,24 +67,24 @@ export default function UserPage() {
 
   console.log(user.avatar);
   return (
-    <Box sx={{ bgcolor: '#000000', position: 'absolute', width: '100%' }}>
+    <Box sx={{ bgcolor: '#000000' }}>
       <PhotoCard />
       <CityNavbar />
 
       <ThemeProvider theme={theme}>
         <Card sx={{
-          maxWidth: '60%',
+          maxWidth: 1000,
           marginTop: 10,
+          marginLeft: 10,
+          alignItems: 'center',
+          justifyContent: 'center',
           backgroundColor: '#2e2e36',
           boxShadow: 15,
-          position: 'relative',
-          left: '20%',
-          marginBottom: '10%',
           // opacity: 0.9,
         }}
         >
-          <Container component="main" maxWidth="lg">
-            <Grid container direction="row">
+          <Container component="main" maxWidth="lg" >
+            <Grid container direction="row" >
               <Divider variant="inset" component="li" />
               <Box
                 sx={{
@@ -168,9 +168,7 @@ export default function UserPage() {
               <Box
                 sx={{
                   marginTop: 10,
-                  // marginLeft: 300,
-                  position: 'relative',
-                  left: '10%',
+                  marginLeft: 10,
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'left',
@@ -223,7 +221,7 @@ export default function UserPage() {
                             <PlaceIcon fontSize="small" />
                           </Avatarka>
                         </ListItemAvatar>
-                        <ListItemText primary={`${user?.current_country ? user?.current_country : ''}`} secondary="Город проживания" />
+                        <ListItemText primary={`${user?.current_country}`} secondary="Город проживания" />
                       </ListItem>
                       <Divider variant="inset" component="li" />
                       <ListItem>
@@ -232,7 +230,7 @@ export default function UserPage() {
                             <TravelExploreIcon fontSize="small" />
                           </Avatarka>
                         </ListItemAvatar>
-                        <ListItemText primary={`${user?.future_country ? user?.future_country : ''}`} secondary="Место мечты" />
+                        <ListItemText primary={`${user?.future_country}`} secondary="Место мечты" />
                       </ListItem>
                       <Divider variant="inset" component="li" />
 
@@ -332,7 +330,6 @@ export default function UserPage() {
                 ) : (
                   <TelegramButton user={user} authUser={authUser} />
                 )}
-
               </Box>
               <Divider variant="inset" component="li" />
             </Grid>
