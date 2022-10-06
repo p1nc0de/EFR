@@ -78,13 +78,13 @@ export default function UserPage() {
           marginLeft: 10,
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#f1f1f3',
+          backgroundColor: '#2e2e36',
           boxShadow: 15,
           // opacity: 0.9,
         }}
         >
-          <Container component="main" maxWidth="lg">
-            <Grid container direction="row">
+          <Container component="main" maxWidth="lg" >
+            <Grid container direction="row" >
               <Divider variant="inset" component="li" />
               <Box
                 sx={{
@@ -98,7 +98,7 @@ export default function UserPage() {
               >
                 <Typography
                   variant="h2"
-                  textColor="#fff"
+                  color="#FFFFFF"
                   mt={{ sm: 1 }}
                 >
                   {user?.login}
@@ -107,7 +107,7 @@ export default function UserPage() {
                 {authUser?.id && (
                   <Typography
                     variant="body2"
-                    color="#2e2e36"
+                    color="#FFFFFF"
                     mt={{ sm: 1 }}
                   >
                     {user?.email}
