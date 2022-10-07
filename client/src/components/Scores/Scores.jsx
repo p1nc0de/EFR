@@ -1,7 +1,10 @@
-import { Grid } from '@mui/material';
-import React, { useEffect } from 'react';
+import {
+  Box, Button, Grid, Stack,
+} from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import { fetchAllCities } from '../../redux/actions/cityActions';
 import CityNavbar from '../UI/CityNavbar';
 import PhotoBackground from '../UI/PhotoBackground';
@@ -20,6 +23,12 @@ function Scores() {
 
   const cross = 60.52;
 
+  const [curr, setCurr] = useState(true);
+
+  const onClickHandler = () => {
+    setCurr(!curr);
+  };
+
   const eng = Math.round(((oneCity?.english_speaking) / 5) * 100);
   const quality = Math.round(((oneCity?.quality_of_life) / 5) * 100);
   const family = Math.round(((oneCity?.family_score) / 5) * 100);
@@ -36,6 +45,27 @@ function Scores() {
       </Grid>
       <div className="leaderboard">
         <div className="leaderboard__profiles">
+          <Box sx={{
+            display: 'flex', justifyContent: 'flex-end', marginRight: 10, marginBottom: 1,
+          }}
+          >
+            <Grid item>
+              <Stack direction="row" spacing={2}>
+                <Button
+                  onClick={onClickHandler}
+                  variant="contained"
+                  size="large"
+                  width
+                  endIcon={<CurrencyExchangeIcon />}
+                  sx={{
+                    textDecoration: 'none', backgroundColor: 'gray', color: 'black', '&:hover': { backgroundColor: 'black', color: 'red' },
+                  }}
+                >
+                  Сменить валюту
+                </Button>
+              </Stack>
+            </Grid>
+          </Box>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">⭐️ Общий рейтинг</span>
             <span className="leaderboard__value">{`${oneCity?.rating}`}</span>
@@ -46,11 +76,19 @@ function Scores() {
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">💵 Стоимость проживания</span>
-            <span className="leaderboard__value">{`$ ${oneCity?.Costs[0]?.cost_living} | ${(oneCity?.Costs[0]?.cost_living * cross).toFixed(0)} ₽`}</span>
+            {curr ? (
+              <span className="leaderboard__value">{`$ ${oneCity?.Costs[0]?.cost_living}`}</span>
+            ) : (
+              <span className="leaderboard__value">{`${(oneCity?.Costs[0]?.cost_living * cross).toFixed(0)} ₽`}</span>
+            )}
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">💰 Средняя зарплата</span>
-            <span className="leaderboard__value">{`$ ${oneCity?.Costs[0]?.salary} | ${(oneCity?.Costs[0]?.salary * cross).toFixed(0)} ₽`}</span>
+            {curr ? (
+              <span className="leaderboard__value">{`$ ${oneCity?.Costs[0]?.salary}`}</span>
+            ) : (
+              <span className="leaderboard__value">{`${(oneCity?.Costs[0]?.salary * cross).toFixed(0)} ₽`}</span>
+            )}
           </article>
           <article className="leaderboard__profile">
             <span className="leaderboard__name">⭐️ Качество жизни</span>
