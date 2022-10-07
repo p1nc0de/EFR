@@ -16,11 +16,11 @@ export default function UsersCity() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
+  const { city } = useSelector((s) => s);
+  const oneCity = city[id - 1];
   useEffect(() => {
     dispatch(fetchAllCities());
   }, []);
-  const { city } = useSelector((s) => s);
-  const oneCity = city[id - 1];
 
   const users = useSelector((state) => state.user);
   useEffect(() => {

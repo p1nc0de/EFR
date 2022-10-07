@@ -21,7 +21,7 @@ export default function PhotoCard() {
         <CardCover>
 
           <img
-            src={oneCity.photo ? (`${oneCity?.photo}`) : ('/карта аааа.jpg')}
+            src={oneCity.photo ? (`${oneCity?.photo}`) : ('/karta-karta-mira-strany-tekst.jpeg')}
             // srcSet={oneCity.photo ? (`${oneCity?.photo}`) : ('/карта аааа.jpg')}
             alt="Помогите, меня заставляют работать по выходным"
           />
