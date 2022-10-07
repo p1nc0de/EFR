@@ -36,12 +36,12 @@ export default function UsersToday({ users, oneCity }) {
         spacing={3}
       >
 
-        {users && users?.filter((el) => (el.current_city_id === oneCity.id)).map((user) => (
+        {users && users?.filter((el) => (el?.current_city_id === oneCity?.id)).map((user) => (
           <Grid
             container
             item
             xs={2}
-            key={user.id}
+            key={user?.id}
             direction="column"
             justifyContent="center"
             alignItems="center"
