@@ -31,11 +31,22 @@ export default function TextCard({ authUser, rev, id }) {
         marginTop: '2%',
       }}
       >
-        <Avatar
-          alt="EFR"
-          src={`${rev?.User?.avatar}`}
-          sx={{ width: 54, height: 54 }}
-        />
+        {rev?.User?.avatar?.includes('http')
+          ? (
+            <Avatar
+              alt="EFR"
+              src={`${rev?.User?.avatar}`}
+              sx={{ width: 54, height: 54 }}
+            />
+          )
+          : (
+            <Avatar
+              alt="EFR"
+              src={`http://localhost:3001/photos/${rev?.User?.avatar}`}
+              sx={{ width: 54, height: 54 }}
+            />
+          )}
+
         <small>
           {' '}
           Дата публикации:
