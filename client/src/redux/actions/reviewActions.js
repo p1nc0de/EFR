@@ -16,7 +16,6 @@ export const submitReviewAsync = (e, input, setInput, id) => (dispatch) => {
     .then((res) => {
       dispatch(addReview(res.data));
       setInput('');
-      // как мы можем добавить отзыв именно к этому городу? как достать айди?
     })
     .catch(console.log);
 };
@@ -38,7 +37,6 @@ export const deleteReviewAsync = (id) => (dispatch) => {
     .then(() => dispatch(deleteReview(id)))
     .catch(console.log());
 };
-// возможно нужно вкладывать не айди, а текст(инпут)
 export const updateReviewAsync = (id) => (dispatch) => {
   axios.patch(`/api/city/${id}/reviews`)
     .then(() => dispatch(updateReview(id)))

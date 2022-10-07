@@ -17,8 +17,11 @@ export default function TextAreaInput(id) {
     >
       <Textarea
         sx={{ bgcolor: '#544c4c' }}
+        style={{ color: 'white' }}
         disabled={false}
         minRows={3}
+        id='inputReview'
+        color="danger"
         placeholder="Напиши cвои впечатления о городе"
         size="md"
         variant="outlined"
@@ -33,6 +36,7 @@ export default function TextAreaInput(id) {
           width: '16%',
           top: '10px',
         }}
+        sx={{ textDecoration: 'none', backgoundColor: 'black', '&:hover': { backgroundColor: 'red', color: 'black' } }}
         type="submit"
         variant="contained"
         color="error"

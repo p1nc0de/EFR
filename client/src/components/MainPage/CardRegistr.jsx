@@ -54,20 +54,20 @@ export default function CardRegistr() {
         </CardContent> */}
         {authUser?.id ? (
           <CardActions>
-            <Button component={NavLink} to={`/users/${authUser.id}`} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+            <Button component={NavLink} to={`/users/${authUser.id}`} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem', '&:hover': { backgroundColor: 'red', color: 'black' } }}>
               Личный кабинет
             </Button>
-            <Button onClick={() => dispatch(logoutUserAsync())} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+            <Button onClick={() => dispatch(logoutUserAsync())} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem', '&:hover': { backgroundColor: 'red', color: 'black' } }}>
               Выйти
             </Button>
           </CardActions>
         )
           : (
             <CardActions>
-              <Button onClick={handleOpen} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none' }}>
+              <Button onClick={handleOpen} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', '&:hover': { backgroundColor: 'red', color: 'black' } }}>
                 Войти
               </Button>
-              <Button onClick={handleOpenR} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem' }}>
+              <Button onClick={handleOpenR} variant="contained" color="error" size="sm" sx={{ textDecoration: 'none', margin: '1rem', '&:hover': { backgroundColor: 'red', color: 'black' } }}>
                 Зарегистрироваться
               </Button>
             </CardActions>
