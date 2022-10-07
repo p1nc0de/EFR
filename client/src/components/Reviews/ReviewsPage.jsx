@@ -20,7 +20,6 @@ function ReviewsPage() {
     dispatch(fetchCityReviews(id));
   }, []);
 
-  // console.log(review);
 
   return (
 
